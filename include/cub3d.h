@@ -17,13 +17,7 @@
 # include "../MLX42/include/MLX42/MLX42.h"
 # define TSIZE 64
 
-// typedef struct s_map
-// {
 
-// 	size_t	width;
-// 	size_t	height;
-// 	char	**map;
-// }	t_map;
 // typedef struct s_map
 // {
 // 	char	**map;
