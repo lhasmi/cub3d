@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:07:57 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/05/06 15:22:59 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/10/25 22:38:09 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,4 @@ void	free_and_delete(char **arr, t_img *img)
 	mlx_delete_texture(img->wt);
 	mlx_delete_texture(img->ct);
 	mlx_delete_texture(img->et);
-}
-
-void	free_map(t_map *map, char *str)
-{
-	int	i;
-
-	i = 0;
-	while ((*map).tiles && (*map).tiles[i])
-	{
-		free((*map).tiles[i]);
-		i++;
-	}
-	free((*map).tiles);
-	ft_error(str);
 }

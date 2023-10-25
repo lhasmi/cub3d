@@ -3,24 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:19:13 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/05/06 14:19:36 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/10/25 22:35:25 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-bool is_ber(char *filename)
-{
-    int len = ft_strlen(filename);
-    if (len >= 4 && filename[len - 4] == '.' && filename[len - 3] == 'b' 
-				&& filename[len - 2] == 'e' && filename[len - 1] == 'r')
-        return true;
-    else
-        return false;
-}
 
 void	put_img(mlx_t *mlx, t_img img, t_map map_i)
 {

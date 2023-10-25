@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+         #
+#    By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 09:17:22 by lhasmi            #+#    #+#              #
-#    Updated: 2023/10/21 14:23:14 by lhasmi           ###   ########.fr        #
+#    Updated: 2023/10/25 22:34:19 by lhasmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@
 # install brew at 42
 # rm -rf $HOME/goinfre/.brew && git clone --depth=1 https://github.com/Homebrew/brew $HOME/goinfre/.brew && echo 'export PATH=$HOME/goinfre/.brew/bin:$PATH' >> $HOME/.zshrc && source $HOME/.zshrc && brew update
 
-PROGRAM := so_long
+PROGRAM := cub3D
 
-SOURCES := src/check_path.c src/free.c src/init.c src/so_long.c src/check_tile.c src/check_map.c src/utils.c
+SOURCES := src/main.c src/parser/outline.c
 OBJECTS := $(SOURCES:.c=.o)
 
 CC := cc
