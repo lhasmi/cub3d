@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 11:52:02 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/24 23:13:38 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/10/25 20:43:39 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	**allocate_map_d(t_map *map)
 void	path_fill(t_map *map, char **map_d, size_t y, size_t x)
 {
 	if (y >= map->height || x >= map->width)
-		return ;
+		return ;//implement an exit function that frees all structs
 	if (map_d[y][x] != 'F')
 	{
 		map_d[y][x] = 'F';

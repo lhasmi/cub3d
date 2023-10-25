@@ -16,15 +16,16 @@
 # include "../libft/libft.h"
 # include "../MLX42/include/MLX42/MLX42.h"
 # define TSIZE 64
+# define PI 3.14159265359
 
 
-// typedef struct s_map
-// {
-// 	char	**map;
-// 	size_t	height;
-// 	size_t	max_width;
-// 	size_t	*widths;
-// }	t_map;
+typedef struct s_map
+{
+	char	**map;
+	size_t	height;
+	size_t	max_width;
+	size_t	*widths;
+}	t_map;
 
 // typedef struct s_ray //s_player
 // {
@@ -33,55 +34,70 @@
 	// 	double 	pos_y;
 // }	t_ray;//t_player;
 
-// typedef struct s_img
-// {
-// 	t_map			map_i;
-// 	mlx_t			*mlx;
-// 	mlx_texture_t	*nor_texture;
-// 	mlx_texture_t	*sou_texture;
-// 	mlx_texture_t	*west_texture;
-// 	mlx_texture_t	*east_texture;
-// 	mlx_image_t		*no_image;
-// 	mlx_image_t		*so_image;
-// 	mlx_image_t		*we_image;
-// 	mlx_image_t		*ea_image;
-// 	mlx_image_t		*exit_image;
-// 	mlx_image_t		*floor_image;
-// 	int				nmv;
-// }	t_img;
-
-typedef struct map
+typedef struct s_img
 {
-	size_t	width;
-	size_t	height;
-	char	**tiles;
-}	t_map;
-
-typedef struct img
-{
-	mlx_texture_t	*pt;
-	mlx_texture_t	*wt;
-	mlx_texture_t	*ct;
-	mlx_texture_t	*et;
-	mlx_texture_t	*bt;
-	mlx_image_t		*pi;
-	mlx_image_t		*wi;
-	mlx_image_t		*ci;
-	mlx_image_t		*ei;
-	mlx_image_t		*bi;
+	t_map			map_i;
+	int				angle;
 	mlx_t			*mlx;
+	mlx_texture_t	*nor_texture;
+	mlx_texture_t	*sou_texture;
+	mlx_texture_t	*west_texture;
+	mlx_texture_t	*east_texture;
+	mlx_image_t		*no_image;
+	mlx_image_t		*so_image;
+	mlx_image_t		*we_image;
+	mlx_image_t		*ea_image;
+	mlx_image_t		*exit_image;
+	mlx_image_t		*floor_image;
 	int				nmv;
 }	t_img;
 
-typedef struct req
+	// ◦ The map must be composed of only 6 possible characters: 0 for an empty space,
+	// 1 for a wall, and N,S,E or W for the player’s start position and spawning
+	// orientation.
+	//N,S,E or W for the player’s start position and spawning
+	// orientation.
+typedef struct s_mapreqs
 {
-	int		e;
-	int		c;
-	int		p;
-	int		o;
-	size_t	px;
-	size_t	py;
-}	t_req;
+	int space;// 0
+	int wall;// 1
+	int pos_x;// N,S,E or W
+	int pos_y;// N,S,E or W
+	int orientation;// N,S,E or W
+}	t_mapreqs;
+
+// typedef struct map
+// {
+// 	size_t	width;
+// 	size_t	height;
+// 	char	**tiles;
+// }	t_map;
+
+// typedef struct img
+// {
+// 	mlx_texture_t	*pt;
+// 	mlx_texture_t	*wt;
+// 	mlx_texture_t	*ct;
+// 	mlx_texture_t	*et;
+// 	mlx_texture_t	*bt;
+// 	mlx_image_t		*pi;
+// 	mlx_image_t		*wi;
+// 	mlx_image_t		*ci;
+// 	mlx_image_t		*ei;
+// 	mlx_image_t		*bi;
+// 	mlx_t			*mlx;
+// 	int				nmv;
+// }	t_img;
+
+// typedef struct req
+// {
+// 	int		e;
+// 	int		c;
+// 	int		p;
+// 	int		o;
+// 	size_t	px;
+// 	size_t	py;
+// }	t_req;
 
 /* so_long.c */
 int		count_moves(t_img *img, int32_t y, int32_t x);
