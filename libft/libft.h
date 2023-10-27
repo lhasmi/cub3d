@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 21:52:08 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/05/06 09:37:48 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/10/27 17:19:33 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@
 #  include <sys/types.h>
 #  include <sys/uio.h>
 #  include <stdint.h>
-#  include <stdarg.h>
+#  include <math.h>
+#  include <float.h>
+#  include "../include/cub3d.h"
+
 #  ifndef OS_FLAG
 #   define OS_FLAG 'A'
 #  endif
@@ -79,6 +82,8 @@ char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strcat(char *dest, const char *src);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*ft_strdup(const char *s1);
+size_t	ft_strspn(const char *s1, const char *s2);
+size_t	ft_strcspn(const char *s, const char *charset);
 
 /*Memory functions:*/
 //writes len bytes of value c (converted to an unsigned char) to the string b.
@@ -100,9 +105,10 @@ void	*ft_calloc(size_t count, size_t size);
 
 void	free_argv(char **arr);
 void	ft_error(char *str);
-void	ft_openfile(char *file, int i);
+void	ft_openfile(char *file, int i, char *err_message);
 char	*get_next_line(int fd);
 int 	ft_printf(const char *fmt, ...);
+char	*ft_strtok(char *str, const char *sep);
 
 int		pf_convert_chr(va_list ap);
 int		pf_convert_str(va_list ap);

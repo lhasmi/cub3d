@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 00:39:04 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/27 03:12:31 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/10/27 19:51:54 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,6 @@ int	is_map_line(char *line)
 			return (false);
 	}
 	return (true);
-}
-// write a function to check if the line is a map line or a line with spaces or digits or other letters
-bool is_space (char c)
-{
-	if (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r')
-		return (true);
-	return (false);
 }
 
 t_map	*init_map_dimensions(t_map *map_i, int fd)
@@ -94,37 +87,35 @@ t_map	*fill_map_tiles(t_map *map_i, int fd)
 	return (map_i);
 }
 
-// Rules for the map validation and parsing:
+
 t_map	init_map(char *map, t_map *map_i)
 {
 	int	fd;
 
 	map_i->mapreqs = init_mapreqs();
-	fd = open(map, O_RDONLY);
-	if (fd < 0){
-		free_map(map_i, "Could not open the map file");
-		return (*map_i);
-	}
+	fd = open_file(map);
 	map_i = init_map_dimensions(map_i, fd);
 	if (!map_i)
 	{
 		close(fd);
 		free_map(map_i, "Could not initialize map dimensions");
-		return (*map_i);
+		exit(1);
 	}
 	map_i = allocate_map_memory(map_i);
 	if (!map_i)
 	{
 		close(fd);
 		free_map(map_i,"Could not allocate memory for map");
-		return (*map_i);
+		exit(1);
 	}
 	// fd = open(map, O_RDONLY);
 	// if (fd < 0)
 	// 	free_map(map_i, "Could not open the map file");
 	map_i = fill_map_tiles(map_i, fd);
 	printf("Debug: HI\n");  // Debug print
-	if (close(fd) < 0)
+	if (close(fd) < 0){
 		free_map(map_i, "Could not close the map file");
+		exit(1);
+	}
 	return (*map_i);
 }

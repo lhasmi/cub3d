@@ -27,12 +27,19 @@
 
 typedef struct s_mapreqs
 {
-	int space;// 0
-	int wall;// 1
-	int pos_x;// N,S,E or W
-	int pos_y;// N,S,E or W
-	int orientation;// N,S,E or W
+	int			space;// 0
+	int			wall;// 1
+	int			pos_x;// N,S,E or W
+	int			pos_y;// N,S,E or W
+	int			orientation;// N,S,E or W
 }	t_mapreqs;
+
+typedef struct s_color
+{
+    int			red;
+    int			green;
+    int			blue;
+} t_color;
 
 typedef struct s_map
 {
@@ -43,6 +50,12 @@ typedef struct s_map
 	char		**tiles;
 	t_mapreqs	mapreqs;
 	char		*line;
+	char 		*nor_texture;
+	char 		*sou_texture;
+	char 		*wes_texture;
+	char 		*eas_texture;
+	t_color 	*floor_color;
+	t_color 	*ceiling_color;
 }	t_map;
 
 // typedef struct s_ray //s_player
@@ -128,8 +141,14 @@ bool		map_closed(t_map map_i);
 void		free_map(t_map *map, char *str);
 void		free_and_delete(char **arr, t_img *img);
 int			is_map_line(char *line);
+FILE		*open_file(char *file);
 // write a function to check if the line is a map line or a line with spaces or digits or other letters
 bool		is_space (char c);
+bool		is_path_valid(char *path);
+char		**get_texture_field(t_map *map, const char *texture_id);
+void		parse_north_texture(char *line, t_map *map);
+bool		is_color_valid(t_color color);
+
 // /* so_long.c */
 // int		count_moves(t_img *img, int32_t y, int32_t x);
 // void	set_keyhooks(mlx_key_data_t keydata, void *param);

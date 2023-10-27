@@ -6,7 +6,7 @@
 #    By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/28 13:30:35 by lhasmi            #+#    #+#              #
-#    Updated: 2023/05/06 10:03:56 by lhasmi           ###   ########.fr        #
+#    Updated: 2023/10/27 17:15:11 by lhasmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ SRC =	free_argv.c\
 		ft_strncmp.c\
 		ft_strncpy.c\
 		ft_strnstr.c\
+		ft_strtok.c\
 		ft_strrchr.c\
 		ft_strtrim.c\
 		ft_substr.c\
