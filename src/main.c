@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 10:12:45 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/25 22:47:10 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/10/27 00:27:55 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,18 @@
 
 int		main(int argc, char *argv[])
 {
-	t_img	img;
-	t_map	map_i;
-	mlx_t	*mlx;
+	t_img					img;
+	t_map					map_i;
+	mlx_t					*mlx;
+	static const int32_t	height = 400;
+	static const int32_t	width = 400;
 
 	if (argc == 2 && is_cub(argv[1]))
 	{
 		map_i = init_map(argv[1], &map_i);
 		// if (!map_valid(map_i))
 		// 	exit (EXIT_FAILURE);
-		mlx = mlx_init(map_i.widths * 64, map_i.height * 64,
-				"cub3d", true);
+		mlx = mlx_init(width, height, "cub3d", true);
 		if (!mlx)
 			free_map(&map_i, "Could not initialize MLX");
 		img.mlx = mlx;
@@ -82,6 +83,7 @@ int		main(int argc, char *argv[])
 		// put_img(mlx, img, map_i);
 		img.nmv = 0;
 		mlx_key_hook(mlx, &set_keyhooks, &img);
+		mlx_key_hook(mlx, &set_keyhooks_bis, &img);
 		mlx_loop(mlx);
 		free_and_delete(map_i.tiles, &img);
 		mlx_terminate(mlx);

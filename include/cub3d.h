@@ -13,19 +13,36 @@
 #ifndef CUB3D_H
 # define CUB3D_H
 
+# include <stdbool.h>
+# include <stdint.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <math.h>
 # include "../libft/libft.h"
 # include "../MLX42/include/MLX42/MLX42.h"
 # define TSIZE 64
 # define PI 3.14159265359
 
+typedef struct s_mapreqs
+{
+	int space;// 0
+	int wall;// 1
+	int pos_x;// N,S,E or W
+	int pos_y;// N,S,E or W
+	int orientation;// N,S,E or W
+}	t_mapreqs;
 
 typedef struct s_map
 {
-	char	**map;
-	size_t	height;
-	size_t	max_width;
-	size_t	*widths;
-	char	**tiles;
+	char		**map;
+	int			height;
+	int			max_width;
+	int			width;
+	char		**tiles;
+	t_mapreqs	mapreqs;
+	char		*line;
 }	t_map;
 
 // typedef struct s_ray //s_player
@@ -42,8 +59,8 @@ typedef struct s_img
 	mlx_t			*mlx;
 	mlx_texture_t	*nor_texture;
 	mlx_texture_t	*sou_texture;
-	mlx_texture_t	*west_texture;
-	mlx_texture_t	*east_texture;
+	mlx_texture_t	*wes_texture;
+	mlx_texture_t	*eas_texture;
 	mlx_image_t		*no_image;
 	mlx_image_t		*so_image;
 	mlx_image_t		*we_image;
@@ -58,14 +75,7 @@ typedef struct s_img
 	// orientation.
 	//N,S,E or W for the player’s start position and spawning
 	// orientation.
-typedef struct s_mapreqs
-{
-	int space;// 0
-	int wall;// 1
-	int pos_x;// N,S,E or W
-	int pos_y;// N,S,E or W
-	int orientation;// N,S,E or W
-}	t_mapreqs;
+
 
 // typedef struct map
 // {
@@ -105,18 +115,21 @@ typedef struct s_mapreqs
 *******************************************************************************************************************/
 
 /* parser/outline.c */
-bool	is_cub(char *filename);
-void	set_keyhooks(mlx_key_data_t keydata, void *param);
-void	set_keyhooks_bis(mlx_key_data_t keydata, void *param);
-
-t_map	*init_map_dimensions(t_map *map_i, int fd);
-t_map	*allocate_map_memory(t_map *map_i);
-t_map	*fill_map_tiles(t_map *map_i, int fd);
-t_map	init_map(char *map, t_map *map_i);
-bool	check_map_characters(t_map map_i);
-bool	map_closed(t_map map_i);
-void	free_map(t_map *map, char *str);
-void	free_and_delete(char **arr, t_img *img);
+bool		is_cub(char *filename);
+void		set_keyhooks(mlx_key_data_t keydata, void *param);
+void		set_keyhooks_bis(mlx_key_data_t keydata, void *param);
+t_mapreqs	init_mapreqs(void);
+t_map		*init_map_dimensions(t_map *map_i, int fd);
+t_map		*allocate_map_memory(t_map *map_i);
+t_map		*fill_map_tiles(t_map *map_i, int fd);
+t_map		init_map(char *map, t_map *map_i);
+bool		check_map_characters(t_map map_i);
+bool		map_closed(t_map map_i);
+void		free_map(t_map *map, char *str);
+void		free_and_delete(char **arr, t_img *img);
+int			is_map_line(char *line);
+// write a function to check if the line is a map line or a line with spaces or digits or other letters
+bool		is_space (char c);
 // /* so_long.c */
 // int		count_moves(t_img *img, int32_t y, int32_t x);
 // void	set_keyhooks(mlx_key_data_t keydata, void *param);
