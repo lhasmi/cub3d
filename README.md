@@ -1,6 +1,25 @@
 # cub3d_hh
-So far (until 28.10.2023) code seems to:
+So far (until 29.10.2023) code seems to:
 
+```
+- DONE - Initialize `t_map` struct with NULLs and zeros for all fields.
+- DONE - Verify `.cub` file extension with `is_cub`.
+- DONE - Open `.cub` file with `open_config_file`.
+- DONE - Read lines from file using `get_next_line` in a loop until EOF.
+- DONE - For each line read:
+  -DONE - If line starts with a texture identifier (e.g., "NO"), call `parse_texture`.
+  -DONE - If line starts with a color identifier (e.g., "F" or "C"), call `parse_color`.
+  -DONE - If line is part of the map layout, call `fill_map_tiles`.
+  -DONE - If any errors occur during parsing, handle with `ft_error` and exit.
+- DONE - Test the parser with a suite of unit tests, including:
+  - DONE - Valid `.cub` files with different map and configuration variations.
+  - Invalid `.cub` files to test error handling.
+- DONE - Free allocated resources properly with `free_map_exit` before exiting the program.
+- After parsing is complete, validate the map's integrity with a `map_valid` function.
+- Set up key hooks for MLX and event handling.
+- Initialize `t_img` and load textures.
+- Enter the main MLX loop and render the initial scene.
+```
 1. **Check the file extension** to ensure it's a `.cub` file (`is_cub` function).
 2. **Open the `.cub` file** and handle opening errors.
 3. **Read lines from the file** using `get_next_line`.
@@ -22,27 +41,6 @@ What appears to be missing or needs verification includes:
 7. **Implementation of a function to update `cols`** in `t_map` based on the length of the longest line in the map layout.
 8. **Rendering setup** for MiniLibX, including initialization of `t_img` and handling of textures and images.
 
-Here's a revised pseudocode checklist that considers the existing code and outlines what might be missing:
-
-```plaintext
-- DONE - Initialize `t_map` struct with NULLs and zeros for all fields.
-- DONE - Verify `.cub` file extension with `is_cub`.
-- DONE - Open `.cub` file with `open_config_file`.
-- DONE - Read lines from file using `get_next_line` in a loop until EOF.
-- DONE - For each line read:
-  -DONE - If line starts with a texture identifier (e.g., "NO"), call `parse_texture`.
-  -DONE - If line starts with a color identifier (e.g., "F" or "C"), call `parse_color`.
-  -DONE - If line is part of the map layout, call `fill_map_tiles`.
-  -DONE - If any errors occur during parsing, handle with `ft_error` and exit.
-- DONE - Test the parser with a suite of unit tests, including:
-  - DONE - Valid `.cub` files with different map and configuration variations.
-  - Invalid `.cub` files to test error handling.
-- DONE - Free allocated resources properly with `free_map_exit` before exiting the program.
-- After parsing is complete, validate the map's integrity with a `map_valid` function.
-- Set up key hooks for MLX and event handling.
-- Initialize `t_img` and load textures.
-- Enter the main MLX loop and render the initial scene.
-```
 
 #### TESTING PLAN
 Running tests after completing the missing parts of your parser is a crucial step in ensuring that your code is robust and behaves as expected. Your planned tests should aim to cover a comprehensive range of scenarios to thoroughly exercise your code. Here's a suggested approach for your testing plan:
