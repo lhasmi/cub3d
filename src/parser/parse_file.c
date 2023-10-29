@@ -6,10 +6,11 @@
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 19:26:09 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/29 16:32:08 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/10/29 17:36:59 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include<assert.h>
 #include "../../include/cub3d.h"
 
 char **get_texture_field(t_map *map, const char *texture_id) 
@@ -39,6 +40,10 @@ void parse_texture(char *line, t_map *map, const char *texture_id)
 	if (ft_strncmp(line, texture_id, ft_strlen(texture_id)) == 0) //skip texture identifier
 		line += ft_strlen(texture_id);
 	tmp = ft_strtok(line, " ");
+	// printf("path = tmp: %s\n", tmp); //DEBUG
+	// printf("is_path_valid(tmp): %d\n", is_path_valid(tmp)); //DEBUG
+	// printf("Parsing texture: %s\n", texture_id); // Debug print
+    // printf("Line content: %s\n", line); // Debug print
 	if (tmp == NULL || !is_path_valid(tmp)) {
 		ft_error("Error: Invalid path for texture");
 		exit(1);
@@ -50,6 +55,9 @@ void parse_texture(char *line, t_map *map, const char *texture_id)
 		exit(1);
 	}
 	ft_strcpy(*texture_field, tmp);
+	// printf("Texture path: %s\n", *texture_field); // Debug print after copying the path
+	assert(*texture_field != NULL); // Ensure that the texture path was copied successfully
+	// printf("Texture path after assertion: %s\n", *texture_field); // Debug print
 }
 
 int get_color(char **lineptr)
@@ -121,14 +129,14 @@ t_map	*parse_config_file(int fd, t_map *map)
 {
 	char *line;
 
-	map = init_map_struct();
-	// fd = open_file(char *file);
+	// map = init_map_struct();
+	// fd = open_file(char *file);//commented out during testing 
 	while ((line = get_next_line(fd)))
 	{
 		parse_line(line, map, fd);
 		free(line);
 	}
-	printf("map->rows: %d\n", map->rows);
-    printf("map->cols: %d\n", map->cols);
+	// printf("map->rows: %d\n", map->rows);//DEBUG
+    // printf("map->cols: %d\n", map->cols);//DEBUG
 	return map;
 }

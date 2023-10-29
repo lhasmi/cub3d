@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 14:50:21 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/29 16:08:22 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/10/29 17:55:20 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,36 @@ void test_init_map_struct() {
     assert(map != NULL);
     assert(map->tiles == NULL);
     // ... other assertions for initial values ...
-    free(map); // Remember to free the map after testing
+    free(map);
 }
 
 void test_parse_valid_data(const char *file_name)
 {
+	printf("Starting test_parse_valid_data...\n");
 	int fd;
-    t_map *map = init_map_struct();
-	fd = open(file_name, O_RDONLY, 0777);
+	fd = open(file_name, O_RDONLY);
 	if (fd < 0) 
 	{
-        ft_error("Error opening file");
+        perror("Error opening file");
+		assert(false);
         return;
     }
-    parse_config_file(fd, map);
+    t_map *map = init_map_struct();
+	printf("Map struct initialized...\n");
+    map = parse_config_file(fd, map);
+	printf("Finished parse_config_file...\n");
     assert(map->no_texture != NULL); // Texture paths should be populated
-    // ... other assertions for populated values ...
 	close(fd);
-    free_map_exit(map, "map freed", 2);// Make sure to write a function to free the map
+	
+	printf("Checking if north texture is loaded...\n");
+	assert(map != NULL); // Ensure map is not NULL after parsing
+	printf("Map is not NULL: %p\n", map);
+    assert(map->no_texture != NULL); // Check if the north texture path is populated
+    printf("North texture is loaded successfully: %s\n", map->no_texture);
+	free_map_exit(map, "Finished tests, map freed", 0);// Make sure to write a function to free the map
+	printf("Exiting test_parse_valid_data...\n");
 }
 
-// Main function to run tests
 int main(int argc, char *argv[]) 
 {
 	if ( argc != 2 || !is_cub(argv[1]))

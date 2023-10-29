@@ -1,7 +1,7 @@
-NO /Users/lhasmi/Desktop/cub3D_all/cub3d_hh/img/wall_no.png
-SO /Users/lhasmi/Desktop/cub3D_all/cub3d_hh/img/wall_so.png          
-WE /Users/lhasmi/Desktop/cub3D_all/cub3d_hh/img/wall_west.png
-EA /Users/lhasmi/Desktop/cub3D_all/cub3d_hh/img/wall_east.png
+NO img/wall_no.png
+SO img/wall_so.png          
+WE img/wall_west.png
+EA img/wall_east.png
 
 C 225,30,0
 F 220,100,0

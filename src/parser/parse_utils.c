@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 19:48:43 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/29 16:31:00 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/10/29 17:58:06 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,17 @@ int open_file(char *file, t_map *map_i, char *err_message)
 
 bool is_path_valid(char *path)
 {
-	int fd = open(path, O_RDONLY);
-	if (fd == -1) {
-		return false;
-	} else {
-		close(fd);
-		return true;
-	}
+    int fd = open(path, O_RDONLY);
+    // printf("fd: %d\n", fd);// DEBUG
+    if (fd == -1) {
+        // perror("Error opening file");// DEBUG
+        return false;
+    } else {
+        close(fd);
+        return true;
+    }
 }
+
 
 //  the is_color_valid() function would check that each of color.red, color.green, and color.blue is between 0 and 255.
 bool is_color_valid(int color)
@@ -134,9 +137,10 @@ void	free_map_exit(t_map *map, char *str, int d)
 	}
 	if ((*map).tiles)
 		free((*map).tiles);
-	ft_error(str);
 	if (d == 1)
-		exit(1);
+		ft_error(str);
+	if (d == 0)
+		ft_printf("%s\n", str);
 	return;
 }
 

@@ -34,10 +34,10 @@ Here's a revised pseudocode checklist that considers the existing code and outli
   -DONE - If line starts with a color identifier (e.g., "F" or "C"), call `parse_color`.
   -DONE - If line is part of the map layout, call `fill_map_tiles`.
   -DONE - If any errors occur during parsing, handle with `ft_error` and exit.
-- Test the parser with a suite of unit tests, including:
-  - Valid `.cub` files with different map and configuration variations.
+- DONE - Test the parser with a suite of unit tests, including:
+  - DONE - Valid `.cub` files with different map and configuration variations.
   - Invalid `.cub` files to test error handling.
-- Free allocated resources properly with `free_map_exit` before exiting the program.
+- DONE - Free allocated resources properly with `free_map_exit` before exiting the program.
 - After parsing is complete, validate the map's integrity with a `map_valid` function.
 - Set up key hooks for MLX and event handling.
 - Initialize `t_img` and load textures.
