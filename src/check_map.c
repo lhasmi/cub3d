@@ -3,65 +3,66 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 12:03:35 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/24 23:05:17 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/10/30 00:14:53 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-void	check_walls(t_map map_i)
+void	check_walls(t_map *map)
 {
 	size_t	i;
 	size_t	j;
 
-	i = -1;
-	while (map_i.tiles[++i])
+	i = 0;
+	while (i < map->rows)
 	{
-		j = -1;
-		while (map_i.tiles[i][++j])
+		j = 0;
+		while (j < map->cols)
 		{
-			if ((i == 0 || i == map_i.height - 1) && map_i.tiles[i][j] != '1')
-				free_map(&map_i, "Invalid or open top/bottom wall");
-			if ((j == 0 || j == map_i.width - 1) && map_i.tiles[i][j] != '1')
-				free_map(&map_i, "Invalid or open left/right wall");
+			if (i == 0 || i == map->rows - 1 || j == 0 || j == map->cols - 1)
+				free_map_exit(&map_i, "Map is not srrounded by walls", 1);
+			j++;
 		}
+		i++;
 	}
 }
 
-t_req	count_components(t_map map_i, t_req ecpo, size_t i, size_t j)
+void validate_components(t_map *map) 
 {
-	while (map_i.tiles[++i])
+    size_t i;
+	size_t j;
+    bool player_found = false;
+
+    for (i = 0; i < map->rows; i++) 
 	{
-		j = -1;
-		while (map_i.tiles[i][++j])
+        for (j = 0; j < map->cols; j++) 
 		{
-			if (ft_toupper(map_i.tiles[i][j]) == 'E')
-				ecpo.e++;
-			else if (ft_toupper(map_i.tiles[i][j]) == 'C')
-				ecpo.c++;
-			else if (ft_toupper(map_i.tiles[i][j]) == 'P')
-			{
-				ecpo.p++;
-				if (ecpo.p == 1)
-				{
-					ecpo.px = j;
-					ecpo.py = i;
-				}
-			}
-			else if (map_i.tiles[i][j] != '1' && map_i.tiles[i][j] != '0')
-				ecpo.o++;
-		}
-	}
-	return (ecpo);
+            if (!is_valid_tile(map->tiles[i][j]))
+                ft_error("Invalid tile detected on the map.");
+            if (map->tiles[i][j] == 'N' || map->tiles[i][j] == 'S' ||
+                map->tiles[i][j] == 'E' || map->tiles[i][j] == 'W') {
+                if (player_found)
+                    ft_error("Multiple player start positions detected.");
+                player_found = true;
+                // Set player position and orientation.
+                map->mapreqs.pos_x = j;
+                map->mapreqs.pos_y = i;
+                map->mapreqs.orientation = map->tiles[i][j];
+            }
+        }
+    }
+    if (!player_found) {
+        ft_error("No player start position detected.");
+    }
 }
 
-void	validate_components(t_map map_i, t_req ecpo)
+bool is_valid_tile(char c) 
 {
-	if (ecpo.e != 1 || !ecpo.c || ecpo.p != 1 || ecpo.o)
-		free_map(&map_i, "Invalid components detected on the map");
+    return c == '0' || c == '1' || c == 'N' || c == 'S' || c == 'E' || c == 'W';
 }
 
 bool	check_additional_conditions(t_map *map_i)
@@ -90,20 +91,26 @@ bool	check_additional_conditions(t_map *map_i)
 	return (true);
 }
 
-bool	map_valid(t_map map_i)
+bool map_valid(t_map *map) 
 {
-	static t_req	ecpo;
-	size_t			i;
-	size_t			j;
-
-	i = -1;
-	j = -1;
-	ft_memset(&ecpo, 0, sizeof(t_req));
-	check_walls(map_i);
-	ecpo = count_components(map_i, ecpo, i, j);
-	validate_components(map_i, ecpo);
-	if (!check_additional_conditions(&map_i))
-		free_map(&map_i, "Additional map conditions not met");
-	check_path(&map_i, &ecpo);
-	return (1);
+    if (!map || !map->tiles) 
+	{
+        ft_error("Map data is not initialized.");
+    }
+    check_walls(map);
+    validate_components(map);
+    return true;
 }
+
+// int main() {
+//     t_map map;
+//     // Assume map is already populated with the parsed .cub data.
+//     // For testing, you would set up the map structure with test data.
+
+//     if (map_valid(&map)) {
+//         printf("Map is valid!\n");
+//     } else {
+//         printf("Map is invalid!\n");
+//     }
+//     return 0;
+// }
