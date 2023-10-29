@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 10:12:45 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/27 00:27:55 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/10/29 01:25:16 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,18 +72,19 @@ int		main(int argc, char *argv[])
 
 	if (argc == 2 && is_cub(argv[1]))
 	{
-		map_i = init_map(argv[1], &map_i);
+		map_i = init_map();
+		parse_config_file(argv[1], &map_i);
 		// if (!map_valid(map_i))
 		// 	exit (EXIT_FAILURE);
 		mlx = mlx_init(width, height, "cub3d", true);
 		if (!mlx)
-			free_map(&map_i, "Could not initialize MLX");
+			free_map_exit(&map_i, "Could not initialize MLX", 1);
 		img.mlx = mlx;
 		// init_img(mlx, &img);
 		// put_img(mlx, img, map_i);
 		img.nmv = 0;
-		mlx_key_hook(mlx, &set_keyhooks, &img);
-		mlx_key_hook(mlx, &set_keyhooks_bis, &img);
+		// mlx_key_hook(mlx, &set_keyhooks, &img);
+		// mlx_key_hook(mlx, &set_keyhooks_bis, &img);
 		mlx_loop(mlx);
 		free_and_delete(map_i.tiles, &img);
 		mlx_terminate(mlx);

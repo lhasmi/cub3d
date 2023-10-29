@@ -44,10 +44,9 @@ typedef struct s_color
 typedef struct s_map
 {
 	char		**map;
-	int			height;
-	int			max_width;
-	int			width;
-	char		**tiles;
+	int			rows_nbr;
+	int			cols_nbr;
+	char		**array;
 	t_mapreqs	mapreqs;
 	char		*line;
 	char 		*nor_texture;
@@ -94,7 +93,7 @@ typedef struct s_img
 // {
 // 	size_t	width;
 // 	size_t	height;
-// 	char	**tiles;
+// 	char	**array;
 // }	t_map;
 
 // typedef struct img
@@ -132,22 +131,27 @@ bool		is_cub(char *filename);
 void		set_keyhooks(mlx_key_data_t keydata, void *param);
 void		set_keyhooks_bis(mlx_key_data_t keydata, void *param);
 t_mapreqs	init_mapreqs(void);
-t_map		*init_map_dimensions(t_map *map_i, int fd);
-t_map		*allocate_map_memory(t_map *map_i);
-t_map		*fill_map_tiles(t_map *map_i, int fd);
-t_map		init_map(char *map, t_map *map_i);
+// t_map		*init_map_dimensions(t_map *map_i, int fd);
+// t_map		*allocate_map_memory(t_map *map_i);
+// t_map		*fill_map_array(t_map *map_i, int fd);
+// t_map		init_map(char *map, t_map *map_i);
 bool		check_map_characters(t_map map_i);
 bool		map_closed(t_map map_i);
-void		free_map(t_map *map, char *str);
+void		free_map_exit(t_map *map, char *str, int d);
 void		free_and_delete(char **arr, t_img *img);
 int			is_map_line(char *line);
-FILE		*open_file(char *file);
+int			*open_file(char *file);
 // write a function to check if the line is a map line or a line with spaces or digits or other letters
 bool		is_space (char c);
 bool		is_path_valid(char *path);
 char		**get_texture_field(t_map *map, const char *texture_id);
 void		parse_north_texture(char *line, t_map *map);
 bool		is_color_valid(t_color color);
+int			**manual_realloc_2D_array(int **old_array, int old_rows, int new_rows, int cols);
+// void		parse_map_layout(char *line, t_map *map);
+void		fill_map_tiles(t_map *map, int fd);
+t_map		*parse_config_file(int fd);
+
 
 // /* so_long.c */
 // int		count_moves(t_img *img, int32_t y, int32_t x);
@@ -156,7 +160,7 @@ bool		is_color_valid(t_color color);
 // /* init.c */
 // t_map	*init_map_dimensions(t_map *map_i, int fd);
 // t_map	*allocate_map_memory(t_map *map_i);
-// t_map	*fill_map_tiles(t_map *map_i, int fd);
+// t_map	*fill_map_array(t_map *map_i, int fd);
 // t_map	init_map(char *map, t_map *map_i);
 // void	init_img(mlx_t *mlx, t_img *img);
 
@@ -180,11 +184,12 @@ bool		is_color_valid(t_color color);
 // char	**allocate_map_d(t_map *map);
 // void	path_fill(t_map *map, char **map_d, size_t y, size_t x);
 // void	check_blocked_path(t_map *map);
-// void	check_tiles_for_path(t_map *map, char **map_d);
+// void	check_array_for_path(t_map *map, char **map_d);
 // void	check_path(t_map *map, t_req *pos);
 
 // /* free.c */
 // void	free_and_delete(char **arr, t_img *img);
 // void	free_map(t_map *map, char *str);
 
+t_map	*init_map_struct();
 #endif

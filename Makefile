@@ -6,7 +6,7 @@
 #    By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 09:17:22 by lhasmi            #+#    #+#              #
-#    Updated: 2023/10/27 19:48:35 by lhasmi           ###   ########.fr        #
+#    Updated: 2023/10/27 22:28:19 by lhasmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 
 PROGRAM := cub3D
 
-SOURCES := src/main.c src/parser/outline.c src/parser/init.c src/parser/parse_file.c src/parser/parse_utils.c
+SOURCES := src/main.c src/parser/outline.c src/parser/parse_map.c src/parser/parse_file.c src/parser/parse_utils.c
 OBJECTS := $(SOURCES:.c=.o)
 
 CC := cc

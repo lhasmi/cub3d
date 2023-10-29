@@ -6,22 +6,11 @@
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 19:26:09 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/27 20:32:52 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/10/29 01:18:42 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
-
-// File reading and map initialization:
-// 1. Open the file
-ft_openfile(char *file, int i, char *err_message);
-FILE *open_file(char *file);
-
-//2. Line-by-Line Parsing
-//Parse each line according to the identifiers ("NO", "SO", "WE", "EA", "F", "C").
-//If the line is not an identifier, it is a map line or an edge case (empty line, space, etc.).
-// Parse Textures path and colors
-bool is_path_valid(char *path);
 
 char **get_texture_field(t_map *map, const char *texture_id) 
 {
@@ -62,8 +51,7 @@ void parse_texture(char *line, t_map *map, const char *texture_id)
 	}
 	ft_strcpy(*texture_field, tmp);
 }
-// char 		*floor_color;
-// char 		*ceiling_color;
+
 int get_color(char **lineptr)
 {
 	char *tmp;
@@ -98,7 +86,7 @@ void parse_color(char *line, t_map *map, const char *color_id)
 	map->floor_color = color;
 }
 
-void parse_line(char *line, t_map *map)
+void parse_line(char *line, t_map *map, int fd)
 {
 	if (is_space(line[0]) || line[0] == '\0')
 		return;
@@ -118,7 +106,28 @@ void parse_line(char *line, t_map *map)
 		parse_color(line, map, "F");
 	else if (line[0] == 'C')
 		parse_color(line, map, "C");
-	else
-		parse_map_layout(line, map);
+	else{
+    	if (is_space(line[0]) || line[0] == '\0')
+        	return;
+		while (is_space(*line))
+			line++;
+		if (*line == '\0')
+			return;
+		fill_map_tiles(map, fd);
+	}
 }
 
+t_map	*parse_config_file(int fd)
+{
+	t_map *map;
+	char *line;
+	map = init_map();
+	while ((line = get_next_line(fd)))
+	{
+		parse_line(line, map);
+		free(line);
+	}
+	printf("map->rows: %d\n", map->rows);
+    printf("map->cols: %d\n", map->cols);
+	return map;
+}
