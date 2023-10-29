@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strspn.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 04:15:42 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/29 16:36:17 by lhasmi           ###   ########.fr       */
+/*   Created: 2022/12/20 13:10:03 by lhasmi            #+#    #+#             */
+/*   Updated: 2023/10/29 16:34:14 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strspn(const char *s1, const char *s2)
+int32_t	ft_strcmp(const char *str1, const char *str2)
 {
-	size_t	counter;
+	size_t	i;
 
-	counter = 0;
-	while (*s1 && ft_strchr(s2, *s1++))
-		counter++;
-	return (counter);
+	i = 0;
+	if (ft_strlen(str1) != ft_strlen(str2))
+		return (-1);
+	while ((uint8_t)str1[i] && (uint8_t)str2[i] && \
+			(uint8_t)str1[i] == (uint8_t)str2[i])
+		i++;
+	return ((uint8_t)str1[i] - (uint8_t)str2[i]);
 }

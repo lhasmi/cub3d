@@ -6,25 +6,26 @@
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 19:48:43 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/29 01:28:20 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/10/29 16:31:00 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
-bool is_space (char c)
+bool is_wspace (char c)
 {
 	if (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r')
 		return (true);
 	return (false);
 }
 
-int	ft_openfile(char *file, int i, char *err_message);
-int *open_file(char *file)
+int open_file(char *file, t_map *map_i, char *err_message)
 {
-	int *fd;
+	int fd;
 
-	fd = ft_openfile(file, 0, "Could not open the map file");
+	fd = open(file, O_RDONLY, 0777);
+	if (fd == -1)
+		free_map_exit(map_i, err_message, 1);
 	return (fd);
 }
 
@@ -40,16 +41,17 @@ bool is_path_valid(char *path)
 }
 
 //  the is_color_valid() function would check that each of color.red, color.green, and color.blue is between 0 and 255.
-bool is_color_valid(t_color color)
+bool is_color_valid(int color)
 {
-	if (color.red < 0 || color.red > 255)
+	if (color < 0 || color > 255)
 		return false;
-	if (color.green < 0 || color.green > 255)
+	if (color < 0 || color > 255)
 		return false;
-	if (color.blue < 0 || color.blue > 255)
+	if (color < 0 || color > 255)
 		return false;
 	return true;
 }
+
 bool	is_cub(char *filename)
 {
 	int	len;
@@ -62,6 +64,7 @@ bool	is_cub(char *filename)
 	else
 		return (false);
 }
+
 void	set_keyhooks(mlx_key_data_t keydata, void *param)
 {
 	t_img		*img = NULL;
@@ -154,10 +157,10 @@ void	free_and_delete(char **arr, t_img *img)
 	mlx_delete_image(img->mlx, img->ea_image);
 	mlx_delete_image(img->mlx, img->exit_image);
 	mlx_delete_image(img->mlx, img->floor_image);
-	mlx_delete_texture(img->nor_texture);
-	mlx_delete_texture(img->sou_texture);
-	mlx_delete_texture(img->wes_texture);
-	mlx_delete_texture(img->eas_texture);
+	mlx_delete_texture(img->no_texture);
+	mlx_delete_texture(img->so_texture);
+	mlx_delete_texture(img->we_texture);
+	mlx_delete_texture(img->ea_texture);
 }
 
 // // This is a simple valid map:

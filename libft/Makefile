@@ -6,7 +6,7 @@
 #    By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/28 13:30:35 by lhasmi            #+#    #+#              #
-#    Updated: 2023/10/27 17:15:11 by lhasmi           ###   ########.fr        #
+#    Updated: 2023/10/29 16:35:51 by lhasmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,9 @@ SRC =	free_argv.c\
 		ft_substr.c\
 		ft_tolower.c\
 		get_next_line.c\
+		ft_strcmp.c\
+		ft_strcspn.c\
+		ft_strspn.c\
 		ft_toupper.c
 
 BONUSSRC = ft_lstnew.c\

@@ -6,16 +6,18 @@
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 21:53:40 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/29 01:18:15 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/10/29 16:02:20 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
-char **manual_realloc_2D_array(char **old_array, int old_rows, int new_rows) {
+char    **manual_realloc_2D_array(char **old_array, int old_rows, int new_rows, int new_cols)
+{
     char **new_array;
     int i;
-
+    
+    (void)new_cols; // To silence the unused parameter warning (for now
     new_array = (char **)malloc(sizeof(char *) * new_rows);
     if (new_array == NULL)
     {
@@ -56,7 +58,7 @@ void fill_map_tiles(t_map *map, int fd)
     while (line) 
     {
         update_map_cols(map, ft_strlen(line));
-        map->tiles = manual_realloc_2D_array(map->tiles, i, i + 1);
+        map->tiles = manual_realloc_2D_array(map->tiles, i, i + 1, map->cols);
         if (!map->tiles) 
             free_map_exit(map, "Error: Memory allocation failed", 1);
         map->tiles[i] = line;
@@ -64,7 +66,7 @@ void fill_map_tiles(t_map *map, int fd)
         map->rows++;
         line = get_next_line(fd);
     }
-    map->tiles = manual_realloc_2D_array(map->tiles, i, i + 1);
+    map->tiles = manual_realloc_2D_array(map->tiles, i, i + 1, map->cols);
     if (!map->tiles) 
         free_map_exit(map, "Error: Memory allocation failed", 1);
     map->tiles[i] = NULL;    

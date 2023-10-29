@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 19:26:09 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/29 01:18:42 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/10/29 16:32:08 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 char **get_texture_field(t_map *map, const char *texture_id) 
 {
     if (ft_strcmp(texture_id, "NO") == 0)
-        return &map->nor_texture;
+        return &map->no_texture;
     else if (ft_strcmp(texture_id, "SO") == 0)
-        return &map->sou_texture;
+        return &map->so_texture;
     else if (ft_strcmp(texture_id, "WE") == 0)
         return &map->we_texture;
     else if (ft_strcmp(texture_id, "EA") == 0)
@@ -34,7 +34,7 @@ void parse_texture(char *line, t_map *map, const char *texture_id)
 	char *tmp;
 	char **texture_field;
 
-	while (is_space(*line))
+	while (is_wspace(*line))
 		line++;
 	if (ft_strncmp(line, texture_id, ft_strlen(texture_id)) == 0) //skip texture identifier
 		line += ft_strlen(texture_id);
@@ -54,8 +54,8 @@ void parse_texture(char *line, t_map *map, const char *texture_id)
 
 int get_color(char **lineptr)
 {
-	char *tmp;
-	int color;
+	char	*tmp;
+	int		color;
 	
 	tmp = ft_strtok(*lineptr, ",");
 	if (tmp == NULL) {
@@ -76,21 +76,21 @@ void parse_color(char *line, t_map *map, const char *color_id)
 	
 	t_color color;
 
-	while (is_space(*line))
+	while (is_wspace(*line))
 		line++;
-	while(line[0] == 'F' || line[0] == 'C')
+	while(line[0] == color_id[0] && line[1] == ' ')
 		line++;
 	color.red = get_color(&line);
 	color.green = get_color(&line);
 	color.blue = get_color(&line);
-	map->floor_color = color;
+	map->floor_color = &color;
 }
 
 void parse_line(char *line, t_map *map, int fd)
 {
-	if (is_space(line[0]) || line[0] == '\0')
+	if (is_wspace(line[0]) || line[0] == '\0')
 		return;
-	while (is_space(*line))
+	while (is_wspace(*line))
 		line++;
 	if (*line == '\0')
 		return;
@@ -107,9 +107,9 @@ void parse_line(char *line, t_map *map, int fd)
 	else if (line[0] == 'C')
 		parse_color(line, map, "C");
 	else{
-    	if (is_space(line[0]) || line[0] == '\0')
+    	if (is_wspace(line[0]) || line[0] == '\0')
         	return;
-		while (is_space(*line))
+		while (is_wspace(*line))
 			line++;
 		if (*line == '\0')
 			return;
@@ -117,14 +117,15 @@ void parse_line(char *line, t_map *map, int fd)
 	}
 }
 
-t_map	*parse_config_file(int fd)
+t_map	*parse_config_file(int fd, t_map *map)
 {
-	t_map *map;
 	char *line;
-	map = init_map();
+
+	map = init_map_struct();
+	// fd = open_file(char *file);
 	while ((line = get_next_line(fd)))
 	{
-		parse_line(line, map);
+		parse_line(line, map, fd);
 		free(line);
 	}
 	printf("map->rows: %d\n", map->rows);

@@ -6,13 +6,31 @@
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 00:39:04 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/29 00:41:53 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/10/29 16:38:12 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
 // a function to initialize the structure t_maprqs
+t_map	*init_map_struct()
+{
+	t_map *new_map = (t_map *)malloc(sizeof(t_map));
+	if (!new_map)
+	{
+		ft_error("Error: Memory allocation for map failed");
+		exit(1);
+	}
+	new_map->tiles = NULL;
+	new_map->no_texture = NULL;
+	new_map->so_texture = NULL;
+	new_map->we_texture = NULL;
+	new_map->ea_texture = NULL;
+	new_map->rows = 0;
+	new_map->cols = 0;
+	return new_map;
+}
+
 t_mapreqs	init_mapreqs(void)
 {
 	t_mapreqs	mapreqs;
@@ -43,25 +61,6 @@ t_mapreqs	init_mapreqs(void)
 
 
 
-t_map	*init_map_struct()
-{
-	t_map *new_map = (t_map *)malloc(sizeof(t_map));
-	if (!new_map)
-	{
-		ft_error("Error: Memory allocation for map failed");
-		exit(1);
-	}
-	new_map->tiles = NULL;
-	new_map->no_texture = NULL;
-	new_map->so_texture = NULL;
-	new_map->we_texture = NULL;
-	new_map->ea_texture = NULL;
-	new_map->floor_color = -1;
-	new_map->ceiling_color = -1;
-	new_map->rows = 0;
-	new_map->cols = 0;
-	return new_map;
-}
 
 // t_map	init_map(char *map, t_map *map_i)
 // {

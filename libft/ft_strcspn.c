@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcspn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asioud <asioud@42heilbronn.de>             +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 04:17:37 by asioud            #+#    #+#             */
-/*   Updated: 2023/07/03 04:17:49 by asioud           ###   ########.fr       */
+/*   Created: 2023/07/03 04:17:37 by lhasmi            #+#    #+#             */
+/*   Updated: 2023/10/29 16:36:33 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 size_t	ft_strcspn(const char *s, const char *charset)
 {

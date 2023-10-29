@@ -44,15 +44,15 @@ typedef struct s_color
 typedef struct s_map
 {
 	char		**map;
-	int			rows_nbr;
-	int			cols_nbr;
-	char		**array;
+	int			rows;
+	int			cols;
+	char		**tiles;
 	t_mapreqs	mapreqs;
 	char		*line;
-	char 		*nor_texture;
-	char 		*sou_texture;
-	char 		*wes_texture;
-	char 		*eas_texture;
+	char 		*no_texture;
+	char 		*so_texture;
+	char 		*we_texture;
+	char 		*ea_texture;
 	t_color 	*floor_color;
 	t_color 	*ceiling_color;
 }	t_map;
@@ -69,10 +69,10 @@ typedef struct s_img
 	t_map			map_i;
 	int				angle;
 	mlx_t			*mlx;
-	mlx_texture_t	*nor_texture;
-	mlx_texture_t	*sou_texture;
-	mlx_texture_t	*wes_texture;
-	mlx_texture_t	*eas_texture;
+	mlx_texture_t	*no_texture;
+	mlx_texture_t	*so_texture;
+	mlx_texture_t	*we_texture;
+	mlx_texture_t	*ea_texture;
 	mlx_image_t		*no_image;
 	mlx_image_t		*so_image;
 	mlx_image_t		*we_image;
@@ -140,17 +140,18 @@ bool		map_closed(t_map map_i);
 void		free_map_exit(t_map *map, char *str, int d);
 void		free_and_delete(char **arr, t_img *img);
 int			is_map_line(char *line);
-int			*open_file(char *file);
+int			open_file(char *file, t_map *map_i, char *err_message);
 // write a function to check if the line is a map line or a line with spaces or digits or other letters
-bool		is_space (char c);
+bool		is_wspace (char c);
 bool		is_path_valid(char *path);
 char		**get_texture_field(t_map *map, const char *texture_id);
 void		parse_north_texture(char *line, t_map *map);
-bool		is_color_valid(t_color color);
-int			**manual_realloc_2D_array(int **old_array, int old_rows, int new_rows, int cols);
+bool		is_color_valid(int color);
+char		**manual_realloc_2D_array(char **old_array, int old_rows, int new_rows, int cols);
 // void		parse_map_layout(char *line, t_map *map);
 void		fill_map_tiles(t_map *map, int fd);
-t_map		*parse_config_file(int fd);
+t_map		*parse_config_file(int fd, t_map *map);
+void		parse_color(char *line, t_map *map, const char *color_id);
 
 
 // /* so_long.c */

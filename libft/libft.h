@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 21:52:08 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/27 17:19:33 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/10/29 16:22:06 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*ft_strdup(const char *s1);
 size_t	ft_strspn(const char *s1, const char *s2);
 size_t	ft_strcspn(const char *s, const char *charset);
+int32_t	ft_strcmp(const char *str1, const char *str2);
 
 /*Memory functions:*/
 //writes len bytes of value c (converted to an unsigned char) to the string b.

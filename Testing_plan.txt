@@ -1,0 +1,59 @@
+Testing t_map struct initialisation
+
+```
+void test_init_map_struct() {
+    t_map *map = init_map_struct();
+    assert(map != NULL);
+    assert(map->tiles == NULL);
+    // ... other assertions for initial values ...
+    free(map); // Remember to free the map after testing
+}
+
+void test_parse_valid_data() {
+    t_map *map = init_map_struct();
+    // Simulate reading a valid .cub file
+    parse_config_file(/* simulated file descriptor */, map);
+    assert(map->no_texture != NULL); // Texture paths should be populated
+    // ... other assertions for populated values ...
+    free_map(map); // Make sure to write a function to free the map
+}
+
+void test_parse_invalid_data() {
+    t_map *map = init_map_struct();
+    // Simulate reading an invalid .cub file
+    parse_config_file(/* simulated file descriptor */, map);
+    // Expect ft_error to have been called, how you check this depends on your implementation
+    free_map(map);
+}
+
+// Main function to run tests
+int main() {
+    test_init_map_struct();
+    test_parse_valid_data();
+    test_parse_invalid_data();
+    // ... any additional tests ...
+    return 0;
+}
+```
+
+For testing parsing of a .cube file, you can use a similar approach to the above, but instead of simulating a file descriptor, you can use `freopen` to redirect `stdin` to a file. For example:
+
+```
+void test_parse_real_file() {
+    t_map *map = init_map_struct();
+    int fd = open("path/to/valid_test.cub", O_RDONLY); // Open a real .cub file
+    if (fd < 0) {
+        perror("Error opening test .cub file");
+        exit(1);
+    }
+    
+    parse_config_file(fd, map);
+    
+    // Assertions to ensure the map was populated correctly
+    assert(map->no_texture != NULL);
+    // ... other assertions ...
+    
+    close(fd); // Close the file descriptor
+    free_map(map); // Free the map structure
+}
+```

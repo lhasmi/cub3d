@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 10:12:45 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/29 01:25:16 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/10/29 14:53:49 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int		main(int argc, char *argv[])
 
 	if (argc == 2 && is_cub(argv[1]))
 	{
-		map_i = init_map();
+		map_i = init_map_struct();
 		parse_config_file(argv[1], &map_i);
 		// if (!map_valid(map_i))
 		// 	exit (EXIT_FAILURE);

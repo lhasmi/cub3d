@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 04:14:00 by asioud            #+#    #+#             */
-/*   Updated: 2023/10/27 18:23:38 by lhasmi           ###   ########.fr       */
+/*   Created: 2023/07/03 04:14:00 by lhasmi            #+#    #+#             */
+/*   Updated: 2023/10/29 16:33:43 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 #include <stddef.h>  // for NULL
 
 // char	*ft_strtok(char *str, const char *sep)
