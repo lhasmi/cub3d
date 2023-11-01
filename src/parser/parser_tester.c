@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 14:50:21 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/29 17:55:20 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/01 21:15:02 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void test_parse_valid_data(const char *file_name)
         return;
     }
     t_map *map = init_map_struct();
+	init_mapreqs();
 	printf("Map struct initialized...\n");
     map = parse_config_file(fd, map);
 	printf("Finished parse_config_file...\n");

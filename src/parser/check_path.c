@@ -3,35 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   check_path.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 11:52:02 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/25 20:43:39 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/01 21:56:25 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-char	**allocate_map_d(t_map *map)
-{
-	char	**map_d;
-	size_t	i;
-
-	i = 0;
-	map_d = (char **)ft_calloc((map->height + 1), sizeof(char *));
-	if (map_d == NULL)
-	{
-		free_map(map, "Could not allocate memory for map_d");
-		return (NULL);
-	}
-	while (i < map->height)
-	{
-		map_d[i] = ft_strdup(map->tiles[i]);
-		i++;
-	}
-	map_d[map->height] = NULL;
-	return (map_d);
-}
 
 void	path_fill(t_map *map, char **map_d, size_t y, size_t x)
 {

@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 20:53:06 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/28 15:51:27 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/01 20:47:40 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // Initialization
     // init_mapreqs: Initialize map requirements 
-	t_mapreqs	init_mapreqs(void);
+	// t_mapreqs	init_mapreqs(void);
         // Error Handling: Validate initial map requirements [Missing]
     // init_map_dimensions: Initialize dimensions [Missing]
         // Error Handling: Validate dimensions [Missing]

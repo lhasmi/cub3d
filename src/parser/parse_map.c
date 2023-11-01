@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 21:53:40 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/29 16:02:20 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/01 21:45:32 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,33 +71,3 @@ void fill_map_tiles(t_map *map, int fd)
         free_map_exit(map, "Error: Memory allocation failed", 1);
     map->tiles[i] = NULL;    
 }
-// void parse_map_layout(char *line, t_map *map, int fd)
-// {
-//     int *new_row;  // Pointer to the new row in the map
-//     int j = 0;
-// 	new_row = (int *)malloc(sizeof(int) * map->cols);
-// 	if (new_row == NULL) {
-// 		// If allocation fails, show error and exit
-// 		ft_error("Error: Could not allocate memory for new row");
-// 		exit(1);
-// 	}
-// 	new_row = get_next_line(fd);
-// 	while (line)
-// 	{
-// 		map_i->cols++;
-// 		map_i->rows= ft_strlen(line);
-// 		free(line);
-// 		line = get_next_line(fd);
-// 	}
-//     // Manually reallocating the 2D array to add new row
-//     map->array = manual_realloc_2D_array(map->array, map->rows, map->rows + 1, map->cols);
-//     if (map->array == NULL) {
-//         // If allocation fails, show error and exit
-//         ft_error("Error: Could not allocate memory for map array");
-//         exit(1);
-//     }
-
-//     // Add new row to the 2D array
-//     map->array[map->rows] = new_row;
-//     map->rows++;  // Increment the row count
-// }
