@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 19:48:43 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/29 17:58:06 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/05 16:57:53 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,63 +68,6 @@ bool	is_cub(char *filename)
 		return (false);
 }
 
-void	set_keyhooks(mlx_key_data_t keydata, void *param)
-{
-	t_img		*img = NULL;
-	(void)param;
-
-	//  The left and right arrow keys of the keyboard must allow you to look left and
-	// right in the maze.
-	if (keydata.key == MLX_KEY_LEFT)
-	{
-		img->angle -= 0.1;
-		if (img->angle < 0)
-			img->angle += 2 * PI;
-	}
-	if (keydata.key == MLX_KEY_RIGHT)
-	{
-		img->angle += 0.1;
-		if (img->angle > 2 * PI)
-			img->angle -= 2 * PI;
-	}
-	// ◦ Pressing ESC must close the window and quit the program cleanly.
-	// ◦ Clicking on the red cross on the window’s frame must close the window and
-	// quit the program cleanly.
-	// void mlx_close_hook(mlx_t* mlx, mlx_closefunc func, void* param);
-	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
-		mlx_close_window(img->mlx);
-}
-
-// ◦ The W, A, S, and D keys must allow you to move the point of view through
-// the maze.
-void	set_keyhooks_bis(mlx_key_data_t keydata, void *param)
-{
-	t_img		*img = NULL;
-	t_mapreqs	*mapreqs = NULL;
-
-	(void)param;
-	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
-	{
-		mapreqs->pos_x += 10 * cos(img->angle);
-		mapreqs->pos_y += 10 * sin(img->angle);
-	}
-	if (keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
-	{
-		mapreqs->pos_x -= 10 * cos(img->angle);
-		mapreqs->pos_y -= 10 * sin(img->angle);
-	}
-	if (keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)
-	{
-		mapreqs->pos_x += 10 * cos(img->angle + PI / 2);
-		mapreqs->pos_y += 10 * sin(img->angle + PI / 2);
-	}
-	if (keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
-	{
-		mapreqs->pos_x += 10 * cos(img->angle - PI / 2);
-		mapreqs->pos_y += 10 * sin(img->angle - PI / 2);
-	}
-}
-
 void	free_map_exit(t_map *map, char *str, int d)
 {
 	int	i;
@@ -138,34 +81,101 @@ void	free_map_exit(t_map *map, char *str, int d)
 	if ((*map).tiles)
 		free((*map).tiles);
 	if (d == 1)
+	{
 		ft_error(str);
+		exit(1);
+	}
 	if (d == 0)
 		ft_printf("%s\n", str);
 	return;
 }
 
-void	free_and_delete(char **arr, t_img *img)
+int rgb_to_hex(int r, int g, int b)
 {
-	int	i;
+	int alpha;
 
-	i = 0;
-	while (arr[i])
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
-	mlx_delete_image(img->mlx, img->no_image);
-	mlx_delete_image(img->mlx, img->so_image);
-	mlx_delete_image(img->mlx, img->we_image);
-	mlx_delete_image(img->mlx, img->ea_image);
-	mlx_delete_image(img->mlx, img->exit_image);
-	mlx_delete_image(img->mlx, img->floor_image);
-	mlx_delete_texture(img->no_texture);
-	mlx_delete_texture(img->so_texture);
-	mlx_delete_texture(img->we_texture);
-	mlx_delete_texture(img->ea_texture);
+	alpha =  0xFF;
+	return ((r << 24) | (g << 16) | (b << 8) | alpha);
 }
+
+// void	set_keyhooks(mlx_key_data_t keydata, void *param)
+// {
+// 	t_img		*img = NULL;
+// 	(void)param;
+
+// 	//  The left and right arrow keys of the keyboard must allow you to look left and
+// 	// right in the maze.
+// 	if (keydata.key == MLX_KEY_LEFT)
+// 	{
+// 		img->angle -= 0.1;
+// 		if (img->angle < 0)
+// 			img->angle += 2 * PI;
+// 	}
+// 	if (keydata.key == MLX_KEY_RIGHT)
+// 	{
+// 		img->angle += 0.1;
+// 		if (img->angle > 2 * PI)
+// 			img->angle -= 2 * PI;
+// 	}
+// 	// ◦ Pressing ESC must close the window and quit the program cleanly.
+// 	// ◦ Clicking on the red cross on the window’s frame must close the window and
+// 	// quit the program cleanly.
+// 	// void mlx_close_hook(mlx_t* mlx, mlx_closefunc func, void* param);
+// 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
+// 		mlx_close_window(img->mlx);
+// }
+
+// // ◦ The W, A, S, and D keys must allow you to move the point of view through
+// // the maze.
+// void	set_keyhooks_bis(mlx_key_data_t keydata, void *param)
+// {
+// 	t_img		*img = NULL;
+// 	t_mapreqs	*mapreqs = NULL;
+
+// 	(void)param;
+// 	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
+// 	{
+// 		mapreqs->pos_x += 10 * cos(img->angle);
+// 		mapreqs->pos_y += 10 * sin(img->angle);
+// 	}
+// 	if (keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
+// 	{
+// 		mapreqs->pos_x -= 10 * cos(img->angle);
+// 		mapreqs->pos_y -= 10 * sin(img->angle);
+// 	}
+// 	if (keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)
+// 	{
+// 		mapreqs->pos_x += 10 * cos(img->angle + PI / 2);
+// 		mapreqs->pos_y += 10 * sin(img->angle + PI / 2);
+// 	}
+// 	if (keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
+// 	{
+// 		mapreqs->pos_x += 10 * cos(img->angle - PI / 2);
+// 		mapreqs->pos_y += 10 * sin(img->angle - PI / 2);
+// 	}
+// // }
+// void	free_and_delete(char **arr, t_img *img)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (arr[i])
+// 	{
+// 		free(arr[i]);
+// 		i++;
+// 	}
+// 	free(arr);
+// 	mlx_delete_image(img->mlx, img->no_image);
+// 	mlx_delete_image(img->mlx, img->so_image);
+// 	mlx_delete_image(img->mlx, img->we_image);
+// 	mlx_delete_image(img->mlx, img->ea_image);
+// 	mlx_delete_image(img->mlx, img->exit_image);
+// 	mlx_delete_image(img->mlx, img->floor_image);
+// 	mlx_delete_texture(img->no_texture);
+// 	mlx_delete_texture(img->so_texture);
+// 	mlx_delete_texture(img->we_texture);
+// 	mlx_delete_texture(img->ea_texture);
+// }
 
 // // This is a simple valid map:
 // // 111111

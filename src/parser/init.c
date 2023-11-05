@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 00:39:04 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/29 16:38:12 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/05 16:25:22 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ t_map	*init_map_struct()
 	new_map->ea_texture = NULL;
 	new_map->rows = 0;
 	new_map->cols = 0;
+	new_map->floor_color = NULL;
+	new_map->ceiling_color = NULL;
+	new_map->floor_color_hex = 0;
+	new_map->ceiling_color_hex = 0;
+	new_map->mapreqs = init_mapreqs();
 	return new_map;
 }
 
@@ -42,6 +47,29 @@ t_mapreqs	init_mapreqs(void)
 	mapreqs.orientation = 0;
 	return (mapreqs);
 }
+
+t_color *init_color_struct()
+{
+	t_color *new_color = (t_color *)malloc(sizeof(t_color));
+	if (!new_color)
+	{
+		ft_error("Error: Memory allocation for color failed");
+		exit(1);
+	}
+	// Initialize with default or invalid color
+	new_color->red = -1;
+	new_color->green = -1;
+	new_color->blue = -1;
+	return new_color;
+}
+
+	// mapreqs = (t_mapreqs *)malloc(sizeof(t_mapreqs));
+	// if (!mapreqs){
+	// 	ft_error("Error: Memory allocation for map requirements failed");
+	// 	if (mapreqs->map)
+	// 		free_map_exit(mapreqs->map, "Error: Memory allocation for map requirements failed", 1);
+	// 	return (NULL);
+	// }
 
 // fill the map with the map file, units are characters,
 // space is allowed and is a valid part of the map.

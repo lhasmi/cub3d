@@ -17,13 +17,17 @@
 # include <stdint.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <assert.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <math.h>
 # include "../libft/libft.h"
 # include "../MLX42/include/MLX42/MLX42.h"
+
 # define TSIZE 64
 # define PI 3.14159265359
+
+typedef struct s_map t_map;
 
 typedef struct s_mapreqs
 {
@@ -43,7 +47,7 @@ typedef struct s_color
 
 typedef struct s_map
 {
-	char		**map;
+	// char		**map;
 	int			rows;
 	int			cols;
 	char		**tiles;
@@ -55,6 +59,9 @@ typedef struct s_map
 	char 		*ea_texture;
 	t_color 	*floor_color;
 	t_color 	*ceiling_color;
+	int			floor_color_hex;
+	int			ceiling_color_hex;
+
 }	t_map;
 
 // typedef struct s_ray //s_player
@@ -193,4 +200,13 @@ void		parse_color(char *line, t_map *map, const char *color_id);
 // void	free_map(t_map *map, char *str);
 
 t_map	*init_map_struct();
+t_color *init_color_struct();
+
+void	check_walls(t_map *map);
+void	validate_components(t_map *map);
+bool	is_orientation(char c);
+bool	is_valid_tile(char c);
+bool	map_valid(t_map *map);
+int		rgb_to_hex(int r, int g, int b);
+
 #endif

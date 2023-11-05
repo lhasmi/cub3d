@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   parse_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 19:26:09 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/29 17:36:59 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/05 16:28:07 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<assert.h>
 #include "../../include/cub3d.h"
 
-char **get_texture_field(t_map *map, const char *texture_id) 
+char **get_texture_field(t_map *map, const char *texture_id)
 {
     if (ft_strcmp(texture_id, "NO") == 0)
         return &map->no_texture;
@@ -64,7 +64,7 @@ int get_color(char **lineptr)
 {
 	char	*tmp;
 	int		color;
-	
+
 	tmp = ft_strtok(*lineptr, ",");
 	if (tmp == NULL) {
 		ft_error("Error: Invalid color");
@@ -76,22 +76,32 @@ int get_color(char **lineptr)
 		exit(1);
 	}
 	*lineptr = NULL;
-	return color;		
+	return color;
 }
 
 void parse_color(char *line, t_map *map, const char *color_id)
 {
-	
-	t_color color;
 
 	while (is_wspace(*line))
 		line++;
 	while(line[0] == color_id[0] && line[1] == ' ')
 		line++;
-	color.red = get_color(&line);
-	color.green = get_color(&line);
-	color.blue = get_color(&line);
-	map->floor_color = &color;
+	if(color_id[0] == 'F')
+	{
+		map->floor_color = init_color_struct();
+		map->floor_color->red = get_color(&line);
+		map->floor_color->green = get_color(&line);
+		map->floor_color->blue = get_color(&line);
+		map->floor_color_hex = rgb_to_hex(map->floor_color->red, map->floor_color->green, map->floor_color->blue);
+	}
+	else if(color_id[0] == 'C')
+	{
+		map->ceiling_color = init_color_struct();
+		map->ceiling_color->red = get_color(&line);
+		map->ceiling_color->green = get_color(&line);
+		map->ceiling_color->blue = get_color(&line);
+		map->ceiling_color_hex = rgb_to_hex(map->ceiling_color->red, map->ceiling_color->green, map->ceiling_color->blue);
+	}// Convert to hex before using in MLX42
 }
 
 void parse_line(char *line, t_map *map, int fd)
@@ -130,7 +140,7 @@ t_map	*parse_config_file(int fd, t_map *map)
 	char *line;
 
 	// map = init_map_struct();
-	// fd = open_file(char *file);//commented out during testing 
+	// fd = open_file(char *file);//commented out during testing
 	while ((line = get_next_line(fd)))
 	{
 		parse_line(line, map, fd);
