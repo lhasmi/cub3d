@@ -47,7 +47,6 @@ typedef struct s_color
 
 typedef struct s_map
 {
-	// char		**map;
 	int			rows;
 	int			cols;
 	char		**tiles;
@@ -144,7 +143,8 @@ t_mapreqs	init_mapreqs(void);
 // t_map		init_map(char *map, t_map *map_i);
 bool		check_map_characters(t_map map_i);
 bool		map_closed(t_map map_i);
-void		free_map_exit(t_map *map, char *str, int d);
+// void		free_map_exit(t_map *map, char *str, int d);
+void		free_map_exit(t_map *map, char *error_message, int status);
 void		free_and_delete(char **arr, t_img *img);
 int			is_map_line(char *line);
 int			open_file(char *file, t_map *map_i, char *err_message);
@@ -156,7 +156,7 @@ void		parse_north_texture(char *line, t_map *map);
 bool		is_color_valid(int color);
 char		**manual_realloc_2D_array(char **old_array, int old_rows, int new_rows, int cols);
 // void		parse_map_layout(char *line, t_map *map);
-void		fill_map_tiles(t_map *map, int fd);
+void		fill_map_tiles(t_map *map, int fd, char *first_line);
 t_map		*parse_config_file(int fd, t_map *map);
 void		parse_color(char *line, t_map *map, const char *color_id);
 
@@ -202,11 +202,16 @@ void		parse_color(char *line, t_map *map, const char *color_id);
 t_map	*init_map_struct();
 t_color *init_color_struct();
 
-void	check_walls(t_map *map);
-void	validate_components(t_map *map);
+bool	check_walls(t_map *map);
+bool	validate_components(t_map *map);
 bool	is_orientation(char c);
 bool	is_valid_tile(char c);
+bool	first_last_line(char *line);
+bool	check_space_adjacency(char *row, int cols, t_map *map);
+bool	is_valid_middle_line(char *line);
+int		trim_leading_ws(char *line);
 bool	map_valid(t_map *map);
 int		rgb_to_hex(int r, int g, int b);
+int		trim_leading_ws(char *line);
 
 #endif

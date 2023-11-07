@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+         #
+#    By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 09:17:22 by lhasmi            #+#    #+#              #
-#    Updated: 2023/11/05 14:08:27 by lhasmi           ###   ########.fr        #
+#    Updated: 2023/11/07 17:19:27 by lhasmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ PROGRAM := cub3D
 
 SOURCES := src/parser/parser_tester.c src/parser/parse_map.c src/parser/parse_file.c \
 			src/parser/parse_utils.c src/parser/init.c \
-			# src/parser/check_map.c
+			src/parser/check_map.c
 OBJECTS := $(SOURCES:.c=.o)
 
 CC := cc

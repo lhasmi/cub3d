@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 19:48:43 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/05 16:57:53 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/07 20:36:13 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,27 +68,62 @@ bool	is_cub(char *filename)
 		return (false);
 }
 
-void	free_map_exit(t_map *map, char *str, int d)
+void free_map_resources(t_map *map)
 {
-	int	i;
+    int i;
 
-	i = 0;
-	while ((*map).tiles && (*map).tiles[i])
-	{
-		free((*map).tiles[i]);
-		i++;
+    i = 0;
+    while (map->tiles && i < map->rows)
+    {
+        free(map->tiles[i]);
+		map->tiles[i] = NULL;
+        i++;
+    }
+	if(map->tiles){
+		free(map->tiles);
+		map->tiles = NULL;
 	}
-	if ((*map).tiles)
-		free((*map).tiles);
-	if (d == 1)
-	{
-		ft_error(str);
-		exit(1);
-	}
-	if (d == 0)
-		ft_printf("%s\n", str);
-	return;
+	if(map->floor_color)
+    	free(map->floor_color);
+	if(map->ceiling_color)
+	    free(map->ceiling_color);
+    free(map);
+	map = NULL;
 }
+
+void free_map_exit(t_map *map, char *error_message, int status)
+{
+    if (status != 0)
+    {
+		free_map_resources(map);
+        ft_error(error_message);
+        exit(status);
+    }
+    else
+        ft_printf("%s\n", error_message);
+}
+
+// void	free_map_exit(t_map *map, char *str, int d)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while ((*map).tiles && (*map).tiles[i])
+// 	{
+// 		free((*map).tiles[i]);
+// 		i++;
+// 	}
+// 	if ((*map).tiles)
+// 		free((*map).tiles);
+// 	if (d == 1)
+// 	{
+// 		ft_error(str);
+// 		exit(1);
+// 	}
+// 	if (d == 0)
+// 		ft_printf("%s\n", str);
+// 	return;
+// }
 
 int rgb_to_hex(int r, int g, int b)
 {
