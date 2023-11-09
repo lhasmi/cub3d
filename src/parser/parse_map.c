@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 21:53:40 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/07 20:58:14 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/07 22:05:57 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,13 @@ char    **manual_realloc_2D_array(char **old_array, int old_rows, int new_rows, 
     free(old_array);
     return (new_array);
 }
-// printf("call of the t_map content in the realloc 2D: map->tiles[0] = %s\n", new_array[0]);// Debug
 
 void update_map_cols(t_map *map, int new_row_length) 
 {
-    if (new_row_length > map->cols)
+    if (new_row_length > map->cols){
+        printf("Updating columns from %d to %d\n", map->cols, new_row_length); // Debug
         map->cols = new_row_length;
+    }
 }
 
 void fill_map_tiles(t_map *map, int fd, char *first_line)
@@ -73,5 +74,3 @@ void fill_map_tiles(t_map *map, int fd, char *first_line)
         free_map_exit(map, "Error: Memory allocation failed in fill map tiles 3", 0);
     map->tiles[i] = NULL;
 }
-    // printf("call of the t_map content in the fill tiles 1: map->tiles[0] = %s\n", map->tiles[0]);// Debug
-    // printf("call of the t_map content in the fill tiles 2: map->tiles[0] = %s\n", map->tiles[0]);// Debug

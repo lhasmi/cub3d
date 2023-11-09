@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 19:26:09 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/07 20:58:46 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/07 22:01:37 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char **get_texture_field(t_map *map, const char *texture_id)
         return &map->ea_texture;
     else {
         ft_error("Error: Invalid texture identifier");
-        exit(1);
+        return NULL;
     }
     return NULL;
 }
@@ -42,13 +42,13 @@ void parse_texture(char *line, t_map *map, const char *texture_id)
 	tmp = ft_strtok(line, " ");
 	if (tmp == NULL || !is_path_valid(tmp)) {
 		ft_error("Error: Invalid path for texture");
-		exit(1);
+		return;
 	}
 	texture_field = get_texture_field(map, texture_id);
 	*texture_field = (char *)malloc(sizeof(char) * (ft_strlen(tmp) + 1));
 	if (!*texture_field) {
 		ft_error("Error: Could not allocate memory for texture");
-		exit(1);
+		return;
 	}
 	ft_strcpy(*texture_field, tmp);
 }
@@ -120,14 +120,10 @@ void parse_line(char *line, t_map *map, int fd)
 	else{
 		if (*line == '\0')
 			return;
-		printf("line in parse_line: %s\n", line);//DEBUG
 		fill_map_tiles(map, fd, line);
 	}
 }
-// if (is_wspace(line[0]) || line[0] == '\0')
-// 	return;
-// while (is_wspace(*line))
-// 	line++;
+
 
 t_map	*parse_config_file(int fd, t_map *map)
 {
@@ -141,6 +137,4 @@ t_map	*parse_config_file(int fd, t_map *map)
 	}
 	return (map);
 }
-	// printf("call of the t_map content in the parse_config: map->tiles[0] = %s\n", map->tiles[0]);// Debug
-	// printf("map->rows: %d\n", map->rows);//DEBUG
-    // printf("map->cols: %d\n", map->cols);//DEBUG
+

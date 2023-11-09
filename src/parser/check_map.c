@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 12:03:35 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/07 21:34:05 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/09 19:57:41 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,32 +69,32 @@ int		trim_leading_ws(char *line)
 
 // free_map_exit(map, "Space not adjacent to '1' or space on right side", 1);
 // free_map_exit(map, "Invalid character in map", 1);
-bool check_space_adjacency(char *row, int cols, t_map *map) 
+bool check_space_adjacency(char *row, t_map *map) 
 {
 	int col_index;
-	
+	int current_row_len;
+
+	current_row_len = ft_strlen(row);
 	(void)map;
-	printf("Checking row with expected cols: %d\n", cols);
 	col_index = 0;
-    while (col_index < cols) 
+    while (col_index < current_row_len)
 	{
         if (row[col_index] == ' ') // spaces must be adjacent to '1's or spaces
 		{
-            if (col_index > 0 && !(row[col_index - 1] == '1' || row[col_index - 1] == ' ')){
-				printf("WWWW  1   WWWWW  row[col_index - 1] = %c\n", row[col_index - 1]);
+            if (col_index > 0 && !(row[col_index - 1] == '1' || row[col_index - 1] == ' '))
+			{
 				printf("Invalid left adjacency at index %d\n", col_index);
 				return (false);
 			}
-            else if (col_index < cols - 1 && !(row[col_index + 1] == '1' || row[col_index + 1] == ' ')){
+            else if (col_index < current_row_len - 1 && !(row[col_index + 1] == '1' || row[col_index + 1] == ' '))
+			{
 				printf("Invalid right adjacency at index %d\n", col_index);
-				printf("WWWW  2   !!!!  WWWWW  row[col_index + 1] = %c\n", row[col_index + 1]);
 				return (false);
 			}
         }
 		else 
 		{
             if (!is_valid_tile(row[col_index])){
-				printf("WWWW  3   !!!!  WWWWW  row[col_index %d] = %c\n", col_index, row[col_index]);
 				printf("Invalid tile at index %d: '%c'\n", col_index, row[col_index]);
 				return (false);
 			}
@@ -113,15 +113,11 @@ bool	check_walls(t_map *map)
 	while (row_index < map->rows)// Iterate through each row in the map
 	{
 		current_row = map->tiles[row_index];
-		// printf("before trim  Checking current_row at row_index %d: current_row = %s\n", row_index, current_row);// Debug
 		start_index = trim_leading_ws(current_row);
-		// printf("after trim Checking current_row at row_index %d: current_row = %s\n", row_index, current_row); // Debug
 		current_row += start_index;// Move the pointer to the first non-whitespace char
-		// printf("after pointer moving Checking current_row at row_index  %d: current_row = %s\n", row_index, current_row); // Debug
 		if (row_index == 0 || row_index == map->rows - 1)// First and last rows should be validated with is_valid_wall_line
 		{
 			if (!first_last_line(current_row)){
-				// printf("current_row before the error of first last line: %s\n", current_row);
 				free_map_exit(map, "First or last row contains invalid characters.", 0);
 				return (false);
 			}
@@ -129,12 +125,10 @@ bool	check_walls(t_map *map)
 		else
 		{
 			if (!is_valid_middle_line(current_row)){
-				// printf("current_row before the error of middle line: %s\n", current_row);
 				free_map_exit(map, "Middle rows must start and end with '1'.", 0);
 				return (false);
 			}
-			else if (!check_space_adjacency(current_row, map->cols, map)){
-				printf("current_row before the error of adjacency: %s\n", current_row);
+			else if (!check_space_adjacency(current_row, map)){
 				free_map_exit(map, "Space not adjacent to '1' or space on right side", 0);
 				return (false);
 			}
@@ -149,13 +143,15 @@ bool	validate_components(t_map *map)
 	int		i;
 	int		j;
 	bool	player_found;
+	int		current_row_len;
 
 	player_found = false;
 	i = 0;
 	while (i < map->rows)
 	{
 		j = 0;
-		while (j < map->cols)
+		current_row_len = ft_strlen(map->tiles[i]);
+		while (j < current_row_len)
 		{
 			if (is_orientation(map->tiles[i][j]))
 			{
