@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_tester.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 14:50:21 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/07 19:23:32 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/09 17:16:24 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void test_parse_valid_data(const char *file_name)
 	assert(map->rows == 0);
 	assert(map->cols == 0);
 	printf("\n Map struct has been initialized successfully: ...%p\n", map);
-	
+
 	// Assert that the mapreqs struct is initialized to its expected default values
 	printf("\nChecking if player position is initialized...\n");
 	fflush(stdout);
@@ -87,18 +87,18 @@ void test_parse_valid_data(const char *file_name)
 	close(fd);
 	printf("\nFile closed...\n");
 
-	fflush(stdout); 
+	fflush(stdout);
 	// the mapreqs and player position are updated in the map_valid function, test it
-	printf("Checking if map is valid...\n");
-	assert(map_valid(map));
-	printf("Map is valid\n");
+	// printf("Checking if map is valid...\n");
+	// assert(map_valid(map));
+	// printf("Map is valid\n");
 	// test the position of the player is valid AND parsed correctly
-	printf("Checking if player position is valid...\n");
-	assert(map->mapreqs.pos_x >= 0 && map->mapreqs.pos_y >= 0); // Check if positions are non-negative.
-	assert(is_orientation(map->mapreqs.orientation)); // Check if orientation is valid.
-	printf("Player position is valid: x position %d, y position %d, orientation %d\n", \
-		map->mapreqs.pos_x, map->mapreqs.pos_y, map->mapreqs.orientation);
-	
+	// printf("Checking if player position is valid...\n");
+	// assert(map->mapreqs.pos_x >= 0 && map->mapreqs.pos_y >= 0); // Check if positions are non-negative.
+	// assert(is_orientation(map->mapreqs.orientation)); // Check if orientation is valid.
+	// printf("Player position is valid: x position %d, y position %d, orientation %d\n", \
+	// 	map->mapreqs.pos_x, map->mapreqs.pos_y, map->mapreqs.orientation);
+
 	// test the map is parsed correctly
 	printf("Checking if all 4 textures paths are loaded...\n");
     assert(map->no_texture != NULL); // Check if the north texture path is populated

@@ -33,6 +33,7 @@ typedef struct s_mapreqs
 {
 	int			space;// 0
 	int			wall;// 1
+	int			door;// 2
 	int			pos_x;// N,S,E or W
 	int			pos_y;// N,S,E or W
 	int			orientation;// N,S,E or W

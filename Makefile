@@ -1,58 +1,58 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/06 09:17:22 by lhasmi            #+#    #+#              #
-#    Updated: 2023/11/07 17:19:27 by lhasmi           ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+CC=cc
+CFLAGS=-I MLX42/include -I include -I include/defs
+NAME=cub3D
+SRC_DIR=src
+OBJ_DIR=obj
 
+SRC=$(shell find src -type f -name '*.c')
+OBJ=$(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))
 
-# install brew at 42
-# rm -rf $HOME/goinfre/.brew && git clone --depth=1 https://github.com/Homebrew/brew $HOME/goinfre/.brew && echo 'export PATH=$HOME/goinfre/.brew/bin:$PATH' >> $HOME/.zshrc && source $HOME/.zshrc && brew update
+MLX=MLX42/build/libmlx42.a
+GLFW_PATH := $(shell brew --prefix glfw)
+DEPS=-lglfw -L $(GLFW_PATH) -framework Cocoa -framework OpenGL -framework IOKit
 
-PROGRAM := cub3D
+HEADERS=$(wildcard include/*.h) $(wildcard include/defs/*.h)
 
-SOURCES := src/parser/parser_tester.c src/parser/parse_map.c src/parser/parse_file.c \
-			src/parser/parse_utils.c src/parser/init.c \
-			src/parser/check_map.c
-OBJECTS := $(SOURCES:.c=.o)
+ifndef LENIENT
+	CFLAGS += -Wall -Werror -Wextra
+endif
 
-CC := cc
-CFLAGS := -Wall -Wextra -Werror -g3 -fsanitize=address
+ifdef DEBUG
+	CFLAGS += -g
+endif
 
-MLX := MLX42/build/libmlx42.a
-GLFW_PATH :=`brew --prefix glfw`
-MLX_FLAGS := $(MLX) -L$(GLFW_PATH)  -framework Cocoa -framework OpenGL -framework IOKit -lglfw
-LBFT_PATH := libft
-LBFT := libft.a
+all: $(NAME)
 
-.PHONY: all clean fclean re
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS) Makefile
+	@mkdir -p $(dir $@)
+	$(CC) -c $(CFLAGS) -o $@ $<
 
-all: $(PROGRAM)
+$(MLX):
+	git clone https://github.com/codam-coding-college/MLX42.git
+	(cd MLX42 && cmake -B build && cmake --build build)
 
-$(PROGRAM): $(OBJECTS)
-	cd MLX42 && cmake -B build && cmake --build build -j4
-	cd libft && make
-	echo "Building mlx and libft successfully completed."
-	$(CC) $(CFLAGS) $(OBJECTS) $(LBFT_PATH)/$(LBFT) $(MLX_FLAGS) -o $(PROGRAM)
-	echo "Built $(PROGRAM) successfully."
-
-OBJDEPS = $(SOURCES:%.c=%.o)
-$(OBJDEPS):
-	$(CC) $(CFLAGS) -c $*.c -o $@
+$(NAME): $(MLX) $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $^ $(DEPS)
 
 clean:
-	rm -f $(OBJECTS)
-	cd libft && make clean
-	cd MLX42 && rm -rf build
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	rm -f $(PROGRAM)
-	cd libft && make fclean
-	cd MLX42 && rm -rf build
+	rm -f $(NAME)
+
+reset: fclean
+	rm -rf MLX42
 
 re: fclean all
+
+norm:
+	norminette $(SRC) $(HEADERS)
+
+test: all
+	./$(NAME)
+
+aaa:
+	@echo $(SRC)
+
+.PHONY:
+	all bonus clean fclean re norm
