@@ -31,12 +31,10 @@ typedef struct s_map t_map;
 
 typedef struct s_mapreqs
 {
-	int			space;// 0
-	int			wall;// 1
-	int			door;// 2
+	// int			door;// just for bonus files
 	int			pos_x;// N,S,E or W
 	int			pos_y;// N,S,E or W
-	int			orientation;// N,S,E or W
+	char		orientation;// N,S,E or W in char as it is in the map
 }	t_mapreqs;
 
 typedef struct s_color
@@ -208,11 +206,12 @@ bool	validate_components(t_map *map);
 bool	is_orientation(char c);
 bool	is_valid_tile(char c);
 bool	first_last_line(char *line);
-bool	check_space_adjacency(char *row, int cols, t_map *map);
+bool	check_space_adjacency(char *row, t_map *map);
 bool	is_valid_middle_line(char *line);
 int		trim_leading_ws(char *line);
 bool	map_valid(t_map *map);
 int		rgb_to_hex(int r, int g, int b);
 int		trim_leading_ws(char *line);
+bool	is_line_a_wall(char *line);
 
 #endif
