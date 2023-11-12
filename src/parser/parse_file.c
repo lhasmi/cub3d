@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 19:26:09 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/07 22:01:37 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/12 11:45:22 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,11 @@ void parse_color(char *line, t_map *map, const char *color_id)
 
 void parse_line(char *line, t_map *map, int fd)
 {
-	if (is_wspace(line[0]) || line[0] == '\0')
+	if ((is_wspace(line[0]) || line[0] == '\0') && !is_line_a_wall(line))
 		return;
 	while (is_wspace(*line))
 		line++;
+	printf("line in parse_line() before the if conditions: %s\n", line);//DEBUG
 	if (*line == '\0')
 		return;
 	if (line[0] == 'N' && line[1] == 'O')
@@ -117,13 +118,13 @@ void parse_line(char *line, t_map *map, int fd)
 		parse_color(line, map, "F");
 	else if (line[0] == 'C')
 		parse_color(line, map, "C");
-	else{
+	else
+	{
 		if (*line == '\0')
 			return;
 		fill_map_tiles(map, fd, line);
 	}
 }
-
 
 t_map	*parse_config_file(int fd, t_map *map)
 {
@@ -132,9 +133,8 @@ t_map	*parse_config_file(int fd, t_map *map)
 	// fd = open_file(char *file);//commented out during testing
 	while ((line = get_next_line(fd)))
 	{
-		printf("line: %s\n", line);//DEBUG
+		printf("line in parse_config_file(): %s\n", line);//DEBUG
 		parse_line(line, map, fd);
 	}
 	return (map);
 }
-

@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 12:03:35 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/09 19:57:41 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/12 11:44:49 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ bool	first_last_line(char *line)
 	{
 		if (line[i] != '1' && line[i] != ' ')
 		{
-			printf("line in first last tfou %s   line[%d]: %c\n", line, i, line[i]);
+			printf("line in first_las() %s char found in line[%d]: %c\n", line, i, line[i]);//Debug
 			return (false);
 		}
 		i++;
@@ -47,11 +47,17 @@ bool is_valid_middle_line(char *line)
 	len = ft_strlen(line);
 	i = 0;
 	if (len > 0 && (line[0] != '1' || line[len - 1] != '1'))
+	{
+		ft_error("Middle rows must start and end with '1'.");
 		return (false);
+	}
 	while (line[i])
 	{
 		if (!is_valid_tile(line[i]) )
+		{
+			ft_error("Invalid tile in middle line");
 			return (false);
+		}
 		i++;
 	}
 	return (true);
@@ -69,7 +75,7 @@ int		trim_leading_ws(char *line)
 
 // free_map_exit(map, "Space not adjacent to '1' or space on right side", 1);
 // free_map_exit(map, "Invalid character in map", 1);
-bool check_space_adjacency(char *row, t_map *map) 
+bool check_space_adjacency(char *row, t_map *map)
 {
 	int col_index;
 	int current_row_len;
@@ -79,29 +85,30 @@ bool check_space_adjacency(char *row, t_map *map)
 	col_index = 0;
     while (col_index < current_row_len)
 	{
-        if (row[col_index] == ' ') // spaces must be adjacent to '1's or spaces
+		if (row[col_index] == ' ') // spaces must be adjacent to '1's or spaces
 		{
-            if (col_index > 0 && !(row[col_index - 1] == '1' || row[col_index - 1] == ' '))
+			if (col_index > 0 && !(row[col_index - 1] == '1' || row[col_index - 1] == ' '))
 			{
-				printf("Invalid left adjacency at index %d\n", col_index);
+				printf("Invalid left adjacency at index %d\n", col_index);//Debug
 				return (false);
 			}
-            else if (col_index < current_row_len - 1 && !(row[col_index + 1] == '1' || row[col_index + 1] == ' '))
+			else if (col_index < current_row_len - 1 && !(row[col_index + 1] == '1' || row[col_index + 1] == ' '))
 			{
-				printf("Invalid right adjacency at index %d\n", col_index);
+				printf("Invalid right adjacency at index %d\n", col_index);//Debug
 				return (false);
 			}
-        }
-		else 
+		}
+		else
 		{
-            if (!is_valid_tile(row[col_index])){
-				printf("Invalid tile at index %d: '%c'\n", col_index, row[col_index]);
+			if (!is_valid_tile(row[col_index]))
+			{
+				printf("Invalid tile at index %d: '%c'\n", col_index, row[col_index]);//Debug
 				return (false);
 			}
-        }
+		}
 		++col_index;
-    }
-    return (true);
+	}
+	return (true);
 }
 
 bool	check_walls(t_map *map)
@@ -113,19 +120,25 @@ bool	check_walls(t_map *map)
 	while (row_index < map->rows)// Iterate through each row in the map
 	{
 		current_row = map->tiles[row_index];
+		printf("current_row before trim in row_index %d is : %s\n", row_index, current_row);//Debug
 		start_index = trim_leading_ws(current_row);
+		printf("start_index in row_index %d is : %d\n", row_index, start_index);//Debug
 		current_row += start_index;// Move the pointer to the first non-whitespace char
+		printf("current_row after advancing pointer of current row in row_index %d is : %s\n", row_index, current_row);//Debug
 		if (row_index == 0 || row_index == map->rows - 1)// First and last rows should be validated with is_valid_wall_line
 		{
-			if (!first_last_line(current_row)){
+			if (!first_last_line(current_row))
+			{
 				free_map_exit(map, "First or last row contains invalid characters.", 0);
+				printf("current_row in row_index %d is : %s\n", row_index, current_row);//Debug
 				return (false);
 			}
 		}
 		else
 		{
-			if (!is_valid_middle_line(current_row)){
-				free_map_exit(map, "Middle rows must start and end with '1'.", 0);
+			if (!is_valid_middle_line(current_row))
+			{
+				free_map_exit(map, "Error in middle lines", 0);
 				return (false);
 			}
 			else if (!check_space_adjacency(current_row, map)){
@@ -179,8 +192,8 @@ bool	map_valid(t_map *map)
 	if (!map || !map->tiles)
 		free_map_exit(map, "Map is NULL", 1);
 	if(!check_walls(map))
-		free_map_exit(map, "Wall or tiles check failed", 1);
+		free_map_exit(map, "Wall or tiles check failed.", 1);
 	if (!validate_components(map))
-		free_map_exit(map, "Components validation failed", 1);
+		free_map_exit(map, "Components validation failed.", 1);
 	return (true);
 }

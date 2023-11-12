@@ -6,16 +6,18 @@
 /*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 00:39:04 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/05 16:25:22 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/11 21:31:29 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
 // a function to initialize the structure t_maprqs
-t_map	*init_map_struct()
+t_map	*init_map_struct(void)
 {
-	t_map *new_map = (t_map *)malloc(sizeof(t_map));
+	t_map	*new_map;
+
+	new_map = (t_map *)malloc(sizeof(t_map));
 	if (!new_map)
 	{
 		ft_error("Error: Memory allocation for map failed");
@@ -33,7 +35,7 @@ t_map	*init_map_struct()
 	new_map->floor_color_hex = 0;
 	new_map->ceiling_color_hex = 0;
 	new_map->mapreqs = init_mapreqs();
-	return new_map;
+	return (new_map);
 }
 
 t_mapreqs	init_mapreqs(void)
@@ -42,34 +44,34 @@ t_mapreqs	init_mapreqs(void)
 
 	mapreqs.pos_x = 0;
 	mapreqs.pos_y = 0;
-	mapreqs.space = 0;
-	mapreqs.wall = 0;
 	mapreqs.orientation = 0;
 	return (mapreqs);
 }
 
-t_color *init_color_struct()
+t_color	*init_color_struct(void)
 {
-	t_color *new_color = (t_color *)malloc(sizeof(t_color));
+	t_color	*new_color;
+
+	new_color = (t_color *)malloc(sizeof(t_color));
 	if (!new_color)
 	{
 		ft_error("Error: Memory allocation for color failed");
-		exit(1);
+		return (NULL);
 	}
-	// Initialize with default or invalid color
 	new_color->red = -1;
 	new_color->green = -1;
 	new_color->blue = -1;
-	return new_color;
+	return (new_color);
 }
 
-	// mapreqs = (t_mapreqs *)malloc(sizeof(t_mapreqs));
-	// if (!mapreqs){
-	// 	ft_error("Error: Memory allocation for map requirements failed");
-	// 	if (mapreqs->map)
-	// 		free_map_exit(mapreqs->map, "Error: Memory allocation for map requirements failed", 1);
-	// 	return (NULL);
-	// }
+// mapreqs = (t_mapreqs *)malloc(sizeof(t_mapreqs));
+// if (!mapreqs){
+// 	ft_error("Error: Memory allocation for map requirements failed");
+// 	if (mapreqs->map)
+// 		free_map_exit(mapreqs->map,
+			// "Error: Memory allocation for map requirements failed", 1);
+// 	return (NULL);
+// }
 
 // fill the map with the map file, units are characters,
 // space is allowed and is a valid part of the map.
@@ -86,9 +88,6 @@ t_color *init_color_struct()
 // 	}
 // 	return (map_i);
 // }
-
-
-
 
 // t_map	init_map(char *map, t_map *map_i)
 // {
