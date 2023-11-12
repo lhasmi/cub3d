@@ -2,11 +2,12 @@
 *.d
 *.DS_Store
 
-# Object files
+# Object files and forlder
 *.o
 *.ko
 *.obj
 *.elf
+Obj/
 
 # Linker output
 *.ilk

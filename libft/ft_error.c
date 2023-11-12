@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 12:50:16 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/11 21:08:34 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/12 15:52:21 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_error(char *msg)
 {
-	ft_printf("Error from ft_error: %s \n", msg);
+	ft_printf("Error\n: %s \n", msg);
 }

@@ -6,12 +6,20 @@
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 12:03:35 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/12 12:11:41 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/12 16:20:20 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
-
+/*
+1- No empty lines inside the map (only at the end)
+2- No characters except 0 1 N S E W and spaces
+3- No missing walls (1s) on the borders
+4- Map must be the last element of the .cub file
+5- Spaces can be present anywhere outside the map
+6- Spaces can be inside the map and up to me to decide what to do with them
+7- All error messages must be prefixed by "Error\n"
+*/
 bool	is_orientation(char c)
 {
 	return (c == 'N' || c == 'S' || c == 'E' || c == 'W');
@@ -75,41 +83,58 @@ int		trim_leading_ws(char *line)
 
 // free_map_exit(map, "Space not adjacent to '1' or space on right side", 1);
 // free_map_exit(map, "Invalid character in map", 1);
-bool check_space_adjacency(char *row, t_map *map)
+bool check_space_adjacency(char *row) 
 {
-	int col_index;
-	int current_row_len;
-
-	current_row_len = ft_strlen(row);
-	(void)map;
-	col_index = 0;
-    while (col_index < current_row_len)
+    int len = ft_strlen(row);
+	int i = 0;
+    while ( i < len) 
 	{
-		if (row[col_index] == ' ') // spaces must be adjacent to '1's or spaces
+        if (row[i] == ' ' && i > 0 && i < len - 1 &&
+            !(row[i - 1] == '1' || row[i - 1] == ' ' || row[i + 1] == '1' || row[i + 1] == ' ' ||
+			row[i + 1] == '0' || row[i - 1] == '0' || is_orientation(row[i + 1]) ||
+			is_orientation(row[i - 1])))
 		{
-			if (col_index > 0 && !(row[col_index - 1] == '1' || row[col_index - 1] == ' '))
-			{
-				printf("Invalid left adjacency at index %d\n", col_index);//Debug
-				return (false);
-			}
-			else if (col_index < current_row_len - 1 && !(row[col_index + 1] == '1' || row[col_index + 1] == ' '))
-			{
-				printf("Invalid right adjacency at index %d\n", col_index);//Debug
-				return (false);
-			}
-		}
-		else
-		{
-			if (!is_valid_tile(row[col_index]))
-			{
-				printf("Invalid tile at index %d: '%c'\n", col_index, row[col_index]);//Debug
-				return (false);
-			}
-		}
-		++col_index;
-	}
-	return (true);
+            return (false);
+        }
+		i++;
+    }
+    return (true);
 }
+// bool check_space_adjacency(char *row, t_map *map)
+// {
+// 	int col_index;
+// 	int current_row_len;
+
+// 	current_row_len = ft_strlen(row);
+// 	(void)map;
+// 	col_index = 0;
+//     while (col_index < current_row_len)
+// 	{
+// 		if (row[col_index] == ' ') // spaces must be adjacent to '1's or spaces
+// 		{
+// 			if (col_index > 0 && !(row[col_index - 1] == '1' || row[col_index - 1] == ' '))
+// 			{
+// 				printf("Invalid left adjacency at index %d\n", col_index);//Debug
+// 				return (false);
+// 			}
+// 			else if (col_index < current_row_len - 1 && !(row[col_index + 1] == '1' || row[col_index + 1] == ' '))
+// 			{
+// 				printf("Invalid right adjacency at index %d\n", col_index);//Debug
+// 				return (false);
+// 			}
+// 		}
+// 		else
+// 		{
+// 			if (!is_valid_tile(row[col_index]))
+// 			{
+// 				printf("Invalid tile at index %d: '%c'\n", col_index, row[col_index]);//Debug
+// 				return (false);
+// 			}
+// 		}
+// 		++col_index;
+// 	}
+// 	return (true);
+// }
 
 bool	check_walls(t_map *map)
 {
@@ -141,7 +166,7 @@ bool	check_walls(t_map *map)
 				free_map_exit(map, "Error in middle lines", 0);
 				return (false);
 			}
-			else if (!check_space_adjacency(current_row, map)){
+			else if (!check_space_adjacency(current_row)){
 				free_map_exit(map, "Space not adjacent to '1' or space on right side", 0);
 				return (false);
 			}

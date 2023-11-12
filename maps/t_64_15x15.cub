@@ -1,8 +1,8 @@
 
-EA textures/colors/64x64-ff0000ff.png
-NO textures/colors/64x64-ffff00ff.png
-WE textures/colors/64x64-0000ffff.png
-SO textures/colors/64x64-00ff00ff.png
+NO img/wall_no.png
+SO img/wall_so.png
+WE img/wall_west.png
+EA img/wall_east.png
 
 F 64,64,64
 C 135,206,235
@@ -10,16 +10,16 @@ C 135,206,235
 
 111111111111111
 1      1      1
-1      D      1
+1      1      1
 1      1      1
 1     1 1     1
 1    1   1    1
 1   1     1   1
-1   D  S  D   1
+1   1  S  1   1
 1   1     1   1
 1    1   1    1
 1     1 1     1
 1      1      1
-1      D      1
+1      1      1
 1      1      1
 111111111111111

@@ -1,8 +1,8 @@
 
-EA textures/64x64/Bark.png
-NO textures/64x64/WaterF1.png
-WE textures/64x64/bookshelf.png
-SO textures/64x64/Bricks.png
+NO  img/create-your-wallpaper.png
+WE  img/create-your-wallpaper.png
+SO  img/create-your-wallpaper.png
+EA  img/enemy.png
 
 F 64,64,64
 C 135,206,235

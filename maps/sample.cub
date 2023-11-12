@@ -1,7 +1,7 @@
-NO ./textures/test/white_64.png
-SO ./textures/test/white_64.png
-WE ./textures/test/white_64.png
-EA ./textures/test/white_64.png
+NO img/wall_no.png
+SO img/wall_so.png
+WE img/wall_west.png
+EA img/wall_east.png
 F 124,252,0
 C 25,25,112
         1111111111111111111111111

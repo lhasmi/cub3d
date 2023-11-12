@@ -206,7 +206,7 @@ bool	validate_components(t_map *map);
 bool	is_orientation(char c);
 bool	is_valid_tile(char c);
 bool	first_last_line(char *line);
-bool	check_space_adjacency(char *row, t_map *map);
+bool	check_space_adjacency(char *row);
 bool	is_valid_middle_line(char *line);
 int		trim_leading_ws(char *line);
 bool	map_valid(t_map *map);
