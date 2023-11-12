@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 21:53:40 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/12 11:46:10 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/12 12:12:11 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ char	**manual_realloc_2D_array(char **old_array, int old_rows, int new_rows,
 	while (i < old_rows)
 	{
 		new_array[i] = ft_strdup(old_array[i]);
+		// printf("\n\nattempting free on address which was not malloc()-ed %p = old_array[%d] = %s\n\n", old_array[i], i, old_array[i]); // Debug
 		free(old_array[i]);
 		i++;
 	}

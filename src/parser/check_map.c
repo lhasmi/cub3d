@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 12:03:35 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/12 11:44:49 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/12 12:11:41 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ bool	first_last_line(char *line)
 	{
 		if (line[i] != '1' && line[i] != ' ')
 		{
-			printf("line in first_las() %s char found in line[%d]: %c\n", line, i, line[i]);//Debug
+			// printf("line in first_last() %s char found in line[%d]: %c\n", line, i, line[i]);//Debug
 			return (false);
 		}
 		i++;
@@ -120,17 +120,17 @@ bool	check_walls(t_map *map)
 	while (row_index < map->rows)// Iterate through each row in the map
 	{
 		current_row = map->tiles[row_index];
-		printf("current_row before trim in row_index %d is : %s\n", row_index, current_row);//Debug
+		// printf("current_row before trim in row_index %d is : %s\n", row_index, current_row);//Debug
 		start_index = trim_leading_ws(current_row);
-		printf("start_index in row_index %d is : %d\n", row_index, start_index);//Debug
+		// printf("start_index in row_index %d is : %d\n", row_index, start_index);//Debug
 		current_row += start_index;// Move the pointer to the first non-whitespace char
-		printf("current_row after advancing pointer of current row in row_index %d is : %s\n", row_index, current_row);//Debug
+		// printf("current_row after advancing pointer of current row in row_index %d is : %s\n", row_index, current_row);//Debug
 		if (row_index == 0 || row_index == map->rows - 1)// First and last rows should be validated with is_valid_wall_line
 		{
 			if (!first_last_line(current_row))
 			{
 				free_map_exit(map, "First or last row contains invalid characters.", 0);
-				printf("current_row in row_index %d is : %s\n", row_index, current_row);//Debug
+				// printf("current_row in row_index %d is : %s\n", row_index, current_row);//Debug
 				return (false);
 			}
 		}

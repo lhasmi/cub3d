@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_tile.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 21:57:11 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/11 22:38:16 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/12 12:11:50 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ bool is_line_a_wall(char *line)
 	{
 		if (!is_valid_tile(line[i]) && !is_orientation(line[i]))
 		{
-			printf("return false **** line in is_line_a_wall() %s char found in line[%d]: %c\n", line, i, line[i]);//Debug
+			// printf("return false **** line in is_line_a_wall() %s char found in line[%d]: %c\n", line, i, line[i]);//Debug
 			return (false);
 		}
 		i++;
 	}
-	printf("return true **** line in is_line_a_wall() %s \n", line);//Debug
+	// printf("return true **** line in is_line_a_wall() %s \n", line);//Debug
 	return (true);
 }
 
