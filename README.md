@@ -15,32 +15,11 @@ So far (until 29.10.2023) code seems to:
   - DONE - Valid `.cub` files with different map and configuration variations.
   - Invalid `.cub` files to test error handling.
 - DONE - Free allocated resources properly with `free_map_exit` before exiting the program.
-- After parsing is complete, validate the map's integrity with a `map_valid` function.
-- Set up key hooks for MLX and event handling.
-- Initialize `t_img` and load textures.
-- Enter the main MLX loop and render the initial scene.
+- DONE - After parsing is complete, validate the map's integrity with a `map_valid` function.
+- DONE - Test valid maps according to validation rules fro the pdf 
+-  test the to be validated maps, these are supposed to be valid but my parser says otherwise 
+- test error maps and make the parser say so
 ```
-1. **Check the file extension** to ensure it's a `.cub` file (`is_cub` function).
-2. **Open the `.cub` file** and handle opening errors.
-3. **Read lines from the file** using `get_next_line`.
-4. **Parse lines** based on their prefix to identify what type of data they contain (`parse_line` function).
-5. **Allocate and store texture paths** in the `t_map` structure (`parse_texture` function).
-6. **Parse RGB color values** and store them in the `t_map` structure (`parse_color` function).
-7. **Store the map layout** as an array of strings in the `t_map` structure (`fill_map_tiles` function).
-8. **Dynamically resize the array** that holds the map layout (`manual_realloc_2D_array` function).
-9. **Free allocated resources** and handle errors (`free_map_exit` and `ft_error` functions).
-
-What appears to be missing or needs verification includes:
-
-1. **Initialization of the map structure** (`init_map` function) with NULL pointers and zeroed dimensions.
-2. **Validation function** for the map data after parsing (`map_valid` function or similar).
-3. **Implementation of `parse_color`** to convert color strings into integer values.
-4. **Actual content parsing in `fill_map_tiles`**, since the current function just reallocates the array but does not parse the individual tiles.
-5. **Implementing a unit testing framework** to test the parsing of the `.cub` file with various test cases.
-6. **Implementation of `is_space`, `ft_strtok`, and `is_path_valid`** if they're not already part of your codebase.
-7. **Implementation of a function to update `cols`** in `t_map` based on the length of the longest line in the map layout.
-8. **Rendering setup** for MiniLibX, including initialization of `t_img` and handling of textures and images.
-
 
 #### TESTING PLAN
 Running tests after completing the missing parts of your parser is a crucial step in ensuring that your code is robust and behaves as expected. Your planned tests should aim to cover a comprehensive range of scenarios to thoroughly exercise your code. Here's a suggested approach for your testing plan:
