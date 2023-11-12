@@ -17,7 +17,7 @@ So far (until 29.10.2023) code seems to:
 - DONE - Free allocated resources properly with `free_map_exit` before exiting the program.
 - DONE - After parsing is complete, validate the map's integrity with a `map_valid` function.
 - DONE - Test valid maps according to validation rules fro the pdf 
--  test the to be validated maps, these are supposed to be valid but my parser says otherwise 
+- DONE - test the to be validated maps, these are supposed to be valid but my parser says otherwise 
 - test error maps and make the parser say so
 ```
 
