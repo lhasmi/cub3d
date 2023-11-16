@@ -16,9 +16,13 @@ So far (until 29.10.2023) code seems to:
   - Invalid `.cub` files to test error handling.
 - DONE - Free allocated resources properly with `free_map_exit` before exiting the program.
 - DONE - After parsing is complete, validate the map's integrity with a `map_valid` function.
-- DONE - Test valid maps according to validation rules fro the pdf 
-- DONE - test the to be validated maps, these are supposed to be valid but my parser says otherwise 
+- DONE - Test valid maps according to validation rules fro the pdf
+- DONE - test the to be validated maps, these are supposed to be valid but my parser says otherwise
 - test error maps and make the parser say so
+like
+NO textures/Test1.png
+NO textures/Test1.png
+NO textures/Test1.png
 ```
 
 #### TESTING PLAN

@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 19:26:09 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/16 18:49:33 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/16 20:33:08 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,30 +106,40 @@ bool parse_line(char *line, t_map *map, int fd)
 		return true;
 	if (line[0] == 'N' && line[1] == 'O')
 	{
+		// printf("\n******** ***** 1 ***line in parse_line(): %s ****************\n", line);//DEBUG
 		if(parse_texture(line, map, "NO") == false)
 			return false;
 	}
 	else if (line[0] == 'S' && line[1] == 'O')
 	{
+		// printf("\n******** ***** 2 ***line in parse_line(): %s ****************\n", line);//DEBUG
 		if(parse_texture(line, map, "SO") == false)
 			return false;
 	}
 	else if (line[0] == 'W' && line[1] == 'E')
 	{
+		// printf("\n******** ***** 3 ***line in parse_line(): %s ****************\n", line);//DEBUG
 		if(parse_texture(line, map, "WE") == false)
 			return false;
 	}
 	else if (line[0] == 'E' && line[1] == 'A')
 	{
+		// printf("\n******** ***** 4 ***line in parse_line(): %s ****************\n", line);//DEBUG
 		if(parse_texture(line, map, "EA") == false)
 			return false;
 	}
-	else if (line[0] == 'F')
+	else if (line[0] == 'F'){
+		// printf("\n******** ***** 5 ***line in parse_line(): %s ****************\n", line);//DEBUG
 		parse_color(line, map, "F");
-	else if (line[0] == 'C')
+	}
+	else if (line[0] == 'C'){
+		// printf("\n******** ***** 6 ***line in parse_line(): %s ****************\n", line);//DEBUG
 		parse_color(line, map, "C");
-	else if (ft_strchr("01NSEW ", line[0]))
+	}
+	else if (is_line_a_wall(line)){
+		// printf("\n******** ***** 7 ***line in parse_line(): %s ****************\n", line);//DEBUG
 		fill_map_tiles(map, fd, line);
+	}
 	else
 		free_map_exit(map, "Error\n Invalid line prefix in configuration file", 1);
 	return true;

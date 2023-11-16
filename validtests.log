@@ -1,8 +1,14 @@
 Starting valid tests...
 ******************
+************************************
+************************************
 Running with maps/art.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -10,13 +16,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/wall_no.png
+ lenght 15
+********
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
 
 Finished parse_config_file...
 
@@ -46,16 +72,25 @@ Checking if map is valid...
 
 Finished tests, map freed
 
+**************************************************************************************
+
 Map is valid
+
+**************************************************************************************
 
 Player position is valid: x position 1, y position 1, and the orientation is : E
 
 Exiting test_parse_valid_data...
 Next file: maps/big_cube.cub
-******************
+************************************
+************************************
 Running with maps/big_cube.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -63,13 +98,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/wall_no.png
+ lenght 15
+********
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
 
 Finished parse_config_file...
 
@@ -99,16 +154,25 @@ Checking if map is valid...
 
 Finished tests, map freed
 
+**************************************************************************************
+
 Map is valid
+
+**************************************************************************************
 
 Player position is valid: x position 4, y position 12, and the orientation is : N
 
 Exiting test_parse_valid_data...
-Next file: maps/map_exp.cub
-******************
-Running with maps/map_exp.cub
+Next file: maps/look_east.cub
+************************************
+************************************
+Running with maps/look_east.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -116,13 +180,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/wall_no.png
+ lenght 15
+********
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
 
 Finished parse_config_file...
 
@@ -152,16 +236,353 @@ Checking if map is valid...
 
 Finished tests, map freed
 
+**************************************************************************************
+
 Map is valid
+
+**************************************************************************************
+
+Player position is valid: x position 9, y position 6, and the orientation is : E
+
+Exiting test_parse_valid_data...
+Next file: maps/look_north.cub
+************************************
+************************************
+Running with maps/look_north.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x6080000008a0
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+
+********
+path: img/wall_no.png
+ lenght 15
+********
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
+
+Finished parse_config_file...
+
+
+File closed...
+
+***** CHECKING STRUCTS CONTENT ******
+
+
+All 4 textures paths are loaded successfully:
+ north img/wall_no.png
+  east img/wall_east.png
+  west img/wall_west.png
+  south img/wall_so.png
+
+
+Checking if colors are parsed correctly...
+
+
+floor color: 220   100    0
+
+ceiling color: 225   30    0
+
+color_hex: dc6400ff    e11e00ff
+
+Checking if map is valid...
+
+Finished tests, map freed
+
+**************************************************************************************
+
+Map is valid
+
+**************************************************************************************
+
+Player position is valid: x position 9, y position 6, and the orientation is : N
+
+Exiting test_parse_valid_data...
+Next file: maps/look_south.cub
+************************************
+************************************
+Running with maps/look_south.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x6080000008a0
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+
+********
+path: img/wall_no.png
+ lenght 15
+********
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
+
+Finished parse_config_file...
+
+
+File closed...
+
+***** CHECKING STRUCTS CONTENT ******
+
+
+All 4 textures paths are loaded successfully:
+ north img/wall_no.png
+  east img/wall_east.png
+  west img/wall_west.png
+  south img/wall_so.png
+
+
+Checking if colors are parsed correctly...
+
+
+floor color: 220   100    0
+
+ceiling color: 225   30    0
+
+color_hex: dc6400ff    e11e00ff
+
+Checking if map is valid...
+
+Finished tests, map freed
+
+**************************************************************************************
+
+Map is valid
+
+**************************************************************************************
+
+Player position is valid: x position 9, y position 6, and the orientation is : S
+
+Exiting test_parse_valid_data...
+Next file: maps/look_west.cub
+************************************
+************************************
+Running with maps/look_west.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x6080000008a0
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+
+********
+path: img/wall_no.png
+ lenght 15
+********
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
+
+Finished parse_config_file...
+
+
+File closed...
+
+***** CHECKING STRUCTS CONTENT ******
+
+
+All 4 textures paths are loaded successfully:
+ north img/wall_no.png
+  east img/wall_east.png
+  west img/wall_west.png
+  south img/wall_so.png
+
+
+Checking if colors are parsed correctly...
+
+
+floor color: 220   100    0
+
+ceiling color: 225   30    0
+
+color_hex: dc6400ff    e11e00ff
+
+Checking if map is valid...
+
+Finished tests, map freed
+
+**************************************************************************************
+
+Map is valid
+
+**************************************************************************************
+
+Player position is valid: x position 9, y position 6, and the orientation is : W
+
+Exiting test_parse_valid_data...
+Next file: maps/map_exp.cub
+************************************
+************************************
+Running with maps/map_exp.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x6080000008a0
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+
+********
+path: img/wall_no.png
+ lenght 15
+********
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
+
+Finished parse_config_file...
+
+
+File closed...
+
+***** CHECKING STRUCTS CONTENT ******
+
+
+All 4 textures paths are loaded successfully:
+ north img/wall_no.png
+  east img/wall_east.png
+  west img/wall_west.png
+  south img/wall_so.png
+
+
+Checking if colors are parsed correctly...
+
+
+floor color: 220   100    0
+
+ceiling color: 225   30    0
+
+color_hex: dc6400ff    e11e00ff
+
+Checking if map is valid...
+
+Finished tests, map freed
+
+**************************************************************************************
+
+Map is valid
+
+**************************************************************************************
 
 Player position is valid: x position 26, y position 11, and the orientation is : N
 
 Exiting test_parse_valid_data...
 Next file: maps/maze.cub
-******************
+************************************
+************************************
 Running with maps/maze.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -169,13 +590,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/wall_no.png
+ lenght 15
+********
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
 
 Finished parse_config_file...
 
@@ -205,16 +646,25 @@ Checking if map is valid...
 
 Finished tests, map freed
 
+**************************************************************************************
+
 Map is valid
+
+**************************************************************************************
 
 Player position is valid: x position 1, y position 1, and the orientation is : N
 
 Exiting test_parse_valid_data...
 Next file: maps/maze_128.cub
-******************
+************************************
+************************************
 Running with maps/maze_128.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -222,13 +672,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/wall_no.png
+ lenght 15
+********
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
 
 Finished parse_config_file...
 
@@ -258,16 +728,25 @@ Checking if map is valid...
 
 Finished tests, map freed
 
+**************************************************************************************
+
 Map is valid
+
+**************************************************************************************
 
 Player position is valid: x position 23, y position 9, and the orientation is : W
 
 Exiting test_parse_valid_data...
 Next file: maps/maze_color_128.cub
-******************
+************************************
+************************************
 Running with maps/maze_color_128.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -275,13 +754,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/wall_no.png
+ lenght 15
+********
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
 
 Finished parse_config_file...
 
@@ -311,16 +810,25 @@ Checking if map is valid...
 
 Finished tests, map freed
 
+**************************************************************************************
+
 Map is valid
+
+**************************************************************************************
 
 Player position is valid: x position 23, y position 9, and the orientation is : N
 
 Exiting test_parse_valid_data...
 Next file: maps/maze_color_64.cub
-******************
+************************************
+************************************
 Running with maps/maze_color_64.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -328,13 +836,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/wall_no.png
+ lenght 15
+********
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
 
 Finished parse_config_file...
 
@@ -364,16 +892,25 @@ Checking if map is valid...
 
 Finished tests, map freed
 
+**************************************************************************************
+
 Map is valid
+
+**************************************************************************************
 
 Player position is valid: x position 23, y position 9, and the orientation is : N
 
 Exiting test_parse_valid_data...
 Next file: maps/sample.cub
-******************
+************************************
+************************************
 Running with maps/sample.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -381,13 +918,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/wall_no.png
+ lenght 15
+********
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
 
 Finished parse_config_file...
 
@@ -417,16 +974,25 @@ Checking if map is valid...
 
 Finished tests, map freed
 
+**************************************************************************************
+
 Map is valid
+
+**************************************************************************************
 
 Player position is valid: x position 26, y position 11, and the orientation is : N
 
 Exiting test_parse_valid_data...
 Next file: maps/t_64_15x15.cub
-******************
+************************************
+************************************
 Running with maps/t_64_15x15.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -434,13 +1000,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/wall_no.png
+ lenght 15
+********
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
 
 Finished parse_config_file...
 
@@ -467,16 +1053,28 @@ ceiling color: 135   206    235
 color_hex: 404040ff    87ceebff
 
 Checking if map is valid...
-Error
-: Invalid tile in middle line 
-Error in middle lines
-Error
-: Wall or tiles check failed. 
+
+Finished tests, map freed
+
+**************************************************************************************
+
+Map is valid
+
+**************************************************************************************
+
+Player position is valid: x position 7, y position 7, and the orientation is : S
+
+Exiting test_parse_valid_data...
 Next file: maps/t_64_3x3.cub
-******************
+************************************
+************************************
 Running with maps/t_64_3x3.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -484,13 +1082,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/wall_no.png
+ lenght 15
+********
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
 
 Finished parse_config_file...
 
@@ -520,16 +1138,25 @@ Checking if map is valid...
 
 Finished tests, map freed
 
+**************************************************************************************
+
 Map is valid
+
+**************************************************************************************
 
 Player position is valid: x position 1, y position 1, and the orientation is : S
 
 Exiting test_parse_valid_data...
 Next file: maps/test.cub
-******************
+************************************
+************************************
 Running with maps/test.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -537,13 +1164,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
+
+********
+path: img/wall_no.png
+ lenght 15
+********
 
 Finished parse_config_file...
 
@@ -573,16 +1220,25 @@ Checking if map is valid...
 
 Finished tests, map freed
 
+**************************************************************************************
+
 Map is valid
+
+**************************************************************************************
 
 Player position is valid: x position 7, y position 10, and the orientation is : N
 
 Exiting test_parse_valid_data...
 Next file: maps/test1.cub
-******************
+************************************
+************************************
 Running with maps/test1.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -590,13 +1246,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/create-your-wallpaper.png
+ lenght 29
+********
+
+********
+path: img/create-your-wallpaper.png
+ lenght 29
+********
+
+********
+path: img/create-your-wallpaper.png
+ lenght 29
+********
+
+********
+path: img/enemy.png
+ lenght 13
+********
 
 Finished parse_config_file...
 
@@ -626,16 +1302,25 @@ Checking if map is valid...
 
 Finished tests, map freed
 
+**************************************************************************************
+
 Map is valid
+
+**************************************************************************************
 
 Player position is valid: x position 4, y position 9, and the orientation is : N
 
 Exiting test_parse_valid_data...
 Next file: maps/test1_copy.cub
-******************
+************************************
+************************************
 Running with maps/test1_copy.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -643,13 +1328,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/create-your-wallpaper.png
+ lenght 29
+********
+
+********
+path: img/create-your-wallpaper.png
+ lenght 29
+********
+
+********
+path: img/create-your-wallpaper.png
+ lenght 29
+********
+
+********
+path: img/enemy.png
+ lenght 13
+********
 
 Finished parse_config_file...
 
@@ -679,16 +1384,25 @@ Checking if map is valid...
 
 Finished tests, map freed
 
+**************************************************************************************
+
 Map is valid
+
+**************************************************************************************
 
 Player position is valid: x position 4, y position 9, and the orientation is : N
 
 Exiting test_parse_valid_data...
 Next file: maps/test2_2Play.cub
-******************
+************************************
+************************************
 Running with maps/test2_2Play.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -696,13 +1410,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/create-your-wallpaper.png
+ lenght 29
+********
+
+********
+path: img/create-your-wallpaper.png
+ lenght 29
+********
+
+********
+path: img/create-your-wallpaper.png
+ lenght 29
+********
+
+********
+path: img/enemy.png
+ lenght 13
+********
 
 Finished parse_config_file...
 
@@ -732,10 +1466,15 @@ Checking if map is valid...
 Error
 : Components validation failed. 
 Next file: maps/test2_2players.cub
-******************
+************************************
+************************************
 Running with maps/test2_2players.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -743,13 +1482,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/wall_no.png
+ lenght 15
+********
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
 
 Finished parse_config_file...
 
@@ -779,10 +1538,15 @@ Checking if map is valid...
 Error
 : Components validation failed. 
 Next file: maps/test3.cub
-******************
+************************************
+************************************
 Running with maps/test3.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -790,13 +1554,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/wall_no.png
+ lenght 15
+********
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
 
 Finished parse_config_file...
 
@@ -826,16 +1610,25 @@ Checking if map is valid...
 
 Finished tests, map freed
 
+**************************************************************************************
+
 Map is valid
+
+**************************************************************************************
 
 Player position is valid: x position 4, y position 9, and the orientation is : N
 
 Exiting test_parse_valid_data...
 Next file: maps/test3_copy.cub
-******************
+************************************
+************************************
 Running with maps/test3_copy.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -843,13 +1636,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/wall_no.png
+ lenght 15
+********
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
 
 Finished parse_config_file...
 
@@ -879,16 +1692,25 @@ Checking if map is valid...
 
 Finished tests, map freed
 
+**************************************************************************************
+
 Map is valid
+
+**************************************************************************************
 
 Player position is valid: x position 4, y position 9, and the orientation is : N
 
 Exiting test_parse_valid_data...
 Next file: maps/test_01.cub
-******************
+************************************
+************************************
 Running with maps/test_01.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -896,13 +1718,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/create-your-wallpaper.png
+ lenght 29
+********
+
+********
+path: img/create-your-wallpaper.png
+ lenght 29
+********
+
+********
+path: img/create-your-wallpaper.png
+ lenght 29
+********
+
+********
+path: img/enemy.png
+ lenght 13
+********
 
 Finished parse_config_file...
 
@@ -932,16 +1774,25 @@ Checking if map is valid...
 
 Finished tests, map freed
 
+**************************************************************************************
+
 Map is valid
+
+**************************************************************************************
 
 Player position is valid: x position 7, y position 7, and the orientation is : S
 
 Exiting test_parse_valid_data...
 Next file: maps/test_128.cub
-******************
+************************************
+************************************
 Running with maps/test_128.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -949,13 +1800,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/wall_no.png
+ lenght 15
+********
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
 
 Finished parse_config_file...
 
@@ -985,16 +1856,25 @@ Checking if map is valid...
 
 Finished tests, map freed
 
+**************************************************************************************
+
 Map is valid
+
+**************************************************************************************
 
 Player position is valid: x position 26, y position 11, and the orientation is : N
 
 Exiting test_parse_valid_data...
 Next file: maps/test_64.cub
-******************
+************************************
+************************************
 Running with maps/test_64.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -1002,13 +1882,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/wall_no.png
+ lenght 15
+********
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
 
 Finished parse_config_file...
 
@@ -1038,16 +1938,25 @@ Checking if map is valid...
 
 Finished tests, map freed
 
+**************************************************************************************
+
 Map is valid
+
+**************************************************************************************
 
 Player position is valid: x position 26, y position 11, and the orientation is : N
 
 Exiting test_parse_valid_data...
 Next file: maps/test_64_9x9.cub
-******************
+************************************
+************************************
 Running with maps/test_64_9x9.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -1055,13 +1964,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/wall_no.png
+ lenght 15
+********
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
 
 Finished parse_config_file...
 
@@ -1091,16 +2020,25 @@ Checking if map is valid...
 
 Finished tests, map freed
 
+**************************************************************************************
+
 Map is valid
+
+**************************************************************************************
 
 Player position is valid: x position 4, y position 4, and the orientation is : N
 
 Exiting test_parse_valid_data...
 Next file: maps/test_64x64_0.cub
-******************
+************************************
+************************************
 Running with maps/test_64x64_0.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -1108,13 +2046,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/wall_no.png
+ lenght 15
+********
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
 
 Finished parse_config_file...
 
@@ -1144,16 +2102,25 @@ Checking if map is valid...
 
 Finished tests, map freed
 
+**************************************************************************************
+
 Map is valid
+
+**************************************************************************************
 
 Player position is valid: x position 3, y position 5, and the orientation is : E
 
 Exiting test_parse_valid_data...
 Next file: maps/test_lakner.cub
-******************
+************************************
+************************************
 Running with maps/test_lakner.cub
 
 Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
 
 ***** INITIALIZATION OF THE STRUCTS ******
 
@@ -1161,13 +2128,33 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
+
+********
+path: img/wall_no.png
+ lenght 15
+********
 
 Finished parse_config_file...
 
@@ -1197,7 +2184,11 @@ Checking if map is valid...
 
 Finished tests, map freed
 
+**************************************************************************************
+
 Map is valid
+
+**************************************************************************************
 
 Player position is valid: x position 7, y position 10, and the orientation is : N
 
@@ -1208,19 +2199,43 @@ Running with maps/ttest.cub
 
 Starting test_parse_valid_data...
 
+Is the file empty?...
+
+ NOT empty ...continue
+
 ***** INITIALIZATION OF THE STRUCTS ******
 
 Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x6080000008a0
 
 Player position has been initialized successfully: x position 0, y position 0
 
 ***** FILLING UP THE STRUCTURES ******
 
 Start filling the map with parse_config_file...
+
+********
+path: img/wall_no.png
+ lenght 15
+********
+
+********
+path: img/wall_so.png
+ lenght 15
+********
+
+********
+path: img/wall_west.png
+ lenght 17
+********
+
+********
+path: img/wall_east.png
+ lenght 17
+********
 
 Finished parse_config_file...
 
@@ -1250,7 +2265,11 @@ Checking if map is valid...
 
 Finished tests, map freed
 
+**************************************************************************************
+
 Map is valid
+
+**************************************************************************************
 
 Player position is valid: x position 2, y position 10, and the orientation is : N
 

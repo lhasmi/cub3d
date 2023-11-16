@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+         #
+#    By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 09:17:22 by lhasmi            #+#    #+#              #
-#    Updated: 2023/11/12 21:21:57 by lhasmi           ###   ########.fr        #
+#    Updated: 2023/11/16 20:39:55 by lhasmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,15 +45,17 @@ Obj/%.o: src/%.c
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# 2>&1 syntax redirects stderr (file descriptor 2) to stdout 
+# 2>&1 syntax redirects stderr (file descriptor 2) to stdout
 # (file descriptor 1), ensuring that both r captured in the log file.
 validtests:
 	@echo "Starting valid tests..." > validtests.log
+	@echo "******************" >> validtests.log
 	@files=$$(ls maps/*.cub); \
 	prev=""; \
 	for file in $$files; do \
 		if [ -n "$$prev" ]; then \
-			echo "******************" >> validtests.log; \
+			echo "************************************" >> validtests.log; \
+			echo "************************************" >> validtests.log; \
 			echo "Running with $$prev" >> validtests.log; \
 			./cub3D $$prev >> validtests.log 2>&1; \
 			echo "Next file: $$file" >> validtests.log; \
