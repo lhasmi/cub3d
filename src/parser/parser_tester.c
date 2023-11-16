@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_tester.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 14:50:21 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/12 11:46:51 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/16 18:50:48 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,17 @@ void test_parse_valid_data(const char *file_name)
 	t_map	*map;
 	int		fd;
 
+	printf("\nIs the file empty?...\n");
+	if (is_cub_file_empty(file_name) == - 1)
+	{
+		ft_error("unable to open file");
+		exit(1);
+	}
+	else if(is_cub_file_empty(file_name) == 1)
+	{
+		ft_error("Empty file");
+		exit(1);
+	}
 	printf("\nStarting test_parse_valid_data...\n");
 	fd = open(file_name, O_RDONLY);
 	if (fd < 0)
@@ -33,9 +44,14 @@ void test_parse_valid_data(const char *file_name)
 	map = init_map_struct();
 	printf("\nMap struct has been initialized successfully: ...%p\n", map);
 	printf("\nPlayer position has been initialized successfully: x position %d, y position %d\n", map->mapreqs.pos_x, map->mapreqs.pos_y);
+
 	printf("\n***** FILLING UP THE STRUCTURES ******\n");
 	printf("\nStart filling the map with parse_config_file...\n");
 	map = parse_config_file(fd, map);
+	if (map == NULL)
+	{
+		free_map_exit(map, "Invalid map, map freed", 1);
+	}
 	printf("\nFinished parse_config_file...\n");
 	close(fd);
 	printf("\n\nFile closed...\n");

@@ -3,25 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 19:48:43 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/07 20:36:13 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/16 18:34:56 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
-bool is_wspace (char c)
+int	is_cub_file_empty(const char *filepath)
 {
-	if (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r')
+	int		fd;
+	char	*line;
+
+	fd = open(filepath, O_RDONLY);
+	if (fd < 0)
+		return (-1);
+	line = get_next_line(fd);
+	if (line == NULL)
+	{
+		close(fd);
+		return (1); // File is empty
+	}
+	free(line);
+	close(fd);
+	return (0); // File is not empty
+}
+
+bool	is_wspace(char c)
+{
+	if (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f'
+		|| c == '\r')
 		return (true);
 	return (false);
 }
 
-int open_file(char *file, t_map *map_i, char *err_message)
+int	open_file(char *file, t_map *map_i, char *err_message)
 {
-	int fd;
+	int	fd;
 
 	fd = open(file, O_RDONLY, 0777);
 	if (fd == -1)
@@ -29,30 +49,38 @@ int open_file(char *file, t_map *map_i, char *err_message)
 	return (fd);
 }
 
-bool is_path_valid(char *path)
+bool	is_path_valid(char *path)
 {
-    int fd = open(path, O_RDONLY);
-    // printf("fd: %d\n", fd);// DEBUG
-    if (fd == -1) {
-        // perror("Error opening file");// DEBUG
-        return false;
-    } else {
-        close(fd);
-        return true;
-    }
+	int	fd;
+
+	fd = open(path, O_RDONLY);
+	// printf("fd: %d\n", fd);// DEBUG
+	printf("\n********\npath: %s\n lenght %zu\n********\n", path, ft_strlen(path));// DEBUG
+	if (path == NULL || *path == '\0' || ft_strlen(path) < 5)
+		return false;
+	char *ext = ft_strrchr(path, '.');
+	if (ext == NULL || (ft_strcmp(ext, ".png") != 0 && ft_strcmp(ext, ".xpm") != 0))
+		return false;
+	if (fd == -1)
+		return (false);
+	else
+	{
+		close(fd);
+		return (true);
+	}
 }
 
-
-//  the is_color_valid() function would check that each of color.red, color.green, and color.blue is between 0 and 255.
-bool is_color_valid(int color)
+//  the is_color_valid() function would check that each of color.red,
+	// color.green, and color.blue is between 0 and 255.
+bool	is_color_valid(int color)
 {
 	if (color < 0 || color > 255)
-		return false;
+		return (false);
 	if (color < 0 || color > 255)
-		return false;
+		return (false);
 	if (color < 0 || color > 255)
-		return false;
-	return true;
+		return (false);
+	return (true);
 }
 
 bool	is_cub(char *filename)
@@ -68,39 +96,40 @@ bool	is_cub(char *filename)
 		return (false);
 }
 
-void free_map_resources(t_map *map)
+void	free_map_resources(t_map *map)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (map->tiles && i < map->rows)
-    {
-        free(map->tiles[i]);
+	i = 0;
+	while (map->tiles && i < map->rows)
+	{
+		free(map->tiles[i]);
 		map->tiles[i] = NULL;
-        i++;
-    }
-	if(map->tiles){
+		i++;
+	}
+	if (map->tiles)
+	{
 		free(map->tiles);
 		map->tiles = NULL;
 	}
-	if(map->floor_color)
-    	free(map->floor_color);
-	if(map->ceiling_color)
-	    free(map->ceiling_color);
-    free(map);
+	if (map->floor_color)
+		free(map->floor_color);
+	if (map->ceiling_color)
+		free(map->ceiling_color);
+	free(map);
 	map = NULL;
 }
 
-void free_map_exit(t_map *map, char *error_message, int status)
+void	free_map_exit(t_map *map, char *error_message, int status)
 {
-    if (status != 0)
-    {
+	if (status != 0)
+	{
 		free_map_resources(map);
-        ft_error(error_message);
-        exit(status);
-    }
-    else
-        ft_printf("%s\n", error_message);
+		ft_error(error_message);
+		exit(status);
+	}
+	else
+		ft_printf("%s\n", error_message);
 }
 
 // void	free_map_exit(t_map *map, char *str, int d)
@@ -122,14 +151,14 @@ void free_map_exit(t_map *map, char *error_message, int status)
 // 	}
 // 	if (d == 0)
 // 		ft_printf("%s\n", str);
-// 	return;
+// 	return ;
 // }
 
-int rgb_to_hex(int r, int g, int b)
+int	rgb_to_hex(int r, int g, int b)
 {
-	int alpha;
+	int	alpha;
 
-	alpha =  0xFF;
+	alpha = 0xFF;
 	return ((r << 24) | (g << 16) | (b << 8) | alpha);
 }
 
@@ -219,7 +248,8 @@ int rgb_to_hex(int r, int g, int b)
 // // 1100N1
 // // 111111
 
-// // ◦ The map must be composed of only 6 possible characters: 0 for an empty space,
+//
+	// ◦ The map must be composed of only 6 possible characters: 0 for an empty space,
 // // 1 for a wall, and N,S,E or W for the player’s start position and spawning
 // // orientation.
 // bool	check_map_characters(t_map map_i)
@@ -243,7 +273,8 @@ int rgb_to_hex(int r, int g, int b)
 // 	}
 // 	return (true);
 // }
-// // ◦ The map must be closed/surrounded by walls, if not the program must return
+// // ◦ The map must be closed/surrounded by walls,
+	// if not the program must return
 // // an error.
 // bool	map_closed(t_map map_i)
 // {
@@ -270,17 +301,21 @@ int rgb_to_hex(int r, int g, int b)
 // 	return (true);
 // }
 
-// // ◦ Except for the map content, each type of element can be separated by one or
+// // ◦ Except for the map content,
+	// each type of element can be separated by one or
 // // more empty line(s).
 // // ◦ Except for the map content which always has to be the last, each type of
 // // element can be set in any order in the file.
 // // ◦ Except for the map,
 // // each type of information from an element can be separated
 // // by one or more space(s).
-// // ◦ The map must be parsed as it looks in the file. Spaces are a valid part of the
-// // map and are up to you to handle. You must be able to parse any kind of map,
+//
+	// ◦ The map must be parsed as it looks in the file. Spaces are a valid part of the
+//
+	// map and are up to you to handle. You must be able to parse any kind of map,
 // // as long as it respects the rules of the map.
-// // Each element (except the map) firsts information is the type identifier (com-
+//
+	// Each element (except the map) firsts information is the type identifier (com-
 // // posed by one or two character(s)),
 // // followed by all specific informations for each
 // // object in a strict order such as :
