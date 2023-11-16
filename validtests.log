@@ -2,7 +2,9 @@ Starting valid tests...
 ******************
 ************************************
 ************************************
-Running with maps/art.cub
+Running with maps/valid/3x3.cub
+
+Is the file empty?...
 
 Starting test_parse_valid_data...
 
@@ -25,105 +27,23 @@ Player position has been initialized successfully: x position 0, y position 0
 Start filling the map with parse_config_file...
 
 ********
-path: img/wall_no.png
- lenght 15
+path: ./textures/Test1.png
+ lenght 20
 ********
 
 ********
-path: img/wall_so.png
- lenght 15
+path: ./textures/Test2.png
+ lenght 20
 ********
 
 ********
-path: img/wall_west.png
- lenght 17
+path: ./textures/Test3.png
+ lenght 20
 ********
 
 ********
-path: img/wall_east.png
- lenght 17
-********
-
-Finished parse_config_file...
-
-
-File closed...
-
-***** CHECKING STRUCTS CONTENT ******
-
-
-All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
-
-
-Checking if colors are parsed correctly...
-
-
-floor color: 111   49    152
-
-ceiling color: 255   250    189
-
-color_hex: 6f3198ff    fffabdff
-
-Checking if map is valid...
-
-Finished tests, map freed
-
-**************************************************************************************
-
-Map is valid
-
-**************************************************************************************
-
-Player position is valid: x position 1, y position 1, and the orientation is : E
-
-Exiting test_parse_valid_data...
-Next file: maps/big_cube.cub
-************************************
-************************************
-Running with maps/big_cube.cub
-
-Starting test_parse_valid_data...
-
-Is the file empty?...
-
- NOT empty ...continue
-
-***** INITIALIZATION OF THE STRUCTS ******
-
-Test if Map struct initialized...
-
-init_mapreqs() passed
-
-Map struct has been initialized successfully: ...0x6080000008a0
-
-Player position has been initialized successfully: x position 0, y position 0
-
-***** FILLING UP THE STRUCTURES ******
-
-Start filling the map with parse_config_file...
-
-********
-path: img/wall_no.png
- lenght 15
-********
-
-********
-path: img/wall_so.png
- lenght 15
-********
-
-********
-path: img/wall_west.png
- lenght 17
-********
-
-********
-path: img/wall_east.png
- lenght 17
+path: ./textures/Test4.png
+ lenght 20
 ********
 
 Finished parse_config_file...
@@ -135,512 +55,20 @@ File closed...
 
 
 All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
+ north ./textures/Test1.png
+  east ./textures/Test4.png
+  west ./textures/Test3.png
+  south ./textures/Test2.png
 
 
 Checking if colors are parsed correctly...
 
 
-floor color: 144   128    111
+floor color: 190   178    123
 
-ceiling color: 111   127    144
+ceiling color: 135   206    255
 
-color_hex: 90806fff    6f7f90ff
-
-Checking if map is valid...
-
-Finished tests, map freed
-
-**************************************************************************************
-
-Map is valid
-
-**************************************************************************************
-
-Player position is valid: x position 4, y position 12, and the orientation is : N
-
-Exiting test_parse_valid_data...
-Next file: maps/look_east.cub
-************************************
-************************************
-Running with maps/look_east.cub
-
-Starting test_parse_valid_data...
-
-Is the file empty?...
-
- NOT empty ...continue
-
-***** INITIALIZATION OF THE STRUCTS ******
-
-Test if Map struct initialized...
-
-init_mapreqs() passed
-
-Map struct has been initialized successfully: ...0x6080000008a0
-
-Player position has been initialized successfully: x position 0, y position 0
-
-***** FILLING UP THE STRUCTURES ******
-
-Start filling the map with parse_config_file...
-
-********
-path: img/wall_no.png
- lenght 15
-********
-
-********
-path: img/wall_so.png
- lenght 15
-********
-
-********
-path: img/wall_west.png
- lenght 17
-********
-
-********
-path: img/wall_east.png
- lenght 17
-********
-
-Finished parse_config_file...
-
-
-File closed...
-
-***** CHECKING STRUCTS CONTENT ******
-
-
-All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
-
-
-Checking if colors are parsed correctly...
-
-
-floor color: 220   100    0
-
-ceiling color: 225   30    0
-
-color_hex: dc6400ff    e11e00ff
-
-Checking if map is valid...
-
-Finished tests, map freed
-
-**************************************************************************************
-
-Map is valid
-
-**************************************************************************************
-
-Player position is valid: x position 9, y position 6, and the orientation is : E
-
-Exiting test_parse_valid_data...
-Next file: maps/look_north.cub
-************************************
-************************************
-Running with maps/look_north.cub
-
-Starting test_parse_valid_data...
-
-Is the file empty?...
-
- NOT empty ...continue
-
-***** INITIALIZATION OF THE STRUCTS ******
-
-Test if Map struct initialized...
-
-init_mapreqs() passed
-
-Map struct has been initialized successfully: ...0x6080000008a0
-
-Player position has been initialized successfully: x position 0, y position 0
-
-***** FILLING UP THE STRUCTURES ******
-
-Start filling the map with parse_config_file...
-
-********
-path: img/wall_no.png
- lenght 15
-********
-
-********
-path: img/wall_so.png
- lenght 15
-********
-
-********
-path: img/wall_west.png
- lenght 17
-********
-
-********
-path: img/wall_east.png
- lenght 17
-********
-
-Finished parse_config_file...
-
-
-File closed...
-
-***** CHECKING STRUCTS CONTENT ******
-
-
-All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
-
-
-Checking if colors are parsed correctly...
-
-
-floor color: 220   100    0
-
-ceiling color: 225   30    0
-
-color_hex: dc6400ff    e11e00ff
-
-Checking if map is valid...
-
-Finished tests, map freed
-
-**************************************************************************************
-
-Map is valid
-
-**************************************************************************************
-
-Player position is valid: x position 9, y position 6, and the orientation is : N
-
-Exiting test_parse_valid_data...
-Next file: maps/look_south.cub
-************************************
-************************************
-Running with maps/look_south.cub
-
-Starting test_parse_valid_data...
-
-Is the file empty?...
-
- NOT empty ...continue
-
-***** INITIALIZATION OF THE STRUCTS ******
-
-Test if Map struct initialized...
-
-init_mapreqs() passed
-
-Map struct has been initialized successfully: ...0x6080000008a0
-
-Player position has been initialized successfully: x position 0, y position 0
-
-***** FILLING UP THE STRUCTURES ******
-
-Start filling the map with parse_config_file...
-
-********
-path: img/wall_no.png
- lenght 15
-********
-
-********
-path: img/wall_so.png
- lenght 15
-********
-
-********
-path: img/wall_west.png
- lenght 17
-********
-
-********
-path: img/wall_east.png
- lenght 17
-********
-
-Finished parse_config_file...
-
-
-File closed...
-
-***** CHECKING STRUCTS CONTENT ******
-
-
-All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
-
-
-Checking if colors are parsed correctly...
-
-
-floor color: 220   100    0
-
-ceiling color: 225   30    0
-
-color_hex: dc6400ff    e11e00ff
-
-Checking if map is valid...
-
-Finished tests, map freed
-
-**************************************************************************************
-
-Map is valid
-
-**************************************************************************************
-
-Player position is valid: x position 9, y position 6, and the orientation is : S
-
-Exiting test_parse_valid_data...
-Next file: maps/look_west.cub
-************************************
-************************************
-Running with maps/look_west.cub
-
-Starting test_parse_valid_data...
-
-Is the file empty?...
-
- NOT empty ...continue
-
-***** INITIALIZATION OF THE STRUCTS ******
-
-Test if Map struct initialized...
-
-init_mapreqs() passed
-
-Map struct has been initialized successfully: ...0x6080000008a0
-
-Player position has been initialized successfully: x position 0, y position 0
-
-***** FILLING UP THE STRUCTURES ******
-
-Start filling the map with parse_config_file...
-
-********
-path: img/wall_no.png
- lenght 15
-********
-
-********
-path: img/wall_so.png
- lenght 15
-********
-
-********
-path: img/wall_west.png
- lenght 17
-********
-
-********
-path: img/wall_east.png
- lenght 17
-********
-
-Finished parse_config_file...
-
-
-File closed...
-
-***** CHECKING STRUCTS CONTENT ******
-
-
-All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
-
-
-Checking if colors are parsed correctly...
-
-
-floor color: 220   100    0
-
-ceiling color: 225   30    0
-
-color_hex: dc6400ff    e11e00ff
-
-Checking if map is valid...
-
-Finished tests, map freed
-
-**************************************************************************************
-
-Map is valid
-
-**************************************************************************************
-
-Player position is valid: x position 9, y position 6, and the orientation is : W
-
-Exiting test_parse_valid_data...
-Next file: maps/map_exp.cub
-************************************
-************************************
-Running with maps/map_exp.cub
-
-Starting test_parse_valid_data...
-
-Is the file empty?...
-
- NOT empty ...continue
-
-***** INITIALIZATION OF THE STRUCTS ******
-
-Test if Map struct initialized...
-
-init_mapreqs() passed
-
-Map struct has been initialized successfully: ...0x6080000008a0
-
-Player position has been initialized successfully: x position 0, y position 0
-
-***** FILLING UP THE STRUCTURES ******
-
-Start filling the map with parse_config_file...
-
-********
-path: img/wall_no.png
- lenght 15
-********
-
-********
-path: img/wall_so.png
- lenght 15
-********
-
-********
-path: img/wall_west.png
- lenght 17
-********
-
-********
-path: img/wall_east.png
- lenght 17
-********
-
-Finished parse_config_file...
-
-
-File closed...
-
-***** CHECKING STRUCTS CONTENT ******
-
-
-All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
-
-
-Checking if colors are parsed correctly...
-
-
-floor color: 220   100    0
-
-ceiling color: 225   30    0
-
-color_hex: dc6400ff    e11e00ff
-
-Checking if map is valid...
-
-Finished tests, map freed
-
-**************************************************************************************
-
-Map is valid
-
-**************************************************************************************
-
-Player position is valid: x position 26, y position 11, and the orientation is : N
-
-Exiting test_parse_valid_data...
-Next file: maps/maze.cub
-************************************
-************************************
-Running with maps/maze.cub
-
-Starting test_parse_valid_data...
-
-Is the file empty?...
-
- NOT empty ...continue
-
-***** INITIALIZATION OF THE STRUCTS ******
-
-Test if Map struct initialized...
-
-init_mapreqs() passed
-
-Map struct has been initialized successfully: ...0x6080000008a0
-
-Player position has been initialized successfully: x position 0, y position 0
-
-***** FILLING UP THE STRUCTURES ******
-
-Start filling the map with parse_config_file...
-
-********
-path: img/wall_no.png
- lenght 15
-********
-
-********
-path: img/wall_so.png
- lenght 15
-********
-
-********
-path: img/wall_west.png
- lenght 17
-********
-
-********
-path: img/wall_east.png
- lenght 17
-********
-
-Finished parse_config_file...
-
-
-File closed...
-
-***** CHECKING STRUCTS CONTENT ******
-
-
-All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
-
-
-Checking if colors are parsed correctly...
-
-
-floor color: 30   30    50
-
-ceiling color: 180   180    255
-
-color_hex: 1e1e32ff    b4b4ffff
+color_hex: beb27bff    87ceffff
 
 Checking if map is valid...
 
@@ -655,10 +83,12 @@ Map is valid
 Player position is valid: x position 1, y position 1, and the orientation is : N
 
 Exiting test_parse_valid_data...
-Next file: maps/maze_128.cub
+Next file: maps/valid/big.cub
 ************************************
 ************************************
-Running with maps/maze_128.cub
+Running with maps/valid/big.cub
+
+Is the file empty?...
 
 Starting test_parse_valid_data...
 
@@ -681,105 +111,23 @@ Player position has been initialized successfully: x position 0, y position 0
 Start filling the map with parse_config_file...
 
 ********
-path: img/wall_no.png
- lenght 15
+path: textures/Test1.png
+ lenght 18
 ********
 
 ********
-path: img/wall_so.png
- lenght 15
+path: textures/Test1.png
+ lenght 18
 ********
 
 ********
-path: img/wall_west.png
- lenght 17
+path: textures/Test1.png
+ lenght 18
 ********
 
 ********
-path: img/wall_east.png
- lenght 17
-********
-
-Finished parse_config_file...
-
-
-File closed...
-
-***** CHECKING STRUCTS CONTENT ******
-
-
-All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
-
-
-Checking if colors are parsed correctly...
-
-
-floor color: 30   30    50
-
-ceiling color: 180   180    255
-
-color_hex: 1e1e32ff    b4b4ffff
-
-Checking if map is valid...
-
-Finished tests, map freed
-
-**************************************************************************************
-
-Map is valid
-
-**************************************************************************************
-
-Player position is valid: x position 23, y position 9, and the orientation is : W
-
-Exiting test_parse_valid_data...
-Next file: maps/maze_color_128.cub
-************************************
-************************************
-Running with maps/maze_color_128.cub
-
-Starting test_parse_valid_data...
-
-Is the file empty?...
-
- NOT empty ...continue
-
-***** INITIALIZATION OF THE STRUCTS ******
-
-Test if Map struct initialized...
-
-init_mapreqs() passed
-
-Map struct has been initialized successfully: ...0x6080000008a0
-
-Player position has been initialized successfully: x position 0, y position 0
-
-***** FILLING UP THE STRUCTURES ******
-
-Start filling the map with parse_config_file...
-
-********
-path: img/wall_no.png
- lenght 15
-********
-
-********
-path: img/wall_so.png
- lenght 15
-********
-
-********
-path: img/wall_west.png
- lenght 17
-********
-
-********
-path: img/wall_east.png
- lenght 17
+path: textures/Test1.png
+ lenght 18
 ********
 
 Finished parse_config_file...
@@ -791,266 +139,20 @@ File closed...
 
 
 All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
+ north textures/Test1.png
+  east textures/Test1.png
+  west textures/Test1.png
+  south textures/Test1.png
 
 
 Checking if colors are parsed correctly...
 
 
-floor color: 30   30    50
-
-ceiling color: 180   180    255
-
-color_hex: 1e1e32ff    b4b4ffff
-
-Checking if map is valid...
-
-Finished tests, map freed
-
-**************************************************************************************
-
-Map is valid
-
-**************************************************************************************
-
-Player position is valid: x position 23, y position 9, and the orientation is : N
-
-Exiting test_parse_valid_data...
-Next file: maps/maze_color_64.cub
-************************************
-************************************
-Running with maps/maze_color_64.cub
-
-Starting test_parse_valid_data...
-
-Is the file empty?...
-
- NOT empty ...continue
-
-***** INITIALIZATION OF THE STRUCTS ******
-
-Test if Map struct initialized...
-
-init_mapreqs() passed
-
-Map struct has been initialized successfully: ...0x6080000008a0
-
-Player position has been initialized successfully: x position 0, y position 0
-
-***** FILLING UP THE STRUCTURES ******
-
-Start filling the map with parse_config_file...
-
-********
-path: img/wall_no.png
- lenght 15
-********
-
-********
-path: img/wall_so.png
- lenght 15
-********
-
-********
-path: img/wall_west.png
- lenght 17
-********
-
-********
-path: img/wall_east.png
- lenght 17
-********
-
-Finished parse_config_file...
-
-
-File closed...
-
-***** CHECKING STRUCTS CONTENT ******
-
-
-All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
-
-
-Checking if colors are parsed correctly...
-
-
-floor color: 30   30    50
-
-ceiling color: 180   180    255
-
-color_hex: 1e1e32ff    b4b4ffff
-
-Checking if map is valid...
-
-Finished tests, map freed
-
-**************************************************************************************
-
-Map is valid
-
-**************************************************************************************
-
-Player position is valid: x position 23, y position 9, and the orientation is : N
-
-Exiting test_parse_valid_data...
-Next file: maps/sample.cub
-************************************
-************************************
-Running with maps/sample.cub
-
-Starting test_parse_valid_data...
-
-Is the file empty?...
-
- NOT empty ...continue
-
-***** INITIALIZATION OF THE STRUCTS ******
-
-Test if Map struct initialized...
-
-init_mapreqs() passed
-
-Map struct has been initialized successfully: ...0x6080000008a0
-
-Player position has been initialized successfully: x position 0, y position 0
-
-***** FILLING UP THE STRUCTURES ******
-
-Start filling the map with parse_config_file...
-
-********
-path: img/wall_no.png
- lenght 15
-********
-
-********
-path: img/wall_so.png
- lenght 15
-********
-
-********
-path: img/wall_west.png
- lenght 17
-********
-
-********
-path: img/wall_east.png
- lenght 17
-********
-
-Finished parse_config_file...
-
-
-File closed...
-
-***** CHECKING STRUCTS CONTENT ******
-
-
-All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
-
-
-Checking if colors are parsed correctly...
-
-
-floor color: 124   252    0
-
-ceiling color: 25   25    112
-
-color_hex: 7cfc00ff    191970ff
-
-Checking if map is valid...
-
-Finished tests, map freed
-
-**************************************************************************************
-
-Map is valid
-
-**************************************************************************************
-
-Player position is valid: x position 26, y position 11, and the orientation is : N
-
-Exiting test_parse_valid_data...
-Next file: maps/t_64_15x15.cub
-************************************
-************************************
-Running with maps/t_64_15x15.cub
-
-Starting test_parse_valid_data...
-
-Is the file empty?...
-
- NOT empty ...continue
-
-***** INITIALIZATION OF THE STRUCTS ******
-
-Test if Map struct initialized...
-
-init_mapreqs() passed
-
-Map struct has been initialized successfully: ...0x6080000008a0
-
-Player position has been initialized successfully: x position 0, y position 0
-
-***** FILLING UP THE STRUCTURES ******
-
-Start filling the map with parse_config_file...
-
-********
-path: img/wall_no.png
- lenght 15
-********
-
-********
-path: img/wall_so.png
- lenght 15
-********
-
-********
-path: img/wall_west.png
- lenght 17
-********
-
-********
-path: img/wall_east.png
- lenght 17
-********
-
-Finished parse_config_file...
-
-
-File closed...
-
-***** CHECKING STRUCTS CONTENT ******
-
-
-All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
-
-
-Checking if colors are parsed correctly...
-
-
-floor color: 64   64    64
+floor color: 190   178    123
 
 ceiling color: 135   206    235
 
-color_hex: 404040ff    87ceebff
+color_hex: beb27bff    87ceebff
 
 Checking if map is valid...
 
@@ -1062,13 +164,15 @@ Map is valid
 
 **************************************************************************************
 
-Player position is valid: x position 7, y position 7, and the orientation is : S
+Player position is valid: x position 126, y position 11, and the orientation is : W
 
 Exiting test_parse_valid_data...
-Next file: maps/t_64_3x3.cub
+Next file: maps/valid/crazy.cub
 ************************************
 ************************************
-Running with maps/t_64_3x3.cub
+Running with maps/valid/crazy.cub
+
+Is the file empty?...
 
 Starting test_parse_valid_data...
 
@@ -1091,105 +195,23 @@ Player position has been initialized successfully: x position 0, y position 0
 Start filling the map with parse_config_file...
 
 ********
-path: img/wall_no.png
- lenght 15
+path: textures/Test1.png
+ lenght 18
 ********
 
 ********
-path: img/wall_so.png
- lenght 15
+path: textures/Test2.png
+ lenght 18
 ********
 
 ********
-path: img/wall_west.png
- lenght 17
+path: textures/Test3.png
+ lenght 18
 ********
 
 ********
-path: img/wall_east.png
- lenght 17
-********
-
-Finished parse_config_file...
-
-
-File closed...
-
-***** CHECKING STRUCTS CONTENT ******
-
-
-All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
-
-
-Checking if colors are parsed correctly...
-
-
-floor color: 30   30    50
-
-ceiling color: 180   180    255
-
-color_hex: 1e1e32ff    b4b4ffff
-
-Checking if map is valid...
-
-Finished tests, map freed
-
-**************************************************************************************
-
-Map is valid
-
-**************************************************************************************
-
-Player position is valid: x position 1, y position 1, and the orientation is : S
-
-Exiting test_parse_valid_data...
-Next file: maps/test.cub
-************************************
-************************************
-Running with maps/test.cub
-
-Starting test_parse_valid_data...
-
-Is the file empty?...
-
- NOT empty ...continue
-
-***** INITIALIZATION OF THE STRUCTS ******
-
-Test if Map struct initialized...
-
-init_mapreqs() passed
-
-Map struct has been initialized successfully: ...0x6080000008a0
-
-Player position has been initialized successfully: x position 0, y position 0
-
-***** FILLING UP THE STRUCTURES ******
-
-Start filling the map with parse_config_file...
-
-********
-path: img/wall_so.png
- lenght 15
-********
-
-********
-path: img/wall_west.png
- lenght 17
-********
-
-********
-path: img/wall_east.png
- lenght 17
-********
-
-********
-path: img/wall_no.png
- lenght 15
+path: textures/Test4.png
+ lenght 18
 ********
 
 Finished parse_config_file...
@@ -1201,346 +223,33 @@ File closed...
 
 
 All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
+ north textures/Test1.png
+  east textures/Test4.png
+  west textures/Test3.png
+  south textures/Test2.png
 
 
 Checking if colors are parsed correctly...
 
 
-floor color: 220   100    119
+floor color: 50   50    50
 
-ceiling color: 225   30    0
+ceiling color: 0   0    0
 
-color_hex: dc6477ff    e11e00ff
-
-Checking if map is valid...
-
-Finished tests, map freed
-
-**************************************************************************************
-
-Map is valid
-
-**************************************************************************************
-
-Player position is valid: x position 7, y position 10, and the orientation is : N
-
-Exiting test_parse_valid_data...
-Next file: maps/test1.cub
-************************************
-************************************
-Running with maps/test1.cub
-
-Starting test_parse_valid_data...
-
-Is the file empty?...
-
- NOT empty ...continue
-
-***** INITIALIZATION OF THE STRUCTS ******
-
-Test if Map struct initialized...
-
-init_mapreqs() passed
-
-Map struct has been initialized successfully: ...0x6080000008a0
-
-Player position has been initialized successfully: x position 0, y position 0
-
-***** FILLING UP THE STRUCTURES ******
-
-Start filling the map with parse_config_file...
-
-********
-path: img/create-your-wallpaper.png
- lenght 29
-********
-
-********
-path: img/create-your-wallpaper.png
- lenght 29
-********
-
-********
-path: img/create-your-wallpaper.png
- lenght 29
-********
-
-********
-path: img/enemy.png
- lenght 13
-********
-
-Finished parse_config_file...
-
-
-File closed...
-
-***** CHECKING STRUCTS CONTENT ******
-
-
-All 4 textures paths are loaded successfully:
- north img/create-your-wallpaper.png
-  east img/enemy.png
-  west img/create-your-wallpaper.png
-  south img/create-your-wallpaper.png
-
-
-Checking if colors are parsed correctly...
-
-
-floor color: 19   133    16
-
-ceiling color: 135   206    235
-
-color_hex: 138510ff    87ceebff
-
-Checking if map is valid...
-
-Finished tests, map freed
-
-**************************************************************************************
-
-Map is valid
-
-**************************************************************************************
-
-Player position is valid: x position 4, y position 9, and the orientation is : N
-
-Exiting test_parse_valid_data...
-Next file: maps/test1_copy.cub
-************************************
-************************************
-Running with maps/test1_copy.cub
-
-Starting test_parse_valid_data...
-
-Is the file empty?...
-
- NOT empty ...continue
-
-***** INITIALIZATION OF THE STRUCTS ******
-
-Test if Map struct initialized...
-
-init_mapreqs() passed
-
-Map struct has been initialized successfully: ...0x6080000008a0
-
-Player position has been initialized successfully: x position 0, y position 0
-
-***** FILLING UP THE STRUCTURES ******
-
-Start filling the map with parse_config_file...
-
-********
-path: img/create-your-wallpaper.png
- lenght 29
-********
-
-********
-path: img/create-your-wallpaper.png
- lenght 29
-********
-
-********
-path: img/create-your-wallpaper.png
- lenght 29
-********
-
-********
-path: img/enemy.png
- lenght 13
-********
-
-Finished parse_config_file...
-
-
-File closed...
-
-***** CHECKING STRUCTS CONTENT ******
-
-
-All 4 textures paths are loaded successfully:
- north img/create-your-wallpaper.png
-  east img/enemy.png
-  west img/create-your-wallpaper.png
-  south img/create-your-wallpaper.png
-
-
-Checking if colors are parsed correctly...
-
-
-floor color: 19   133    16
-
-ceiling color: 135   206    235
-
-color_hex: 138510ff    87ceebff
-
-Checking if map is valid...
-
-Finished tests, map freed
-
-**************************************************************************************
-
-Map is valid
-
-**************************************************************************************
-
-Player position is valid: x position 4, y position 9, and the orientation is : N
-
-Exiting test_parse_valid_data...
-Next file: maps/test2_2Play.cub
-************************************
-************************************
-Running with maps/test2_2Play.cub
-
-Starting test_parse_valid_data...
-
-Is the file empty?...
-
- NOT empty ...continue
-
-***** INITIALIZATION OF THE STRUCTS ******
-
-Test if Map struct initialized...
-
-init_mapreqs() passed
-
-Map struct has been initialized successfully: ...0x6080000008a0
-
-Player position has been initialized successfully: x position 0, y position 0
-
-***** FILLING UP THE STRUCTURES ******
-
-Start filling the map with parse_config_file...
-
-********
-path: img/create-your-wallpaper.png
- lenght 29
-********
-
-********
-path: img/create-your-wallpaper.png
- lenght 29
-********
-
-********
-path: img/create-your-wallpaper.png
- lenght 29
-********
-
-********
-path: img/enemy.png
- lenght 13
-********
-
-Finished parse_config_file...
-
-
-File closed...
-
-***** CHECKING STRUCTS CONTENT ******
-
-
-All 4 textures paths are loaded successfully:
- north img/create-your-wallpaper.png
-  east img/enemy.png
-  west img/create-your-wallpaper.png
-  south img/create-your-wallpaper.png
-
-
-Checking if colors are parsed correctly...
-
-
-floor color: 19   133    16
-
-ceiling color: 135   206    235
-
-color_hex: 138510ff    87ceebff
+color_hex: 323232ff    ff
 
 Checking if map is valid...
 Error
-: Components validation failed. 
-Next file: maps/test2_2players.cub
-************************************
-************************************
-Running with maps/test2_2players.cub
-
-Starting test_parse_valid_data...
-
-Is the file empty?...
-
- NOT empty ...continue
-
-***** INITIALIZATION OF THE STRUCTS ******
-
-Test if Map struct initialized...
-
-init_mapreqs() passed
-
-Map struct has been initialized successfully: ...0x6080000008a0
-
-Player position has been initialized successfully: x position 0, y position 0
-
-***** FILLING UP THE STRUCTURES ******
-
-Start filling the map with parse_config_file...
-
-********
-path: img/wall_no.png
- lenght 15
-********
-
-********
-path: img/wall_so.png
- lenght 15
-********
-
-********
-path: img/wall_west.png
- lenght 17
-********
-
-********
-path: img/wall_east.png
- lenght 17
-********
-
-Finished parse_config_file...
-
-
-File closed...
-
-***** CHECKING STRUCTS CONTENT ******
-
-
-All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
-
-
-Checking if colors are parsed correctly...
-
-
-floor color: 19   133    16
-
-ceiling color: 135   206    235
-
-color_hex: 138510ff    87ceebff
-
-Checking if map is valid...
+: Middle rows must start and end with '1'. 
+Error in middle lines
 Error
-: Components validation failed. 
-Next file: maps/test3.cub
+: Wall or tiles check failed. 
+Next file: maps/valid/crazy_bonus.cub
 ************************************
 ************************************
-Running with maps/test3.cub
+Running with maps/valid/crazy_bonus.cub
+
+Is the file empty?...
 
 Starting test_parse_valid_data...
 
@@ -1563,23 +272,23 @@ Player position has been initialized successfully: x position 0, y position 0
 Start filling the map with parse_config_file...
 
 ********
-path: img/wall_no.png
- lenght 15
+path: textures/Test5.png
+ lenght 18
 ********
 
 ********
-path: img/wall_so.png
- lenght 15
+path: textures/Test5.png
+ lenght 18
 ********
 
 ********
-path: img/wall_west.png
- lenght 17
+path: textures/Test5.png
+ lenght 18
 ********
 
 ********
-path: img/wall_east.png
- lenght 17
+path: textures/Test5.png
+ lenght 18
 ********
 
 Finished parse_config_file...
@@ -1591,20 +300,104 @@ File closed...
 
 
 All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
+ north textures/Test5.png
+  east textures/Test5.png
+  west textures/Test5.png
+  south textures/Test5.png
 
 
 Checking if colors are parsed correctly...
 
 
-floor color: 19   133    16
+floor color: 50   50    50
+
+ceiling color: 0   0    0
+
+color_hex: 323232ff    ff
+
+Checking if map is valid...
+
+Finished tests, map freed
+
+**************************************************************************************
+
+Map is valid
+
+**************************************************************************************
+
+Player position is valid: x position 6, y position 12, and the orientation is : N
+
+Exiting test_parse_valid_data...
+Next file: maps/valid/hole.cub
+************************************
+************************************
+Running with maps/valid/hole.cub
+
+Is the file empty?...
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+ NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x6080000008a0
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+
+********
+path: textures/Test1.png
+ lenght 18
+********
+
+********
+path: textures/Test1.png
+ lenght 18
+********
+
+********
+path: textures/Test1.png
+ lenght 18
+********
+
+********
+path: textures/Test1.png
+ lenght 18
+********
+
+Finished parse_config_file...
+
+
+File closed...
+
+***** CHECKING STRUCTS CONTENT ******
+
+
+All 4 textures paths are loaded successfully:
+ north textures/Test1.png
+  east textures/Test1.png
+  west textures/Test1.png
+  south textures/Test1.png
+
+
+Checking if colors are parsed correctly...
+
+
+floor color: 190   178    123
 
 ceiling color: 135   206    235
 
-color_hex: 138510ff    87ceebff
+color_hex: beb27bff    87ceebff
 
 Checking if map is valid...
 
@@ -1616,13 +409,15 @@ Map is valid
 
 **************************************************************************************
 
-Player position is valid: x position 4, y position 9, and the orientation is : N
+Player position is valid: x position 8, y position 5, and the orientation is : E
 
 Exiting test_parse_valid_data...
-Next file: maps/test3_copy.cub
+Next file: maps/valid/mid_cube.cub
 ************************************
 ************************************
-Running with maps/test3_copy.cub
+Running with maps/valid/mid_cube.cub
+
+Is the file empty?...
 
 Starting test_parse_valid_data...
 
@@ -1682,93 +477,11 @@ All 4 textures paths are loaded successfully:
 Checking if colors are parsed correctly...
 
 
-floor color: 19   133    16
+floor color: 255   255    0
 
-ceiling color: 135   206    235
+ceiling color: 255   255    255
 
-color_hex: 138510ff    87ceebff
-
-Checking if map is valid...
-
-Finished tests, map freed
-
-**************************************************************************************
-
-Map is valid
-
-**************************************************************************************
-
-Player position is valid: x position 4, y position 9, and the orientation is : N
-
-Exiting test_parse_valid_data...
-Next file: maps/test_01.cub
-************************************
-************************************
-Running with maps/test_01.cub
-
-Starting test_parse_valid_data...
-
-Is the file empty?...
-
- NOT empty ...continue
-
-***** INITIALIZATION OF THE STRUCTS ******
-
-Test if Map struct initialized...
-
-init_mapreqs() passed
-
-Map struct has been initialized successfully: ...0x6080000008a0
-
-Player position has been initialized successfully: x position 0, y position 0
-
-***** FILLING UP THE STRUCTURES ******
-
-Start filling the map with parse_config_file...
-
-********
-path: img/create-your-wallpaper.png
- lenght 29
-********
-
-********
-path: img/create-your-wallpaper.png
- lenght 29
-********
-
-********
-path: img/create-your-wallpaper.png
- lenght 29
-********
-
-********
-path: img/enemy.png
- lenght 13
-********
-
-Finished parse_config_file...
-
-
-File closed...
-
-***** CHECKING STRUCTS CONTENT ******
-
-
-All 4 textures paths are loaded successfully:
- north img/create-your-wallpaper.png
-  east img/enemy.png
-  west img/create-your-wallpaper.png
-  south img/create-your-wallpaper.png
-
-
-Checking if colors are parsed correctly...
-
-
-floor color: 64   64    64
-
-ceiling color: 135   206    235
-
-color_hex: 404040ff    87ceebff
+color_hex: ffff00ff    ffffffff
 
 Checking if map is valid...
 
@@ -1780,422 +493,14 @@ Map is valid
 
 **************************************************************************************
 
-Player position is valid: x position 7, y position 7, and the orientation is : S
+Player position is valid: x position 21, y position 8, and the orientation is : W
 
 Exiting test_parse_valid_data...
-Next file: maps/test_128.cub
-************************************
-************************************
-Running with maps/test_128.cub
-
-Starting test_parse_valid_data...
-
-Is the file empty?...
-
- NOT empty ...continue
-
-***** INITIALIZATION OF THE STRUCTS ******
-
-Test if Map struct initialized...
-
-init_mapreqs() passed
-
-Map struct has been initialized successfully: ...0x6080000008a0
-
-Player position has been initialized successfully: x position 0, y position 0
-
-***** FILLING UP THE STRUCTURES ******
-
-Start filling the map with parse_config_file...
-
-********
-path: img/wall_no.png
- lenght 15
-********
-
-********
-path: img/wall_so.png
- lenght 15
-********
-
-********
-path: img/wall_west.png
- lenght 17
-********
-
-********
-path: img/wall_east.png
- lenght 17
-********
-
-Finished parse_config_file...
-
-
-File closed...
-
-***** CHECKING STRUCTS CONTENT ******
-
-
-All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
-
-
-Checking if colors are parsed correctly...
-
-
-floor color: 124   252    0
-
-ceiling color: 25   25    112
-
-color_hex: 7cfc00ff    191970ff
-
-Checking if map is valid...
-
-Finished tests, map freed
-
-**************************************************************************************
-
-Map is valid
-
-**************************************************************************************
-
-Player position is valid: x position 26, y position 11, and the orientation is : N
-
-Exiting test_parse_valid_data...
-Next file: maps/test_64.cub
-************************************
-************************************
-Running with maps/test_64.cub
-
-Starting test_parse_valid_data...
-
-Is the file empty?...
-
- NOT empty ...continue
-
-***** INITIALIZATION OF THE STRUCTS ******
-
-Test if Map struct initialized...
-
-init_mapreqs() passed
-
-Map struct has been initialized successfully: ...0x6080000008a0
-
-Player position has been initialized successfully: x position 0, y position 0
-
-***** FILLING UP THE STRUCTURES ******
-
-Start filling the map with parse_config_file...
-
-********
-path: img/wall_no.png
- lenght 15
-********
-
-********
-path: img/wall_so.png
- lenght 15
-********
-
-********
-path: img/wall_west.png
- lenght 17
-********
-
-********
-path: img/wall_east.png
- lenght 17
-********
-
-Finished parse_config_file...
-
-
-File closed...
-
-***** CHECKING STRUCTS CONTENT ******
-
-
-All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
-
-
-Checking if colors are parsed correctly...
-
-
-floor color: 124   252    0
-
-ceiling color: 25   25    112
-
-color_hex: 7cfc00ff    191970ff
-
-Checking if map is valid...
-
-Finished tests, map freed
-
-**************************************************************************************
-
-Map is valid
-
-**************************************************************************************
-
-Player position is valid: x position 26, y position 11, and the orientation is : N
-
-Exiting test_parse_valid_data...
-Next file: maps/test_64_9x9.cub
-************************************
-************************************
-Running with maps/test_64_9x9.cub
-
-Starting test_parse_valid_data...
-
-Is the file empty?...
-
- NOT empty ...continue
-
-***** INITIALIZATION OF THE STRUCTS ******
-
-Test if Map struct initialized...
-
-init_mapreqs() passed
-
-Map struct has been initialized successfully: ...0x6080000008a0
-
-Player position has been initialized successfully: x position 0, y position 0
-
-***** FILLING UP THE STRUCTURES ******
-
-Start filling the map with parse_config_file...
-
-********
-path: img/wall_no.png
- lenght 15
-********
-
-********
-path: img/wall_so.png
- lenght 15
-********
-
-********
-path: img/wall_west.png
- lenght 17
-********
-
-********
-path: img/wall_east.png
- lenght 17
-********
-
-Finished parse_config_file...
-
-
-File closed...
-
-***** CHECKING STRUCTS CONTENT ******
-
-
-All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
-
-
-Checking if colors are parsed correctly...
-
-
-floor color: 124   252    0
-
-ceiling color: 135   206    235
-
-color_hex: 7cfc00ff    87ceebff
-
-Checking if map is valid...
-
-Finished tests, map freed
-
-**************************************************************************************
-
-Map is valid
-
-**************************************************************************************
-
-Player position is valid: x position 4, y position 4, and the orientation is : N
-
-Exiting test_parse_valid_data...
-Next file: maps/test_64x64_0.cub
-************************************
-************************************
-Running with maps/test_64x64_0.cub
-
-Starting test_parse_valid_data...
-
-Is the file empty?...
-
- NOT empty ...continue
-
-***** INITIALIZATION OF THE STRUCTS ******
-
-Test if Map struct initialized...
-
-init_mapreqs() passed
-
-Map struct has been initialized successfully: ...0x6080000008a0
-
-Player position has been initialized successfully: x position 0, y position 0
-
-***** FILLING UP THE STRUCTURES ******
-
-Start filling the map with parse_config_file...
-
-********
-path: img/wall_no.png
- lenght 15
-********
-
-********
-path: img/wall_so.png
- lenght 15
-********
-
-********
-path: img/wall_west.png
- lenght 17
-********
-
-********
-path: img/wall_east.png
- lenght 17
-********
-
-Finished parse_config_file...
-
-
-File closed...
-
-***** CHECKING STRUCTS CONTENT ******
-
-
-All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
-
-
-Checking if colors are parsed correctly...
-
-
-floor color: 161   133    148
-
-ceiling color: 127   181    181
-
-color_hex: a18594ff    7fb5b5ff
-
-Checking if map is valid...
-
-Finished tests, map freed
-
-**************************************************************************************
-
-Map is valid
-
-**************************************************************************************
-
-Player position is valid: x position 3, y position 5, and the orientation is : E
-
-Exiting test_parse_valid_data...
-Next file: maps/test_lakner.cub
-************************************
-************************************
-Running with maps/test_lakner.cub
-
-Starting test_parse_valid_data...
-
-Is the file empty?...
-
- NOT empty ...continue
-
-***** INITIALIZATION OF THE STRUCTS ******
-
-Test if Map struct initialized...
-
-init_mapreqs() passed
-
-Map struct has been initialized successfully: ...0x6080000008a0
-
-Player position has been initialized successfully: x position 0, y position 0
-
-***** FILLING UP THE STRUCTURES ******
-
-Start filling the map with parse_config_file...
-
-********
-path: img/wall_so.png
- lenght 15
-********
-
-********
-path: img/wall_west.png
- lenght 17
-********
-
-********
-path: img/wall_east.png
- lenght 17
-********
-
-********
-path: img/wall_no.png
- lenght 15
-********
-
-Finished parse_config_file...
-
-
-File closed...
-
-***** CHECKING STRUCTS CONTENT ******
-
-
-All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
-
-
-Checking if colors are parsed correctly...
-
-
-floor color: 220   100    119
-
-ceiling color: 225   30    0
-
-color_hex: dc6477ff    e11e00ff
-
-Checking if map is valid...
-
-Finished tests, map freed
-
-**************************************************************************************
-
-Map is valid
-
-**************************************************************************************
-
-Player position is valid: x position 7, y position 10, and the orientation is : N
-
-Exiting test_parse_valid_data...
-Next file: maps/ttest.cub
+Next file: maps/valid/simpleandvalid.cub
 ******************
-Running with maps/ttest.cub
+Running with maps/valid/simpleandvalid.cub
+
+Is the file empty?...
 
 Starting test_parse_valid_data...
 
@@ -2218,23 +523,23 @@ Player position has been initialized successfully: x position 0, y position 0
 Start filling the map with parse_config_file...
 
 ********
-path: img/wall_no.png
- lenght 15
+path: textures/Test1.png
+ lenght 18
 ********
 
 ********
-path: img/wall_so.png
- lenght 15
+path: textures/Test1.png
+ lenght 18
 ********
 
 ********
-path: img/wall_west.png
- lenght 17
+path: textures/Test1.png
+ lenght 18
 ********
 
 ********
-path: img/wall_east.png
- lenght 17
+path: textures/Test1.png
+ lenght 18
 ********
 
 Finished parse_config_file...
@@ -2246,20 +551,20 @@ File closed...
 
 
 All 4 textures paths are loaded successfully:
- north img/wall_no.png
-  east img/wall_east.png
-  west img/wall_west.png
-  south img/wall_so.png
+ north textures/Test1.png
+  east textures/Test1.png
+  west textures/Test1.png
+  south textures/Test1.png
 
 
 Checking if colors are parsed correctly...
 
 
-floor color: 20   142    255
+floor color: 0   0    0
 
-ceiling color: 120   180    250
+ceiling color: 10   10    10
 
-color_hex: 148effff    78b4faff
+color_hex: ff    a0a0aff
 
 Checking if map is valid...
 
@@ -2271,7 +576,7 @@ Map is valid
 
 **************************************************************************************
 
-Player position is valid: x position 2, y position 10, and the orientation is : N
+Player position is valid: x position 1, y position 4, and the orientation is : N
 
 Exiting test_parse_valid_data...
 ******************

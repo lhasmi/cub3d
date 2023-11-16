@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 19:26:09 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/16 20:52:47 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/16 20:55:13 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,10 +128,10 @@ bool parse_line(char *line, t_map *map, int fd)
 		parse_color(line, map, "F");
 	else if (line[0] == 'C')
 		parse_color(line, map, "C");
-	else if (ft_strchr("01NSEW ", line[0]))
+	else if (is_line_a_wall(line))
 		fill_map_tiles(map, fd, line);
 	else
-		free_map_exit(map, "Error\n Invalid line prefix in configuration file", 1);
+		free_map_exit(map, "Invalid line prefix in configuration file", 1);
 	return true;
 }
 

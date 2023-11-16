@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 14:50:21 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/16 20:52:57 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/16 20:55:52 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,7 @@ void test_parse_valid_data(const char *file_name)
 	t_map	*map;
 	int		fd;
 
-	printf("\nIs the file empty?...\n");
-	if (is_cub_file_empty(file_name) == - 1)
-	{
-		ft_error("unable to open file");
-		exit(1);
-	}
-	else if(is_cub_file_empty(file_name) == 1)
-	{
-		ft_error("Empty file");
-		exit(1);
-	}
+
 	printf("\nStarting test_parse_valid_data...\n");
 	printf("\nIs the file empty?...\n");
 	if (is_cub_file_empty(file_name) == - 1)

@@ -6,7 +6,7 @@
 #    By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 09:17:22 by lhasmi            #+#    #+#              #
-#    Updated: 2023/11/16 20:39:55 by lhasmi           ###   ########.fr        #
+#    Updated: 2023/11/16 20:57:50 by lhasmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ Obj/%.o: src/%.c
 validtests:
 	@echo "Starting valid tests..." > validtests.log
 	@echo "******************" >> validtests.log
-	@files=$$(ls maps/*.cub); \
+	@files=$$(ls maps/valid/*.cub); \
 	prev=""; \
 	for file in $$files; do \
 		if [ -n "$$prev" ]; then \
