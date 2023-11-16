@@ -200,6 +200,8 @@ void		parse_color(char *line, t_map *map, const char *color_id);
 
 t_map	*init_map_struct();
 t_color *init_color_struct();
+bool parse_line(char *line, t_map *map, int fd);
+bool parse_texture(char *line, t_map *map, const char *texture_id);
 
 bool	check_walls(t_map *map);
 bool	validate_components(t_map *map);
@@ -213,5 +215,6 @@ bool	map_valid(t_map *map);
 int		rgb_to_hex(int r, int g, int b);
 int		trim_leading_ws(char *line);
 bool	is_line_a_wall(char *line);
+int		is_cub_file_empty(const char *filepath);
 
 #endif
