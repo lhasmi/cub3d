@@ -1,0 +1,23 @@
+Testing t_map struct initialisation
+
+DONE see parser_tester.C
+
+Testing t_map struct destruction
+
+DONE see parser_tester.C
+
+Potential other tests
+
+Test Other Fields: Include assertions for other texture paths (so_texture, we_texture, ea_texture),
+ as well as the floor_color and ceiling_color, to ensure they are also being parsed correctly.
+
+Test Map Layout: Verify that the map layout (tiles) is being parsed and stored correctly
+ in the t_map structure.
+
+Memory Leak Check: Use tools like Valgrind to run your tests and check for memory leaks.
+ This will help ensure that all memory allocated during parsing and throughout the lifetime
+  of your program is being freed correctly.
+
+Automated Test Suite: If you plan on expanding your test cases, consider using a testing 
+framework to automate the process, making it easier to run a suite of tests with various 
+inputs and checking a range of assertions.

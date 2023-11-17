@@ -1,0 +1,315 @@
+Starting invalid tests...
+Current directory: /Users/lailah/Library/Mobile Documents/com~apple~CloudDocs/cloudDesk42/cub3D_all/cub3d_hh
+******************
+************************************
+************************************
+Running with maps/invalid/bad_file.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000d20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+Error
+: Invalid line prefix in configuration file 
+Next file: maps/invalid/bad_rgb.cub
+************************************
+************************************
+Running with maps/invalid/bad_rgb.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000d20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+Error
+: Error: Invalid color 
+Next file: maps/invalid/dfs.cub
+************************************
+************************************
+Running with maps/invalid/dfs.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000d20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+Error
+: Invalid line prefix in configuration file 
+Next file: maps/invalid/empty.cub
+************************************
+************************************
+Running with maps/invalid/empty.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+Error
+: Empty file 
+Next file: maps/invalid/line_inside.cub
+************************************
+************************************
+Running with maps/invalid/line_inside.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000d20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+Error
+: Invalid line prefix in configuration file 
+Next file: maps/invalid/randomsomeshit.cub
+************************************
+************************************
+Running with maps/invalid/randomsomeshit.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000d20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+
+Finished parse_config_file...
+
+File closed...
+
+***** CHECKING STRUCTS CONTENT ******
+
+All 4 textures paths are loaded successfully:
+ north textures/Test1.png
+  east textures/Test1.png
+  west textures/Test1.png
+  south textures/Test1.png
+
+Checking if colors are parsed correctly...
+
+floor color: 190   178    123
+
+ceiling color: 135   206    235
+
+color_hex: beb27bff    87ceebff
+
+Checking if map is valid...
+Error
+: Middle rows must start and end with '1'. 
+Error in middle lines
+Error
+: Wall or tiles check failed. 
+Next file: maps/invalid/simple.cub
+************************************
+************************************
+Running with maps/invalid/simple.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000d20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+
+Finished parse_config_file...
+
+File closed...
+
+***** CHECKING STRUCTS CONTENT ******
+
+All 4 textures paths are loaded successfully:
+ north textures/Test1.png
+  east textures/Test4.png
+  west textures/Test3.png
+  south textures/Test2.png
+
+Checking if colors are parsed correctly...
+
+floor color: 190   178    123
+
+ceiling color: 135   206    235
+
+color_hex: beb27bff    87ceebff
+
+Checking if map is valid...
+Error
+: Middle rows must start and end with '1'. 
+Error in middle lines
+Error
+: Wall or tiles check failed. 
+Next file: maps/invalid/test2_2Play.cub
+************************************
+************************************
+Running with maps/invalid/test2_2Play.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000d20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+
+Finished parse_config_file...
+
+File closed...
+
+***** CHECKING STRUCTS CONTENT ******
+
+All 4 textures paths are loaded successfully:
+ north img/create-your-wallpaper.png
+  east img/enemy.png
+  west img/create-your-wallpaper.png
+  south img/create-your-wallpaper.png
+
+Checking if colors are parsed correctly...
+
+floor color: 19   133    16
+
+ceiling color: 135   206    235
+
+color_hex: 138510ff    87ceebff
+
+Checking if map is valid...
+Error
+: Components validation failed. 
+Next file: maps/invalid/test2_2players.cub
+******************
+Running with maps/invalid/test2_2players.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000d20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+
+Finished parse_config_file...
+
+File closed...
+
+***** CHECKING STRUCTS CONTENT ******
+
+All 4 textures paths are loaded successfully:
+ north img/wall_no.png
+  east img/wall_east.png
+  west img/wall_west.png
+  south img/wall_so.png
+
+Checking if colors are parsed correctly...
+
+floor color: 19   133    16
+
+ceiling color: 135   206    235
+
+color_hex: 138510ff    87ceebff
+
+Checking if map is valid...
+Error
+: Components validation failed. 
+******************
+All tests completed.
