@@ -64,10 +64,10 @@ void loop_hook(void *param)
 
 	if (mlx_is_key_down(scene->mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(scene->mlx);
-	if (mlx_is_key_down(scene->mlx, MLX_KEY_UP))
-		scene->player.pitch -= 0.05;
-	if (mlx_is_key_down(scene->mlx, MLX_KEY_DOWN))
-		scene->player.pitch += 0.05;
+	// if (mlx_is_key_down(scene->mlx, MLX_KEY_UP))
+	// 	scene->player.pitch -= 0.05;
+	// if (mlx_is_key_down(scene->mlx, MLX_KEY_DOWN))
+	// 	scene->player.pitch += 0.05;
 	if (mlx_is_key_down(scene->mlx, MLX_KEY_LEFT))
 		scene->player.yaw -= 0.05;
 	if (mlx_is_key_down(scene->mlx, MLX_KEY_RIGHT))
@@ -84,6 +84,29 @@ void loop_hook(void *param)
 		player_move_left(&scene->player);
 	if (mlx_is_key_down(scene->mlx, MLX_KEY_D))
 		player_move_right(&scene->player);
+	player_collide(scene);
+	// if (mlx_is_key_down(scene->mlx, MLX_KEY_S))
+		// scene->player.position.y += .1;
+	// if (mlx_is_key_down(scene->mlx, MLX_KEY_W))
+		// scene->player.position.y += -.1;
+	// if (mlx_is_key_down(scene->mlx, MLX_KEY_A))
+		// scene->player.position.x += -.1;
+	// if (mlx_is_key_down(scene->mlx, MLX_KEY_D))
+		// scene->player.position.x += .1;
+
+	int32_t x;
+	int32_t y;
+
+	mlx_get_mouse_pos(scene->mlx, &x, &y);
+
+	scene->mouse.x = (double) x;
+	scene->mouse.y = (double) y;
+	scene->mouse.z = 0.0;
+
+	// printf("%d, %d\n", x, y);
+
+	// vec_print(scene->player.position);
+
 	scene_draw(scene);
 }
 
@@ -95,17 +118,18 @@ int32_t main(int32_t argc, const char* argv[])
 	t_scene	scene;
 
 	scene.player = (t_player){
-		vec_create(0, 0, 0),
+		vec_create(2.5, 2.5, 0),
 		0,
 		0,
 	};
 	scene.size = vec_create(WIDTH, HEIGHT, 0);
+	scene.map_size = vec_create(10, 10, 0);
 	scene.map =
 		"1111111111"
 		"1000000001"
-		"1000000001"
-		"1000000001"
-		"1000000001"
+		"1011111001"
+		"1010000001"
+		"1010110001"
 		"1000000001"
 		"1000000001"
 		"1000000001"
@@ -113,12 +137,15 @@ int32_t main(int32_t argc, const char* argv[])
 		"1111111111";
 
 	// Gotta error check this stuff
-	if (!(mlx = scene.mlx = mlx_init(WIDTH, HEIGHT, "Cub3d", true)))
+	if (!(mlx = scene.mlx = mlx_init(WIDTH, HEIGHT, "cub3D", true)))
 	{
 		puts(mlx_strerror(mlx_errno));
 		return(EXIT_FAILURE);
 	}
-	scene.tex = mlx_load_png("imgs/img.png");
+	scene.tex[0] = mlx_load_png("imgs/img.png");
+	scene.tex[1] = mlx_load_png("imgs/img.png");
+	scene.tex[2] = mlx_load_png("imgs/img.png");
+	scene.tex[3] = mlx_load_png("imgs/img.png");
 	if (!(scene.image = mlx_new_image(mlx, WIDTH, HEIGHT)))
 	{
 		mlx_close_window(mlx);
@@ -126,6 +153,19 @@ int32_t main(int32_t argc, const char* argv[])
 		return(EXIT_FAILURE);
 	}
 	if (mlx_image_to_window(mlx, scene.image, 0, 0) == -1)
+	{
+		mlx_close_window(mlx);
+		puts(mlx_strerror(mlx_errno));
+		return(EXIT_FAILURE);
+	}
+
+	if (!(scene.minimap = mlx_new_image(mlx, 100, 100)))
+	{
+		mlx_close_window(mlx);
+		puts(mlx_strerror(mlx_errno));
+		return(EXIT_FAILURE);
+	}
+	if (mlx_image_to_window(mlx, scene.minimap, 0, 0) == -1)
 	{
 		mlx_close_window(mlx);
 		puts(mlx_strerror(mlx_errno));

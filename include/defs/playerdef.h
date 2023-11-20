@@ -6,7 +6,6 @@
 typedef struct s_player
 {
 	t_vec	position;
-	double	pitch;
 	double	yaw;
 }	t_player;
 

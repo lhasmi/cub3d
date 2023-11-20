@@ -14,6 +14,7 @@ t_vec	vec_div_scalar(t_vec v, double scalar);
 double	vec_length(t_vec v);
 
 t_vec 	vec_rotate(t_vec v, double pitch, double yaw);
+t_vec	vec_correct(t_vec v);
 
 void	vec_print(t_vec v);
 

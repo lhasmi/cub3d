@@ -15,9 +15,9 @@ t_vec	vec_rotate(t_vec v, double pitch, double yaw)
 		0.0, sin(pitch), cos(pitch)
 	);
 	mat_create(mat_yaw,
-		cos(yaw), 0.0, sin(yaw),
-		0.0, 1.0, 0.0,
-		-sin(yaw), 0.0, cos(yaw)
-	);
+        cos(yaw), -sin(yaw), 0.0,
+        sin(yaw), cos(yaw), 0.0,
+        0.0, 0.0, 1.0
+    );
 	return (mat_apply(mat_apply(v, mat_pitch), mat_yaw));
 }

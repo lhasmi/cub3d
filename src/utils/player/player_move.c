@@ -5,7 +5,7 @@ void	player_move_left(t_player *player)
 {
 	t_vec	new;
 
-	new = vec_add(player->position, player_get_left(player));
+	new = vec_add(player->position, vec_mult_scalar(player_get_left(player), 0.1));
 	player->position = new;
 }
 
@@ -13,7 +13,7 @@ void	player_move_right(t_player *player)
 {
 	t_vec	new;
 
-	new = vec_add(player->position, player_get_right(player));
+	new = vec_add(player->position, vec_mult_scalar(player_get_right(player), 0.1));
 	player->position = new;
 }
 
@@ -21,7 +21,7 @@ void	player_move_front(t_player *player)
 {
 	t_vec	new;
 
-	new = vec_add(player->position, player_get_front(player));
+	new = vec_add(player->position, vec_mult_scalar(player_get_front(player), 0.1));
 	player->position = new;
 }
 
@@ -29,6 +29,6 @@ void	player_move_back(t_player *player)
 {
 	t_vec	new;
 
-	new = vec_add(player->position, player_get_back(player));
+	new = vec_add(player->position, vec_mult_scalar(player_get_back(player), 0.1));
 	player->position = new;
 }
