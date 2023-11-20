@@ -76,7 +76,7 @@ t_hit	dda_hit(t_scene *scene, t_ray *ray, double distance, t_vec position)
 	t_vec		diff;
 
 	hit = vec_mult_scalar(ray->direction, distance);
-	diff = vec_correct(vec_sub(vec_add(ray->origin, hit), position));
+	diff = vec_correct(vec_sub(vec_add(ray->origin, hit), position), 0.0001);
 	if (dda_get_bearing(diff) > 3)
 		vec_print(diff);
 	return ((t_hit){

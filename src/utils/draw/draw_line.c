@@ -26,7 +26,7 @@ void	draw_line(mlx_image_t *img, t_vec start, t_vec end, uint32_t color)
     int e2;
 
     while (1) {
-        if (!(x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT))
+		if (!(x < 0 || x >= img->width || y < 0 || y >= img->height))
             mlx_put_pixel(img, x, y, color);
         if (x == x1 && y == y1) break;
         e2 = err;

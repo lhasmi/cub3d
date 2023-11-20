@@ -19,7 +19,7 @@ void	draw_square(mlx_image_t *img, t_vec position, uint32_t size, uint32_t color
 		{
 			uint32_t x = px + ix;
 			uint32_t y = py + iy;
-			if (!(x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT))
+			if (!(x < 0 || x >= img->width || y < 0 || y >= img->height))
 				mlx_put_pixel(img, x, y, color);
 			iy++;
 		}

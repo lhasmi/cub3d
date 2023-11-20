@@ -19,7 +19,7 @@ void	draw_circle(mlx_image_t *img, t_vec position, uint32_t radius, uint32_t col
 		{
 			uint32_t x = px + ix;
 			uint32_t y = py + iy;
-			if (!(x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT || (ix * iy + ix * iy) > radius * radius))
+			if (!(x < 0 || x >= img->width || y < 0 || y >= img->height || (ix * iy + ix * iy) > radius * radius))
 				mlx_put_pixel(img, x, y, color);
 			iy++;
 		}
