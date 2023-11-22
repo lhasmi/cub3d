@@ -13,22 +13,43 @@
 
 #define FOV 75.0
 
-uint32_t	get_pixel(t_scene *scene, double x, double y, t_bearing bearing)
-{
-	mlx_texture_t	*tex;
-	uint32_t		index;
+uint32_t get_pixel(t_scene *scene, double x, double y, t_bearing bearing) {
+    mlx_texture_t *tex;
+    uint32_t index;
+    uint32_t pixel;
 
-	tex = scene->tex[bearing];
-	x *= tex->width;
-	y *= tex->height;
-	index = ((uint32_t) y * tex->width + (uint32_t) x) * 4;
-	return (
-		tex->pixels[index++] << 24 |
-		tex->pixels[index++] << 16 |
-		tex->pixels[index++] << 8 |
-		tex->pixels[index]
-	);
+    tex = scene->tex[bearing];
+    x *= tex->width;
+    y *= tex->height;
+    index = ((uint32_t) y * tex->width + (uint32_t) x) * 4;
+
+    pixel = tex->pixels[index] << 24;
+    index++;
+    pixel |= tex->pixels[index] << 16;
+    index++;
+    pixel |= tex->pixels[index] << 8;
+    index++;
+    pixel |= tex->pixels[index];
+
+    return pixel;
 }
+
+// uint32_t	get_pixel(t_scene *scene, double x, double y, t_bearing bearing)
+// {
+// 	mlx_texture_t	*tex;
+// 	uint32_t		index;
+
+// 	tex = scene->tex[bearing];
+// 	x *= tex->width;
+// 	y *= tex->height;
+// 	index = ((uint32_t) y * tex->width + (uint32_t) x) * 4;
+// 	return (
+// 		tex->pixels[index++] << 24 |
+// 		tex->pixels[index++] << 16 |
+// 		tex->pixels[index++] << 8 |
+// 		tex->pixels[index]
+// 	);
+// }
 
 void	scene_draw_column(t_scene *scene, uint32_t ix, t_hit *hit, uint32_t height)
 {

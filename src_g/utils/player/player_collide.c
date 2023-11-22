@@ -17,6 +17,8 @@ static t_vec player_get_correction(t_scene *scene, t_vec direction)
 		return (vec_create(0, floor(adjusted.y + 1) - adjusted.y, 0));
 	if (direction.y > 0)
 		return (vec_create(0, floor(adjusted.y) - adjusted.y, 0));
+	else
+		return (vec_create(0, 0, 0));
 }
 
 void	player_collide(t_scene *scene)

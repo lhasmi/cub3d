@@ -47,9 +47,10 @@ int32_t ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a)
 
 void ft_randomize(void* param)
 {
-	for (int32_t i = 0; i < image->width; ++i)
+	(void)param;
+	for (int32_t i = 0; i < (int)image->width; ++i)
 	{
-		for (int32_t y = 0; y < image->height; ++y)
+		for (int32_t y = 0; y < (int)image->height; ++y)
 		{
 			uint32_t color = ft_pixel(
 				rand() % 0xFF, // R
@@ -162,6 +163,8 @@ double get_yaw(char orientation)
 		return (PI);
 	if (orientation == 'N')
 		return (-PI_HALF);
+	else
+		return (0.0);
 }
 
 int	malloc2(size_t count, void **ptr)

@@ -6,7 +6,7 @@
 #    By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 20:56:57 by lhasmi            #+#    #+#              #
-#    Updated: 2023/11/22 20:57:25 by lhasmi           ###   ########.fr        #
+#    Updated: 2023/11/22 22:35:05 by lhasmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,8 +59,8 @@ $(LIBFT):
 	(cd libft && make)
 
 $(MLX):
-	git clone https://github.com/codam-coding-college/MLX42.git
-	(cd MLX42 && cmake -B build && cmake --build build)
+	cd MLX42 && cmake -B build && cmake --build build
+# git clone https://github.com/codam-coding-college/MLX42.git
 
 $(NAME): $(LIBFT) $(MLX) $(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $^ $(DEPS)
