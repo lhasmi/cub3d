@@ -1,3 +1,16 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/11/22 20:56:57 by lhasmi            #+#    #+#              #
+#    Updated: 2023/11/22 20:57:25 by lhasmi           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+
 CC=cc
 CFLAGS=-I MLX42/include -I include -I include/defs
 NAME=cub3D
@@ -19,7 +32,7 @@ DEPS=-lglfw -L $(GLFW_PATH) -framework Cocoa -framework OpenGL -framework IOKit
 HEADERS=$(wildcard include/*.h) $(wildcard include/defs/*.h)
 
 ifndef LENIENT
-	CFLAGS += -Wall -Werror -Wextra
+	CFLAGS += -Wall -Werror -Wextra -fsanitize=address
 endif
 
 ifdef DEBUG

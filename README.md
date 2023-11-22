@@ -15,10 +15,10 @@ So far (until 29.10.2023) code seems to:
   - DONE - Valid `.cub` files with different map and configuration variations.
   - Invalid `.cub` files to test error handling.
 - DONE - Free allocated resources properly with `free_map_exit` before exiting the program.
-- After parsing is complete, validate the map's integrity with a `map_valid` function.
-- Set up key hooks for MLX and event handling.
-- Initialize `t_img` and load textures.
-- Enter the main MLX loop and render the initial scene.
+- DONE - After parsing is complete, validate the map's integrity with a `map_valid` function.
+- Parse Doors in textures lines and in the map
+- go through evalsheet
+- change textures for high resolution
 ```
 1. **Check the file extension** to ensure it's a `.cub` file (`is_cub` function).
 2. **Open the `.cub` file** and handle opening errors.
