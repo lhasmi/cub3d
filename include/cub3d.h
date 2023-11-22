@@ -31,12 +31,10 @@ typedef struct s_map t_map;
 
 typedef struct s_mapreqs
 {
-	int			space;// 0
-	int			wall;// 1
-	int			door;// 2
+	// int			door;// just for bonus files
 	int			pos_x;// N,S,E or W
 	int			pos_y;// N,S,E or W
-	int			orientation;// N,S,E or W
+	char		orientation;// N,S,E or W in char as it is in the map
 }	t_mapreqs;
 
 typedef struct s_color
@@ -202,17 +200,21 @@ void		parse_color(char *line, t_map *map, const char *color_id);
 
 t_map	*init_map_struct();
 t_color *init_color_struct();
+bool parse_line(char *line, t_map *map, int fd);
+bool parse_texture(char *line, t_map *map, const char *texture_id);
 
 bool	check_walls(t_map *map);
 bool	validate_components(t_map *map);
 bool	is_orientation(char c);
 bool	is_valid_tile(char c);
 bool	first_last_line(char *line);
-bool	check_space_adjacency(char *row, int cols, t_map *map);
+bool	check_space_adjacency(char *row);
 bool	is_valid_middle_line(char *line);
 int		trim_leading_ws(char *line);
 bool	map_valid(t_map *map);
 int		rgb_to_hex(int r, int g, int b);
 int		trim_leading_ws(char *line);
+bool	is_line_a_wall(char *line);
+int		is_cub_file_empty(const char *filepath);
 
 #endif

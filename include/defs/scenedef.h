@@ -13,12 +13,15 @@ typedef struct s_scene
 	mlx_t			*mlx;
 	mlx_image_t		*image;
 	mlx_image_t		*minimap;
-	mlx_texture_t	*tex[4];
+	mlx_texture_t	*tex[5];
+	uint32_t		color_floor;
+	uint32_t		color_ceiling;
 	t_player		player;
 	t_vec			size;
 	t_vec			map_size;
-	char			*map;
+	char			**map;
 	t_vec			mouse;
+	int				interact;
 }	t_scene;
 
 #endif
