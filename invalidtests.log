@@ -1,5 +1,5 @@
 Starting invalid tests...
-Current directory: /Users/lailah/Library/Mobile Documents/com~apple~CloudDocs/cloudDesk42/cub3D_all/cub3d_hh
+Current directory: /Users/lailah/Library/Mobile Documents/com~apple~CloudDocs/cloudDesk42/cub3D_all/cub3d
 ******************
 ************************************
 ************************************
@@ -17,7 +17,7 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x608000000e20
 
 Player position has been initialized successfully: x position 0, y position 0
 
@@ -43,7 +43,7 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x608000000e20
 
 Player position has been initialized successfully: x position 0, y position 0
 
@@ -69,7 +69,7 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x608000000e20
 
 Player position has been initialized successfully: x position 0, y position 0
 
@@ -105,7 +105,7 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x608000000e20
 
 Player position has been initialized successfully: x position 0, y position 0
 
@@ -131,7 +131,7 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x608000000e20
 
 Player position has been initialized successfully: x position 0, y position 0
 
@@ -182,7 +182,7 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x608000000e20
 
 Player position has been initialized successfully: x position 0, y position 0
 
@@ -233,7 +233,7 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x608000000e20
 
 Player position has been initialized successfully: x position 0, y position 0
 
@@ -280,7 +280,7 @@ Test if Map struct initialized...
 
 init_mapreqs() passed
 
-Map struct has been initialized successfully: ...0x608000000d20
+Map struct has been initialized successfully: ...0x608000000e20
 
 Player position has been initialized successfully: x position 0, y position 0
 
