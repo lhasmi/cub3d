@@ -1,7 +1,7 @@
-Nd textures/Test1.png
-SO textures/Test1.png
-WE textures/Test1.png
-EA textures/Test1.png
+Nd img/wn.pn
+SO img/ws.png
+WE img/ww.png
+EA img/we.png
 
 F 190,178,123
 C 135,206,235

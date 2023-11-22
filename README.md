@@ -19,6 +19,9 @@ So far (until 29.10.2023) code seems to:
 - Parse Doors in textures lines and in the map
 - go through evalsheet
 - change textures for high resolution
+- clean the files
+- make mandatory work as in the rules
+- make the bonus work too
 ```
 1. **Check the file extension** to ensure it's a `.cub` file (`is_cub` function).
 2. **Open the `.cub` file** and handle opening errors.
