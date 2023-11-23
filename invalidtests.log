@@ -57,75 +57,72 @@ Next file: maps/invalid/invalid_ceiling_color.cub
 Running with maps/invalid/invalid_ceiling_color.cub
 AddressSanitizer:DEADLYSIGNAL
 =================================================================
-==18732==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000008 (pc 0x000108c35552 bp 0x7ffee6fe0140 sp 0x7ffee6fe00b0 T0)
-==18732==The signal is caused by a READ memory access.
-==18732==Hint: address points to the zero page.
-    #0 0x108c35552 in free_map_resources+0x52 (cub3D:x86_64+0x100016552)
-    #1 0x108c35105 in free_map_exit+0x25 (cub3D:x86_64+0x100016105)
-    #2 0x108c56302 in parse+0x292 (cub3D:x86_64+0x100037302)
-    #3 0x108c57803 in main+0x803 (cub3D:x86_64+0x100038803)
-    #4 0x7fff67e92cc8 in start+0x0 (libdyld.dylib:x86_64+0x1acc8)
+==4184==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000004 (pc 0x00010334e094 bp 0x7ffeec8ec490 sp 0x7ffeec8ec100 T0)
+==4184==The signal is caused by a READ memory access.
+==4184==Hint: address points to the zero page.
+    #0 0x10334e094 in parse main.c:250
+    #1 0x10334f503 in main main.c:310
+    #2 0x7fff6b0ddcc8 in start+0x0 (libdyld.dylib:x86_64+0x1acc8)
 
-==18732==Register values:
-rax = 0x0000000000000000  rbx = 0x00007ffee6fe0280  rcx = 0x0000000000000008  rdx = 0x0000100000000000  
-rdi = 0x0000000000000000  rsi = 0x0000000108c58980  rbp = 0x00007ffee6fe0140  rsp = 0x00007ffee6fe00b0  
- r8 = 0x00000000000130a8   r9 = 0x0000000000000000  r10 = 0x0000000000000000  r11 = 0x0000000000000202  
+==4184==Register values:
+rax = 0x0000000000000004  rbx = 0x00007ffeec8ec200  rcx = 0x00001fffdd91d820  rdx = 0x0000000000000004  
+rdi = 0x0000100000000000  rsi = 0x0000100000000000  rbp = 0x00007ffeec8ec490  rsp = 0x00007ffeec8ec100  
+ r8 = 0x0000000000013000   r9 = 0x0000000000000000  r10 = 0x00007fff91bffbf8  r11 = 0x00007fff91bffbf0  
 r12 = 0x0000000000000000  r13 = 0x0000000000000000  r14 = 0x0000000000000000  r15 = 0x0000000000000000  
 AddressSanitizer can not provide additional info.
-SUMMARY: AddressSanitizer: SEGV (cub3D:x86_64+0x100016552) in free_map_resources+0x52
-==18732==ABORTING
+SUMMARY: AddressSanitizer: SEGV main.c:250 in parse
+==4184==ABORTING
 Error
 : Error: Invalid path for texture 
+Invalid map
 Next file: maps/invalid/invalid_colour.cub
 ************************************
 ************************************
 Running with maps/invalid/invalid_colour.cub
 AddressSanitizer:DEADLYSIGNAL
 =================================================================
-==18740==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000008 (pc 0x0001002cd552 bp 0x7ffeef948160 sp 0x7ffeef9480d0 T0)
-==18740==The signal is caused by a READ memory access.
-==18740==Hint: address points to the zero page.
-    #0 0x1002cd552 in free_map_resources+0x52 (cub3D:x86_64+0x100016552)
-    #1 0x1002cd105 in free_map_exit+0x25 (cub3D:x86_64+0x100016105)
-    #2 0x1002ee302 in parse+0x292 (cub3D:x86_64+0x100037302)
-    #3 0x1002ef803 in main+0x803 (cub3D:x86_64+0x100038803)
-    #4 0x7fff67e92cc8 in start+0x0 (libdyld.dylib:x86_64+0x1acc8)
+==4188==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000004 (pc 0x00010fcb4094 bp 0x7ffedff864b0 sp 0x7ffedff86120 T0)
+==4188==The signal is caused by a READ memory access.
+==4188==Hint: address points to the zero page.
+    #0 0x10fcb4094 in parse main.c:250
+    #1 0x10fcb5503 in main main.c:310
+    #2 0x7fff6b0ddcc8 in start+0x0 (libdyld.dylib:x86_64+0x1acc8)
 
-==18740==Register values:
-rax = 0x0000000000000000  rbx = 0x00007ffeef9482a0  rcx = 0x0000000000000008  rdx = 0x0000100000000000  
-rdi = 0x0000000000000000  rsi = 0x00000001002f0980  rbp = 0x00007ffeef948160  rsp = 0x00007ffeef9480d0  
- r8 = 0x00000000000130a8   r9 = 0x0000000000000000  r10 = 0x0000000000000000  r11 = 0x0000000000000206  
+==4188==Register values:
+rax = 0x0000000000000004  rbx = 0x00007ffedff86220  rcx = 0x00001fffdbff0c24  rdx = 0x0000000000000004  
+rdi = 0x0000100000000000  rsi = 0x0000100000000000  rbp = 0x00007ffedff864b0  rsp = 0x00007ffedff86120  
+ r8 = 0x0000000000013000   r9 = 0x0000000000000000  r10 = 0x00007fff91bffbf8  r11 = 0x00007fff91bffbf0  
 r12 = 0x0000000000000000  r13 = 0x0000000000000000  r14 = 0x0000000000000000  r15 = 0x0000000000000000  
 AddressSanitizer can not provide additional info.
-SUMMARY: AddressSanitizer: SEGV (cub3D:x86_64+0x100016552) in free_map_resources+0x52
-==18740==ABORTING
+SUMMARY: AddressSanitizer: SEGV main.c:250 in parse
+==4188==ABORTING
 Error
 : Error: Invalid path for texture 
+Invalid map
 Next file: maps/invalid/invalid_floor_color.cub
 ************************************
 ************************************
 Running with maps/invalid/invalid_floor_color.cub
 AddressSanitizer:DEADLYSIGNAL
 =================================================================
-==18746==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000008 (pc 0x0001080e0552 bp 0x7ffee7b35140 sp 0x7ffee7b350b0 T0)
-==18746==The signal is caused by a READ memory access.
-==18746==Hint: address points to the zero page.
-    #0 0x1080e0552 in free_map_resources+0x52 (cub3D:x86_64+0x100016552)
-    #1 0x1080e0105 in free_map_exit+0x25 (cub3D:x86_64+0x100016105)
-    #2 0x108101302 in parse+0x292 (cub3D:x86_64+0x100037302)
-    #3 0x108102803 in main+0x803 (cub3D:x86_64+0x100038803)
-    #4 0x7fff67e92cc8 in start+0x0 (libdyld.dylib:x86_64+0x1acc8)
+==4194==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000004 (pc 0x000106538094 bp 0x7ffee97024b0 sp 0x7ffee9702120 T0)
+==4194==The signal is caused by a READ memory access.
+==4194==Hint: address points to the zero page.
+    #0 0x106538094 in parse main.c:250
+    #1 0x106539503 in main main.c:310
+    #2 0x7fff6b0ddcc8 in start+0x0 (libdyld.dylib:x86_64+0x1acc8)
 
-==18746==Register values:
-rax = 0x0000000000000000  rbx = 0x00007ffee7b35280  rcx = 0x0000000000000008  rdx = 0x0000100000000000  
-rdi = 0x0000000000000000  rsi = 0x0000000108103980  rbp = 0x00007ffee7b35140  rsp = 0x00007ffee7b350b0  
- r8 = 0x00000000000130a8   r9 = 0x0000000000000000  r10 = 0x0000000000000000  r11 = 0x0000000000000202  
+==4194==Register values:
+rax = 0x0000000000000004  rbx = 0x00007ffee9702220  rcx = 0x00001fffdd2e0424  rdx = 0x0000000000000004  
+rdi = 0x0000100000000000  rsi = 0x0000100000000000  rbp = 0x00007ffee97024b0  rsp = 0x00007ffee9702120  
+ r8 = 0x0000000000013000   r9 = 0x0000000000000000  r10 = 0x00007fff91bffbf8  r11 = 0x00007fff91bffbf0  
 r12 = 0x0000000000000000  r13 = 0x0000000000000000  r14 = 0x0000000000000000  r15 = 0x0000000000000000  
 AddressSanitizer can not provide additional info.
-SUMMARY: AddressSanitizer: SEGV (cub3D:x86_64+0x100016552) in free_map_resources+0x52
-==18746==ABORTING
+SUMMARY: AddressSanitizer: SEGV main.c:250 in parse
+==4194==ABORTING
 Error
 : Error: Invalid path for texture 
+Invalid map
 Next file: maps/invalid/line_inside.cub
 ************************************
 ************************************
@@ -141,25 +138,24 @@ Next file: maps/invalid/no_path.cub
 Running with maps/invalid/no_path.cub
 AddressSanitizer:DEADLYSIGNAL
 =================================================================
-==18750==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000008 (pc 0x0001026b6552 bp 0x7ffeed55f160 sp 0x7ffeed55f0d0 T0)
-==18750==The signal is caused by a READ memory access.
-==18750==Hint: address points to the zero page.
-    #0 0x1026b6552 in free_map_resources+0x52 (cub3D:x86_64+0x100016552)
-    #1 0x1026b6105 in free_map_exit+0x25 (cub3D:x86_64+0x100016105)
-    #2 0x1026d7302 in parse+0x292 (cub3D:x86_64+0x100037302)
-    #3 0x1026d8803 in main+0x803 (cub3D:x86_64+0x100038803)
-    #4 0x7fff67e92cc8 in start+0x0 (libdyld.dylib:x86_64+0x1acc8)
+==4198==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000004 (pc 0x00010bb6f094 bp 0x7ffee40cb4b0 sp 0x7ffee40cb120 T0)
+==4198==The signal is caused by a READ memory access.
+==4198==Hint: address points to the zero page.
+    #0 0x10bb6f094 in parse main.c:250
+    #1 0x10bb70503 in main main.c:310
+    #2 0x7fff6b0ddcc8 in start+0x0 (libdyld.dylib:x86_64+0x1acc8)
 
-==18750==Register values:
-rax = 0x0000000000000000  rbx = 0x00007ffeed55f2a0  rcx = 0x0000000000000008  rdx = 0x0000100000000000  
-rdi = 0x0000000000000000  rsi = 0x00000001026d9980  rbp = 0x00007ffeed55f160  rsp = 0x00007ffeed55f0d0  
- r8 = 0x00000000000130a8   r9 = 0x0000000000000000  r10 = 0x0000000000000000  r11 = 0x0000000000000206  
+==4198==Register values:
+rax = 0x0000000000000004  rbx = 0x00007ffee40cb220  rcx = 0x00001fffdc819624  rdx = 0x0000000000000004  
+rdi = 0x0000100000000000  rsi = 0x0000100000000000  rbp = 0x00007ffee40cb4b0  rsp = 0x00007ffee40cb120  
+ r8 = 0x0000000000013000   r9 = 0x0000000000000000  r10 = 0x00007fff91bffbf8  r11 = 0x00007fff91bffbf0  
 r12 = 0x0000000000000000  r13 = 0x0000000000000000  r14 = 0x0000000000000000  r15 = 0x0000000000000000  
 AddressSanitizer can not provide additional info.
-SUMMARY: AddressSanitizer: SEGV (cub3D:x86_64+0x100016552) in free_map_resources+0x52
-==18750==ABORTING
+SUMMARY: AddressSanitizer: SEGV main.c:250 in parse
+==4198==ABORTING
 Error
 : Error: Invalid path for texture 
+Invalid map
 Next file: maps/invalid/no_position.cub
 ************************************
 ************************************

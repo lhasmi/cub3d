@@ -13,25 +13,26 @@
 
 #define FOV 75.0
 
-uint32_t get_pixel(t_scene *scene, double x, double y, t_bearing bearing) {
-    mlx_texture_t *tex;
-    uint32_t index;
-    uint32_t pixel;
+uint32_t get_pixel(t_scene *scene, double x, double y, t_bearing bearing)
+{
+	mlx_texture_t *tex;
+	uint32_t index;
+	uint32_t pixel;
 
-    tex = scene->tex[bearing];
-    x *= tex->width;
-    y *= tex->height;
-    index = ((uint32_t) y * tex->width + (uint32_t) x) * 4;
+	tex = scene->tex[bearing];
+	x *= tex->width;
+	y *= tex->height;
+	index = ((uint32_t) y * tex->width + (uint32_t) x) * 4;
 
-    pixel = tex->pixels[index] << 24;
-    index++;
-    pixel |= tex->pixels[index] << 16;
-    index++;
-    pixel |= tex->pixels[index] << 8;
-    index++;
-    pixel |= tex->pixels[index];
+	pixel = tex->pixels[index] << 24;
+	index++;
+	pixel |= tex->pixels[index] << 16;
+	index++;
+	pixel |= tex->pixels[index] << 8;
+	index++;
+	pixel |= tex->pixels[index];
 
-    return pixel;
+	return pixel;
 }
 
 // uint32_t	get_pixel(t_scene *scene, double x, double y, t_bearing bearing)

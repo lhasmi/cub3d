@@ -39,9 +39,9 @@ typedef struct s_mapreqs
 
 typedef struct s_color
 {
-    int			red;
-    int			green;
-    int			blue;
+	int			red;
+	int			green;
+	int			blue;
 } t_color;
 
 typedef struct s_map

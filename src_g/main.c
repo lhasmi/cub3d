@@ -244,8 +244,10 @@ void parse(char *file_name, t_scene *scene)
 	map = init_map_struct();
 	map = parse_config_file(fd, map);
 	close(fd);
-	if (map == NULL || !map_valid(map))
-		free_map_exit(map, "Invalid map", 1);
+	if (map == NULL || !map_valid(map)){
+		free_map_exit(map, "Invalid map", 0);
+		return;
+	}
 
 	scene->map_size = vec_create(map->cols, map->rows, 0);
 	if (get_padded_map(map->tiles, map->cols, map->rows, &scene->map))

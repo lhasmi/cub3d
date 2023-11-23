@@ -6,7 +6,7 @@
 #    By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 20:56:57 by lhasmi            #+#    #+#              #
-#    Updated: 2023/11/23 19:27:20 by lhasmi           ###   ########.fr        #
+#    Updated: 2023/11/23 20:28:20 by lhasmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ DEPS=-lglfw -L $(GLFW_PATH) -framework Cocoa -framework OpenGL -framework IOKit
 HEADERS=$(wildcard include/*.h) $(wildcard include/defs/*.h)
 
 ifndef LENIENT
-	CFLAGS += -Wall -Werror -Wextra -fsanitize=address
+	CFLAGS += -Wall -Werror -Wextra -fsanitize=address -g
 endif
 
 ifdef DEBUG

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 19:48:43 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/17 14:30:05 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/23 20:57:32 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,21 +103,54 @@ void	free_map_resources(t_map *map)
 	i = 0;
 	while (map->tiles && i < map->rows)
 	{
-		free(map->tiles[i]);
-		map->tiles[i] = NULL;
+		if (map->tiles[i])
+		{
+			printf("freeing map->tiles[%d]\n", i);// DEBUG
+			free(map->tiles[i]);
+			map->tiles[i] = NULL;
+		}
 		i++;
 	}
 	if (map->tiles)
 	{
+		printf("freeing map->tiles\n");// DEBUG
 		free(map->tiles);
 		map->tiles = NULL;
 	}
-	if (map->floor_color)
+	if (map->floor_color){
+		printf("freeing map->floor_color\n");// DEBUG
 		free(map->floor_color);
-	if (map->ceiling_color)
+	}
+	if (map->ceiling_color){
+		printf("freeing map->ceiling_color\n");// DEBUG
 		free(map->ceiling_color);
-	free(map);
-	map = NULL;
+	}
+	if (map->no_texture)
+	{
+		printf("freeing map->no_texture\n");// DEBUG
+		free(map->no_texture);
+	}
+	if (map->so_texture)
+	{
+		printf("freeing map->so_texture\n");// DEBUG
+		free(map->so_texture);
+	}
+	if (map->we_texture)
+	{
+		printf("freeing map->we_texture\n");// DEBUG
+		free(map->we_texture);
+	}
+	if (map->ea_texture)
+	{
+		printf("freeing map->ea_texture\n");// DEBUG
+		free(map->ea_texture);
+	}
+	if(map)
+	{
+		printf("freeing map\n");// DEBUG
+		free(map);
+		map = NULL;
+	}
 }
 
 void	free_map_exit(t_map *map, char *error_message, int status)
