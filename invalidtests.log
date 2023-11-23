@@ -1,0 +1,199 @@
+Starting invalid tests...
+Current directory: /Users/lhasmi/Desktop/cub3D_all/cub3d_hh
+******************
+************************************
+************************************
+Running with maps/invalid/bad_file.cub
+Error
+: Invalid line prefix in configuration file 
+Next file: maps/invalid/bad_rgb.cub
+************************************
+************************************
+Running with maps/invalid/bad_rgb.cub
+Error
+: Error: Invalid color 
+Next file: maps/invalid/dfs.cub
+************************************
+************************************
+Running with maps/invalid/dfs.cub
+Error
+: Invalid line prefix in configuration file 
+Next file: maps/invalid/empty.cub
+************************************
+************************************
+Running with maps/invalid/empty.cub
+Error
+: Empty file 
+Next file: maps/invalid/invalid_01.cub
+************************************
+************************************
+Running with maps/invalid/invalid_01.cub
+Error
+: Middle rows must start and end with '1'. 
+Error in middle lines
+Error
+: Wall or tiles check failed. 
+Next file: maps/invalid/invalid_02.cub
+************************************
+************************************
+Running with maps/invalid/invalid_02.cub
+Error
+: Middle rows must start and end with '1'. 
+Error in middle lines
+Error
+: Wall or tiles check failed. 
+Next file: maps/invalid/invalid_03.cub
+************************************
+************************************
+Running with maps/invalid/invalid_03.cub
+Error
+: Invalid tile in middle line 
+Error in middle lines
+Error
+: Wall or tiles check failed. 
+Next file: maps/invalid/invalid_ceiling_color.cub
+************************************
+************************************
+Running with maps/invalid/invalid_ceiling_color.cub
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==18732==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000008 (pc 0x000108c35552 bp 0x7ffee6fe0140 sp 0x7ffee6fe00b0 T0)
+==18732==The signal is caused by a READ memory access.
+==18732==Hint: address points to the zero page.
+    #0 0x108c35552 in free_map_resources+0x52 (cub3D:x86_64+0x100016552)
+    #1 0x108c35105 in free_map_exit+0x25 (cub3D:x86_64+0x100016105)
+    #2 0x108c56302 in parse+0x292 (cub3D:x86_64+0x100037302)
+    #3 0x108c57803 in main+0x803 (cub3D:x86_64+0x100038803)
+    #4 0x7fff67e92cc8 in start+0x0 (libdyld.dylib:x86_64+0x1acc8)
+
+==18732==Register values:
+rax = 0x0000000000000000  rbx = 0x00007ffee6fe0280  rcx = 0x0000000000000008  rdx = 0x0000100000000000  
+rdi = 0x0000000000000000  rsi = 0x0000000108c58980  rbp = 0x00007ffee6fe0140  rsp = 0x00007ffee6fe00b0  
+ r8 = 0x00000000000130a8   r9 = 0x0000000000000000  r10 = 0x0000000000000000  r11 = 0x0000000000000202  
+r12 = 0x0000000000000000  r13 = 0x0000000000000000  r14 = 0x0000000000000000  r15 = 0x0000000000000000  
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV (cub3D:x86_64+0x100016552) in free_map_resources+0x52
+==18732==ABORTING
+Error
+: Error: Invalid path for texture 
+Next file: maps/invalid/invalid_colour.cub
+************************************
+************************************
+Running with maps/invalid/invalid_colour.cub
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==18740==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000008 (pc 0x0001002cd552 bp 0x7ffeef948160 sp 0x7ffeef9480d0 T0)
+==18740==The signal is caused by a READ memory access.
+==18740==Hint: address points to the zero page.
+    #0 0x1002cd552 in free_map_resources+0x52 (cub3D:x86_64+0x100016552)
+    #1 0x1002cd105 in free_map_exit+0x25 (cub3D:x86_64+0x100016105)
+    #2 0x1002ee302 in parse+0x292 (cub3D:x86_64+0x100037302)
+    #3 0x1002ef803 in main+0x803 (cub3D:x86_64+0x100038803)
+    #4 0x7fff67e92cc8 in start+0x0 (libdyld.dylib:x86_64+0x1acc8)
+
+==18740==Register values:
+rax = 0x0000000000000000  rbx = 0x00007ffeef9482a0  rcx = 0x0000000000000008  rdx = 0x0000100000000000  
+rdi = 0x0000000000000000  rsi = 0x00000001002f0980  rbp = 0x00007ffeef948160  rsp = 0x00007ffeef9480d0  
+ r8 = 0x00000000000130a8   r9 = 0x0000000000000000  r10 = 0x0000000000000000  r11 = 0x0000000000000206  
+r12 = 0x0000000000000000  r13 = 0x0000000000000000  r14 = 0x0000000000000000  r15 = 0x0000000000000000  
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV (cub3D:x86_64+0x100016552) in free_map_resources+0x52
+==18740==ABORTING
+Error
+: Error: Invalid path for texture 
+Next file: maps/invalid/invalid_floor_color.cub
+************************************
+************************************
+Running with maps/invalid/invalid_floor_color.cub
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==18746==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000008 (pc 0x0001080e0552 bp 0x7ffee7b35140 sp 0x7ffee7b350b0 T0)
+==18746==The signal is caused by a READ memory access.
+==18746==Hint: address points to the zero page.
+    #0 0x1080e0552 in free_map_resources+0x52 (cub3D:x86_64+0x100016552)
+    #1 0x1080e0105 in free_map_exit+0x25 (cub3D:x86_64+0x100016105)
+    #2 0x108101302 in parse+0x292 (cub3D:x86_64+0x100037302)
+    #3 0x108102803 in main+0x803 (cub3D:x86_64+0x100038803)
+    #4 0x7fff67e92cc8 in start+0x0 (libdyld.dylib:x86_64+0x1acc8)
+
+==18746==Register values:
+rax = 0x0000000000000000  rbx = 0x00007ffee7b35280  rcx = 0x0000000000000008  rdx = 0x0000100000000000  
+rdi = 0x0000000000000000  rsi = 0x0000000108103980  rbp = 0x00007ffee7b35140  rsp = 0x00007ffee7b350b0  
+ r8 = 0x00000000000130a8   r9 = 0x0000000000000000  r10 = 0x0000000000000000  r11 = 0x0000000000000202  
+r12 = 0x0000000000000000  r13 = 0x0000000000000000  r14 = 0x0000000000000000  r15 = 0x0000000000000000  
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV (cub3D:x86_64+0x100016552) in free_map_resources+0x52
+==18746==ABORTING
+Error
+: Error: Invalid path for texture 
+Next file: maps/invalid/line_inside.cub
+************************************
+************************************
+Running with maps/invalid/line_inside.cub
+Error
+: Middle rows must start and end with '1'. 
+Error in middle lines
+Error
+: Wall or tiles check failed. 
+Next file: maps/invalid/no_path.cub
+************************************
+************************************
+Running with maps/invalid/no_path.cub
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==18750==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000008 (pc 0x0001026b6552 bp 0x7ffeed55f160 sp 0x7ffeed55f0d0 T0)
+==18750==The signal is caused by a READ memory access.
+==18750==Hint: address points to the zero page.
+    #0 0x1026b6552 in free_map_resources+0x52 (cub3D:x86_64+0x100016552)
+    #1 0x1026b6105 in free_map_exit+0x25 (cub3D:x86_64+0x100016105)
+    #2 0x1026d7302 in parse+0x292 (cub3D:x86_64+0x100037302)
+    #3 0x1026d8803 in main+0x803 (cub3D:x86_64+0x100038803)
+    #4 0x7fff67e92cc8 in start+0x0 (libdyld.dylib:x86_64+0x1acc8)
+
+==18750==Register values:
+rax = 0x0000000000000000  rbx = 0x00007ffeed55f2a0  rcx = 0x0000000000000008  rdx = 0x0000100000000000  
+rdi = 0x0000000000000000  rsi = 0x00000001026d9980  rbp = 0x00007ffeed55f160  rsp = 0x00007ffeed55f0d0  
+ r8 = 0x00000000000130a8   r9 = 0x0000000000000000  r10 = 0x0000000000000000  r11 = 0x0000000000000206  
+r12 = 0x0000000000000000  r13 = 0x0000000000000000  r14 = 0x0000000000000000  r15 = 0x0000000000000000  
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV (cub3D:x86_64+0x100016552) in free_map_resources+0x52
+==18750==ABORTING
+Error
+: Error: Invalid path for texture 
+Next file: maps/invalid/no_position.cub
+************************************
+************************************
+Running with maps/invalid/no_position.cub
+Error
+: Components validation failed. 
+Next file: maps/invalid/randomsomeshit.cub
+************************************
+************************************
+Running with maps/invalid/randomsomeshit.cub
+Error
+: Middle rows must start and end with '1'. 
+Error in middle lines
+Error
+: Wall or tiles check failed. 
+Next file: maps/invalid/simple.cub
+************************************
+************************************
+Running with maps/invalid/simple.cub
+Error
+: Middle rows must start and end with '1'. 
+Error in middle lines
+Error
+: Wall or tiles check failed. 
+Next file: maps/invalid/test2_2Play.cub
+************************************
+************************************
+Running with maps/invalid/test2_2Play.cub
+Error
+: Components validation failed. 
+Next file: maps/invalid/test2_2players.cub
+******************
+Running with maps/invalid/test2_2players.cub
+Error
+: Components validation failed. 
+******************
+All tests completed.
