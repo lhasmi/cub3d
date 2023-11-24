@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw_line.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/24 20:46:18 by gbohm             #+#    #+#             */
+/*   Updated: 2023/11/24 20:46:18 by gbohm            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "MLX42/MLX42.h"
@@ -25,7 +37,7 @@ void	draw_line(mlx_image_t *img, t_vec start, t_vec end, uint32_t color)
     int err = (dx > dy ? dx : -dy) / 2;
     int e2;
 
-    while (1) 
+    while (1)
     {
         if (!(x < 0 || x >= (int)img->width || y < 0 || y >= (int)img->height))
             mlx_put_pixel(img, x, y, color);

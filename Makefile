@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+         #
+#    By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 20:56:57 by lhasmi            #+#    #+#              #
-#    Updated: 2023/11/24 23:12:19 by lhasmi           ###   ########.fr        #
+#    Updated: 2023/11/24 23:48:47 by gbohm            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ $(MLX):
 	@echo "*********************************************  ***************************************"
 # git clone https://github.com/codam-coding-college/MLX42.git
 
-$(NAME): $(LIBFT) $(MLX) $(OBJ)
+$(NAME): $(MLX) $(LIBFT) $(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $^ $(DEPS)
 	@echo "Built $(NAME) successfully."
 

@@ -1,6 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw_rect.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/24 20:46:21 by gbohm             #+#    #+#             */
+/*   Updated: 2023/11/24 20:48:20 by gbohm            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "MLX42/MLX42.h"
 #include "vecdef.h"
 #include "scenedef.h"
+
+static void	draw_pixel(mlx_image_t *img, uint32_t x, uint32_t y, uint32_t color)
+{
+	if (!(x < 0 || x >= img->width || y < 0 || y >= img->height))
+		mlx_put_pixel(img, x, y, color);
+}
 
 void	draw_rect(mlx_image_t *img, t_vec position, t_vec size, uint32_t color)
 {
@@ -17,10 +35,7 @@ void	draw_rect(mlx_image_t *img, t_vec position, t_vec size, uint32_t color)
 		iy = 0;
 		while (iy < (uint32_t) size.y)
 		{
-			uint32_t x = px + ix;
-			uint32_t y = py + iy;
-			if (!(x < 0 || x >= img->width || y < 0 || y >= img->height))
-				mlx_put_pixel(img, x, y, color);
+			draw_pixel(img, px + ix, py + iy, color);
 			iy++;
 		}
 		ix++;
