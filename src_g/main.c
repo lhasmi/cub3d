@@ -59,8 +59,7 @@ void parse(char *file_name, t_scene *scene)
 	map = parse_config_file(fd, map);
 	close(fd);
 	if (map == NULL || !map_valid(map)){
-		free_map_exit(map, "Invalid map", 0);
-		return;
+		free_map_exit(map, "Invalid map", 1);
 	}
 
 	scene->map_size = vec_create(map->cols, map->rows, 0);

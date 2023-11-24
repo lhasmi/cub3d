@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 19:48:43 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/24 12:46:01 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/24 19:45:27 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,10 @@ void	free_map_resources(t_map *map)
 		printf("freeing map\n");// DEBUG
 		free(map);
 		map = NULL;
+	}
+	else{
+		printf("\n********************** map is NULL **********************\n");// DEBUG
+		return;
 	}
 }
 
