@@ -1,3 +1,16 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/11/22 20:56:57 by lhasmi            #+#    #+#              #
+#    Updated: 2023/11/24 11:24:06 by lhasmi           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+
 CC=cc
 CFLAGS=-I MLX42/include -I libft -I include -I include/defs
 NAME=cub3D
@@ -19,11 +32,11 @@ DEPS=-lglfw -L $(GLFW_PATH) -framework Cocoa -framework OpenGL -framework IOKit
 HEADERS=$(wildcard include/*.h) $(wildcard include/defs/*.h)
 
 ifndef LENIENT
-	CFLAGS += -Wall -Werror -Wextra
+	CFLAGS += -Wall -Werror -Wextra -fsanitize=address -g
 endif
 
 ifdef DEBUG
-	CFLAGS += -g
+	CFLAGS += -g -Wall -Werror -Wextra -fsanitize=address
 endif
 
 ifndef LAILA
@@ -43,14 +56,67 @@ $(OBJ_DIR)/%.o: $(SRC_G_DIR)/%.c $(HEADERS) Makefile
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 $(LIBFT):
-	(cd libft && make)
+	cd libft && make
+	@echo "*********************************************  ***************************************"
+	@echo "*********************************************    Building libft successfully completed."
+	@echo "*********************************************  ***************************************"
 
 $(MLX):
-	git clone https://github.com/codam-coding-college/MLX42.git
-	(cd MLX42 && cmake -B build && cmake --build build)
+	cd MLX42 && cmake -B build && cmake --build build -j4
+	@echo "*********************************************  ***************************************"
+	@echo "*********************************************    Building mlx successfully completed."
+	@echo "*********************************************  ***************************************"
+# git clone https://github.com/codam-coding-college/MLX42.git
 
 $(NAME): $(LIBFT) $(MLX) $(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $^ $(DEPS)
+	@echo "Built $(NAME) successfully."
+valid:
+	@echo "Starting valid tests..." > validtests.log
+	@echo "******************" >> validtests.log
+	@files=$$(ls maps/valid/*.cub); \
+	prev=""; \
+	for file in $$files; do \
+		if [ -n "$$prev" ]; then \
+			echo "************************************" >> validtests.log; \
+			echo "************************************" >> validtests.log; \
+			echo "Running with $$prev" >> validtests.log; \
+			./cub3D $$prev >> validtests.log 2>&1; \
+			echo "Next file: $$file" >> validtests.log; \
+		fi; \
+		prev=$$file; \
+	done; \
+	if [ -n "$$prev" ]; then \
+		echo "******************" >> validtests.log; \
+		echo "Running with $$prev" >> validtests.log; \
+		./cub3D $$prev >> validtests.log 2>&1; \
+	fi
+	@echo "******************" >> validtests.log
+	@echo "All tests completed." >> validtests.log
+
+invalid:
+	@echo "Starting invalid tests..." > invalidtests.log
+	@echo "Current directory: $$(pwd)" >> invalidtests.log
+	@echo "******************" >> invalidtests.log
+	@files=$$(ls maps/invalid/*.cub); \
+	prev=""; \
+	for file in $$files; do \
+		if [ -n "$$prev" ]; then \
+			echo "************************************" >> invalidtests.log; \
+			echo "************************************" >> invalidtests.log; \
+			echo "Running with $$prev" >> invalidtests.log; \
+			./cub3D $$prev >> invalidtests.log 2>&1 || true; \
+			echo "Next file: $$file" >> invalidtests.log; \
+		fi; \
+		prev=$$file; \
+	done; \
+	if [ -n "$$prev" ]; then \
+		echo "******************" >> invalidtests.log; \
+		echo "Running with $$prev" >> invalidtests.log; \
+		./cub3D $$prev >> invalidtests.log 2>&1 || true; \
+	fi
+	@echo "******************" >> invalidtests.log
+	@echo "All tests completed." >> invalidtests.log
 
 valid:
 	@echo "Starting valid tests..." > validtests.log
@@ -102,14 +168,19 @@ invalid:
 
 clean:
 	rm -rf $(OBJ_DIR)
-	(cd libft && make clean)
+	cd libft && make clean
+	cd MLX42 && rm -rf build
 
 fclean: clean
 	rm -f $(NAME)
-	(cd libft && make fclean)
+	@echo "Cleaned $(NAME) successfully."
+	cd libft && make fclean
+	@echo "Cleaned libft successfully."
+	cd MLX42 && rm -rf build
+	@echo "Cleaned mlx successfully."
 
 reset: fclean
-	rm -rf MLX42
+	rm -rf $(MLX)
 
 re: fclean all
 

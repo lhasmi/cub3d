@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 12:03:35 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/22 07:17:16 by gbohm            ###   ########.fr       */
+/*   Updated: 2023/11/24 17:51:20 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ bool	first_last_line(char *line)
 	{
 		if (line[i] != '1' && line[i] != ' ')
 		{
-			// printf("line in first_last() %s char found in line[%d]: %c\n", line, i, line[i]);//Debug
 			return (false);
 		}
 		i++;
@@ -81,8 +80,6 @@ int		trim_leading_ws(char *line)
 	return (i);
 }
 
-// free_map_exit(map, "Space not adjacent to '1' or space on right side", 1);
-// free_map_exit(map, "Invalid character in map", 1);
 bool check_space_adjacency(char *row)
 {
     int len = ft_strlen(row);
@@ -100,79 +97,57 @@ bool check_space_adjacency(char *row)
     }
     return (true);
 }
-// bool check_space_adjacency(char *row, t_map *map)
-// {
-// 	int col_index;
-// 	int current_row_len;
 
-// 	current_row_len = ft_strlen(row);
-// 	(void)map;
-// 	col_index = 0;
-//     while (col_index < current_row_len)
-// 	{
-// 		if (row[col_index] == ' ') // spaces must be adjacent to '1's or spaces
-// 		{
-// 			if (col_index > 0 && !(row[col_index - 1] == '1' || row[col_index - 1] == ' '))
-// 			{
-// 				printf("Invalid left adjacency at index %d\n", col_index);//Debug
-// 				return (false);
-// 			}
-// 			else if (col_index < current_row_len - 1 && !(row[col_index + 1] == '1' || row[col_index + 1] == ' '))
-// 			{
-// 				printf("Invalid right adjacency at index %d\n", col_index);//Debug
-// 				return (false);
-// 			}
-// 		}
-// 		else
-// 		{
-// 			if (!is_valid_tile(row[col_index]))
-// 			{
-// 				printf("Invalid tile at index %d: '%c'\n", col_index, row[col_index]);//Debug
-// 				return (false);
-// 			}
-// 		}
-// 		++col_index;
-// 	}
-// 	return (true);
-// }
+bool check_wall_line (t_map *map, char *current_row, int row_index)
+{
+	current_row = current_row + trim_leading_ws(current_row);
+	if (row_index == 0 || row_index == map->rows - 1)
+	{
+		if (!first_last_line(current_row))
+		{
+			free_map_exit(map, "First or last row contains invalid characters.", 0);
+			return (false);
+		}
+	}
+	else
+	{
+		if (!is_valid_middle_line(current_row))
+		{
+			free_map_exit(map, "Error in middle lines", 0);
+			return (false);
+		}
+		if (!check_space_adjacency(current_row))
+		{
+			free_map_exit(map, "Space not adjacent to '1' or space on right side", 0);
+			return (false);
+		}
+	}
+	return (true);
+}
 
 bool	check_walls(t_map *map)
 {
-	int		row_index = 0;
-	int		start_index = 0;
-	char	*current_row;
+	int		row_index;
 
-	while (row_index < map->rows)// Iterate through each row in the map
+	row_index = 0;
+	while (row_index < map->rows)
 	{
-		current_row = map->tiles[row_index];
-		// printf("current_row before trim in row_index %d is : %s\n", row_index, current_row);//Debug
-		start_index = trim_leading_ws(current_row);
-		// printf("start_index in row_index %d is : %d\n", row_index, start_index);//Debug
-		current_row += start_index;// Move the pointer to the first non-whitespace char
-		// printf("current_row after advancing pointer of current row in row_index %d is : %s\n", row_index, current_row);//Debug
-		if (row_index == 0 || row_index == map->rows - 1)// First and last rows should be validated with is_valid_wall_line
-		{
-			if (!first_last_line(current_row))
-			{
-				free_map_exit(map, "First or last row contains invalid characters.", 0);
-				// printf("current_row in row_index %d is : %s\n", row_index, current_row);//Debug
-				return (false);
-			}
-		}
-		else
-		{
-			if (!is_valid_middle_line(current_row))
-			{
-				free_map_exit(map, "Error in middle lines", 0);
-				return (false);
-			}
-			else if (!check_space_adjacency(current_row)){
-				free_map_exit(map, "Space not adjacent to '1' or space on right side", 0);
-				return (false);
-			}
-		}
+		if (!check_wall_line(map, map->tiles[row_index], row_index))
+            return (false);
 		row_index++;
 	}
+	return (true);
+}
+
+bool set_player_position(t_map *map, int i, int j, bool *player_found)
+{
+	if (*player_found)
+		return (false);
+	*player_found = true;
+	map->mapreqs.pos_x = j;
+	map->mapreqs.pos_y = i;
+	map->mapreqs.orientation = map->tiles[i][j];
+	map->tiles[i][j] = '0';
 	return (true);
 }
 
@@ -193,15 +168,8 @@ bool	validate_components(t_map *map)
 		{
 			if (is_orientation(map->tiles[i][j]))
 			{
-				if (player_found)
-					return (false);
-					// free_map_exit(map,
-					// 	"Multiple player start positions detected.", 1);
-				player_found = true;
-				map->mapreqs.pos_x = j;
-				map->mapreqs.pos_y = i;
-				map->mapreqs.orientation = map->tiles[i][j];
-				map->tiles[i][j] = '0';
+				if (!set_player_position(map, i, j, &player_found))
+                    return (false);
 			}
 			j++;
 		}
@@ -209,7 +177,6 @@ bool	validate_components(t_map *map)
 	}
 	if (!player_found)
 		return (false);
-		// free_map_exit(map, "No player start position detected.", 1);
 	return (true);
 }
 
@@ -223,3 +190,7 @@ bool	map_valid(t_map *map)
 		free_map_exit(map, "Components validation failed.", 1);
 	return (true);
 }
+			// printf("current_row in row_index %d is : %s\n", row_index, current_row);//Debug
+	// printf("current_row before trim in row_index %d is : %s\n", row_index, current_row);//Debug
+	// printf("start_index in row_index %d is : %d\n", row_index, start_index);//Debug
+	// printf("current_row after advancing pointer of current row in row_index %d is : %s\n", row_index, current_row);//Debug

@@ -1,7 +1,7 @@
-NO textures/Test5.png
-SO textures/Test5.png
-WE textures/Test5.png
-EA textures/Test5.png
+NO img/wn.png
+SO img/ws.png
+WE img/ww.png
+EA img/we.png
 
 F 50,50,50
 C 0,0,0

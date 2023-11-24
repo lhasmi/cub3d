@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 19:26:09 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/16 20:55:13 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/23 20:49:29 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,22 +107,22 @@ bool parse_line(char *line, t_map *map, int fd)
 	if (line[0] == 'N' && line[1] == 'O')
 	{
 		if(parse_texture(line, map, "NO") == false)
-			return false;
+			return (false);
 	}
 	else if (line[0] == 'S' && line[1] == 'O')
 	{
 		if(parse_texture(line, map, "SO") == false)
-			return false;
+			return (false);
 	}
 	else if (line[0] == 'W' && line[1] == 'E')
 	{
 		if(parse_texture(line, map, "WE") == false)
-			return false;
+			return (false);
 	}
 	else if (line[0] == 'E' && line[1] == 'A')
 	{
 		if(parse_texture(line, map, "EA") == false)
-			return false;
+			return (false);
 	}
 	else if (line[0] == 'F')
 		parse_color(line, map, "F");
@@ -173,7 +173,7 @@ t_map	*parse_config_file(int fd, t_map *map)
 	{
 		// printf("line in parse_config_file(): %s\n", line);//DEBUG
 		if (parse_line(line, map, fd) == false)
-			return NULL;
+			return (NULL);
 	}
 	return (map);
 }

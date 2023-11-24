@@ -6,7 +6,7 @@
 
 void	draw_line(mlx_image_t *img, t_vec start, t_vec end, uint32_t color)
 {
-	int dx, dy, p, x, y;
+	int dx, dy, x, y;
 
 	int x0 = start.x;
 	int y0 = start.y;
@@ -25,8 +25,9 @@ void	draw_line(mlx_image_t *img, t_vec start, t_vec end, uint32_t color)
     int err = (dx > dy ? dx : -dy) / 2;
     int e2;
 
-    while (1) {
-		if (!(x < 0 || x >= img->width || y < 0 || y >= img->height))
+    while (1) 
+    {
+        if (!(x < 0 || x >= (int)img->width || y < 0 || y >= (int)img->height))
             mlx_put_pixel(img, x, y, color);
         if (x == x1 && y == y1) break;
         e2 = err;
@@ -34,3 +35,5 @@ void	draw_line(mlx_image_t *img, t_vec start, t_vec end, uint32_t color)
         if (e2 < dy) { err += dx; y += sy; }
     }
 }
+
+

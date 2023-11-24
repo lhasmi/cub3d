@@ -25,7 +25,7 @@
 # include "../MLX42/include/MLX42/MLX42.h"
 
 # define TSIZE 64
-# define PI 3.14159265359
+// # define PI 3.14159265359
 
 typedef struct s_map t_map;
 
@@ -39,9 +39,9 @@ typedef struct s_mapreqs
 
 typedef struct s_color
 {
-    int			red;
-    int			green;
-    int			blue;
+	int			red;
+	int			green;
+	int			blue;
 } t_color;
 
 typedef struct s_map
