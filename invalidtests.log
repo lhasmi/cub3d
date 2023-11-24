@@ -1,194 +1,841 @@
 Starting invalid tests...
-Current directory: /Users/lhasmi/Desktop/cub3D_all/cub3d_hh
+Current directory: /Users/lailah/Library/Mobile Documents/com~apple~CloudDocs/cloudDesk42/cub3D_all/cub3d
 ******************
 ************************************
 ************************************
 Running with maps/invalid/bad_file.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000e20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+MAP EXISTS ********************** freeing map tiles
+freeing map
 Error
 : Invalid line prefix in configuration file 
 Next file: maps/invalid/bad_rgb.cub
 ************************************
 ************************************
 Running with maps/invalid/bad_rgb.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000e20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
 Error
 : Error: Invalid color 
 Next file: maps/invalid/dfs.cub
 ************************************
 ************************************
 Running with maps/invalid/dfs.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000e20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+MAP EXISTS ********************** freeing map tiles
+freeing map->floor_color
+freeing map->ceiling_color
+freeing map->no_texture
+freeing map->so_texture
+freeing map->we_texture
+freeing map->ea_texture
+freeing map
 Error
 : Invalid line prefix in configuration file 
 Next file: maps/invalid/empty.cub
 ************************************
 ************************************
 Running with maps/invalid/empty.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
 Error
 : Empty file 
 Next file: maps/invalid/invalid_01.cub
 ************************************
 ************************************
 Running with maps/invalid/invalid_01.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000e20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+
+Finished parse_config_file...
+
+File closed...
+
+***** CHECKING STRUCTS CONTENT ******
+
+All 4 textures paths are loaded successfully:
+ north img/wn.png
+  east img/we.png
+  west img/ww.png
+  south img/ws.png
+
+Checking if colors are parsed correctly...
+
+floor color: 220   100    0
+
+ceiling color: 225   30    0
+
+color_hex: dc6400ff    e11e00ff
+
+Checking if map is valid...
 Error
 : Middle rows must start and end with '1'. 
 Error in middle lines
+MAP EXISTS ********************** freeing map tiles
+freeing map->tiles[0]
+freeing map->tiles[1]
+freeing map->tiles[2]
+freeing map->tiles[3]
+freeing map->tiles[4]
+freeing map->tiles[5]
+freeing map->tiles[6]
+freeing map->tiles[7]
+freeing map->tiles
+freeing map->floor_color
+freeing map->ceiling_color
+freeing map->no_texture
+freeing map->so_texture
+freeing map->we_texture
+freeing map->ea_texture
+freeing map
 Error
 : Wall or tiles check failed. 
 Next file: maps/invalid/invalid_02.cub
 ************************************
 ************************************
 Running with maps/invalid/invalid_02.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000e20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+
+Finished parse_config_file...
+
+File closed...
+
+***** CHECKING STRUCTS CONTENT ******
+
+All 4 textures paths are loaded successfully:
+ north img/wn.png
+  east img/we.png
+  west img/ww.png
+  south img/ws.png
+
+Checking if colors are parsed correctly...
+
+floor color: 220   100    0
+
+ceiling color: 225   30    0
+
+color_hex: dc6400ff    e11e00ff
+
+Checking if map is valid...
 Error
 : Middle rows must start and end with '1'. 
 Error in middle lines
+MAP EXISTS ********************** freeing map tiles
+freeing map->tiles[0]
+freeing map->tiles[1]
+freeing map->tiles[2]
+freeing map->tiles[3]
+freeing map->tiles[4]
+freeing map->tiles[5]
+freeing map->tiles[6]
+freeing map->tiles[7]
+freeing map->tiles
+freeing map->floor_color
+freeing map->ceiling_color
+freeing map->no_texture
+freeing map->so_texture
+freeing map->we_texture
+freeing map->ea_texture
+freeing map
 Error
 : Wall or tiles check failed. 
 Next file: maps/invalid/invalid_03.cub
 ************************************
 ************************************
 Running with maps/invalid/invalid_03.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000e20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+
+Finished parse_config_file...
+
+File closed...
+
+***** CHECKING STRUCTS CONTENT ******
+
+All 4 textures paths are loaded successfully:
+ north img/wn.png
+  east img/we.png
+  west img/ww.png
+  south img/ws.png
+
+Checking if colors are parsed correctly...
+
+floor color: 220   100    0
+
+ceiling color: 225   30    0
+
+color_hex: dc6400ff    e11e00ff
+
+Checking if map is valid...
 Error
 : Invalid tile in middle line 
 Error in middle lines
+MAP EXISTS ********************** freeing map tiles
+freeing map->tiles[0]
+freeing map->tiles[1]
+freeing map->tiles[2]
+freeing map->tiles[3]
+freeing map->tiles[4]
+freeing map->tiles[5]
+freeing map->tiles[6]
+freeing map->tiles[7]
+freeing map->tiles
+freeing map->floor_color
+freeing map->ceiling_color
+freeing map->no_texture
+freeing map->so_texture
+freeing map->we_texture
+freeing map->ea_texture
+freeing map
 Error
 : Wall or tiles check failed. 
 Next file: maps/invalid/invalid_ceiling_color.cub
 ************************************
 ************************************
 Running with maps/invalid/invalid_ceiling_color.cub
-AddressSanitizer:DEADLYSIGNAL
-=================================================================
-==4184==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000004 (pc 0x00010334e094 bp 0x7ffeec8ec490 sp 0x7ffeec8ec100 T0)
-==4184==The signal is caused by a READ memory access.
-==4184==Hint: address points to the zero page.
-    #0 0x10334e094 in parse main.c:250
-    #1 0x10334f503 in main main.c:310
-    #2 0x7fff6b0ddcc8 in start+0x0 (libdyld.dylib:x86_64+0x1acc8)
 
-==4184==Register values:
-rax = 0x0000000000000004  rbx = 0x00007ffeec8ec200  rcx = 0x00001fffdd91d820  rdx = 0x0000000000000004  
-rdi = 0x0000100000000000  rsi = 0x0000100000000000  rbp = 0x00007ffeec8ec490  rsp = 0x00007ffeec8ec100  
- r8 = 0x0000000000013000   r9 = 0x0000000000000000  r10 = 0x00007fff91bffbf8  r11 = 0x00007fff91bffbf0  
-r12 = 0x0000000000000000  r13 = 0x0000000000000000  r14 = 0x0000000000000000  r15 = 0x0000000000000000  
-AddressSanitizer can not provide additional info.
-SUMMARY: AddressSanitizer: SEGV main.c:250 in parse
-==4184==ABORTING
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000e20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
 Error
 : Error: Invalid path for texture 
-Invalid map
+Error
+: Invalid map, map freed 
 Next file: maps/invalid/invalid_colour.cub
 ************************************
 ************************************
 Running with maps/invalid/invalid_colour.cub
-AddressSanitizer:DEADLYSIGNAL
-=================================================================
-==4188==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000004 (pc 0x00010fcb4094 bp 0x7ffedff864b0 sp 0x7ffedff86120 T0)
-==4188==The signal is caused by a READ memory access.
-==4188==Hint: address points to the zero page.
-    #0 0x10fcb4094 in parse main.c:250
-    #1 0x10fcb5503 in main main.c:310
-    #2 0x7fff6b0ddcc8 in start+0x0 (libdyld.dylib:x86_64+0x1acc8)
 
-==4188==Register values:
-rax = 0x0000000000000004  rbx = 0x00007ffedff86220  rcx = 0x00001fffdbff0c24  rdx = 0x0000000000000004  
-rdi = 0x0000100000000000  rsi = 0x0000100000000000  rbp = 0x00007ffedff864b0  rsp = 0x00007ffedff86120  
- r8 = 0x0000000000013000   r9 = 0x0000000000000000  r10 = 0x00007fff91bffbf8  r11 = 0x00007fff91bffbf0  
-r12 = 0x0000000000000000  r13 = 0x0000000000000000  r14 = 0x0000000000000000  r15 = 0x0000000000000000  
-AddressSanitizer can not provide additional info.
-SUMMARY: AddressSanitizer: SEGV main.c:250 in parse
-==4188==ABORTING
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000e20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
 Error
 : Error: Invalid path for texture 
-Invalid map
+Error
+: Invalid map, map freed 
 Next file: maps/invalid/invalid_floor_color.cub
 ************************************
 ************************************
 Running with maps/invalid/invalid_floor_color.cub
-AddressSanitizer:DEADLYSIGNAL
-=================================================================
-==4194==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000004 (pc 0x000106538094 bp 0x7ffee97024b0 sp 0x7ffee9702120 T0)
-==4194==The signal is caused by a READ memory access.
-==4194==Hint: address points to the zero page.
-    #0 0x106538094 in parse main.c:250
-    #1 0x106539503 in main main.c:310
-    #2 0x7fff6b0ddcc8 in start+0x0 (libdyld.dylib:x86_64+0x1acc8)
 
-==4194==Register values:
-rax = 0x0000000000000004  rbx = 0x00007ffee9702220  rcx = 0x00001fffdd2e0424  rdx = 0x0000000000000004  
-rdi = 0x0000100000000000  rsi = 0x0000100000000000  rbp = 0x00007ffee97024b0  rsp = 0x00007ffee9702120  
- r8 = 0x0000000000013000   r9 = 0x0000000000000000  r10 = 0x00007fff91bffbf8  r11 = 0x00007fff91bffbf0  
-r12 = 0x0000000000000000  r13 = 0x0000000000000000  r14 = 0x0000000000000000  r15 = 0x0000000000000000  
-AddressSanitizer can not provide additional info.
-SUMMARY: AddressSanitizer: SEGV main.c:250 in parse
-==4194==ABORTING
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000e20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
 Error
 : Error: Invalid path for texture 
-Invalid map
+Error
+: Invalid map, map freed 
 Next file: maps/invalid/line_inside.cub
 ************************************
 ************************************
 Running with maps/invalid/line_inside.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000e20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+
+Finished parse_config_file...
+
+File closed...
+
+***** CHECKING STRUCTS CONTENT ******
+
+All 4 textures paths are loaded successfully:
+ north img/wn.png
+  east img/we.png
+  west img/ww.png
+  south img/ws.png
+
+Checking if colors are parsed correctly...
+
+floor color: 190   178    123
+
+ceiling color: 135   206    235
+
+color_hex: beb27bff    87ceebff
+
+Checking if map is valid...
 Error
 : Middle rows must start and end with '1'. 
 Error in middle lines
+MAP EXISTS ********************** freeing map tiles
+freeing map->tiles[0]
+freeing map->tiles[1]
+freeing map->tiles[2]
+freeing map->tiles[3]
+freeing map->tiles[4]
+freeing map->tiles[5]
+freeing map->tiles[6]
+freeing map->tiles[7]
+freeing map->tiles[8]
+freeing map->tiles[9]
+freeing map->tiles[10]
+freeing map->tiles[11]
+freeing map->tiles
+freeing map->floor_color
+freeing map->ceiling_color
+freeing map->no_texture
+freeing map->so_texture
+freeing map->we_texture
+freeing map->ea_texture
+freeing map
 Error
 : Wall or tiles check failed. 
 Next file: maps/invalid/no_path.cub
 ************************************
 ************************************
 Running with maps/invalid/no_path.cub
-AddressSanitizer:DEADLYSIGNAL
-=================================================================
-==4198==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000004 (pc 0x00010bb6f094 bp 0x7ffee40cb4b0 sp 0x7ffee40cb120 T0)
-==4198==The signal is caused by a READ memory access.
-==4198==Hint: address points to the zero page.
-    #0 0x10bb6f094 in parse main.c:250
-    #1 0x10bb70503 in main main.c:310
-    #2 0x7fff6b0ddcc8 in start+0x0 (libdyld.dylib:x86_64+0x1acc8)
 
-==4198==Register values:
-rax = 0x0000000000000004  rbx = 0x00007ffee40cb220  rcx = 0x00001fffdc819624  rdx = 0x0000000000000004  
-rdi = 0x0000100000000000  rsi = 0x0000100000000000  rbp = 0x00007ffee40cb4b0  rsp = 0x00007ffee40cb120  
- r8 = 0x0000000000013000   r9 = 0x0000000000000000  r10 = 0x00007fff91bffbf8  r11 = 0x00007fff91bffbf0  
-r12 = 0x0000000000000000  r13 = 0x0000000000000000  r14 = 0x0000000000000000  r15 = 0x0000000000000000  
-AddressSanitizer can not provide additional info.
-SUMMARY: AddressSanitizer: SEGV main.c:250 in parse
-==4198==ABORTING
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000e20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
 Error
 : Error: Invalid path for texture 
-Invalid map
+Error
+: Invalid map, map freed 
 Next file: maps/invalid/no_position.cub
 ************************************
 ************************************
 Running with maps/invalid/no_position.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000e20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+
+Finished parse_config_file...
+
+File closed...
+
+***** CHECKING STRUCTS CONTENT ******
+
+All 4 textures paths are loaded successfully:
+ north img/wn.png
+  east img/we.png
+  west img/ww.png
+  south img/ws.png
+
+Checking if colors are parsed correctly...
+
+floor color: 220   100    0
+
+ceiling color: 225   30    0
+
+color_hex: dc6400ff    e11e00ff
+
+Checking if map is valid...
+MAP EXISTS ********************** freeing map tiles
+freeing map->tiles[0]
+freeing map->tiles[1]
+freeing map->tiles[2]
+freeing map->tiles[3]
+freeing map->tiles[4]
+freeing map->tiles[5]
+freeing map->tiles[6]
+freeing map->tiles[7]
+freeing map->tiles
+freeing map->floor_color
+freeing map->ceiling_color
+freeing map->no_texture
+freeing map->so_texture
+freeing map->we_texture
+freeing map->ea_texture
+freeing map
 Error
 : Components validation failed. 
 Next file: maps/invalid/randomsomeshit.cub
 ************************************
 ************************************
 Running with maps/invalid/randomsomeshit.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000e20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+
+Finished parse_config_file...
+
+File closed...
+
+***** CHECKING STRUCTS CONTENT ******
+
+All 4 textures paths are loaded successfully:
+ north img/wn.png
+  east img/we.png
+  west img/ww.png
+  south img/ws.png
+
+Checking if colors are parsed correctly...
+
+floor color: 190   178    123
+
+ceiling color: 135   206    235
+
+color_hex: beb27bff    87ceebff
+
+Checking if map is valid...
 Error
 : Middle rows must start and end with '1'. 
 Error in middle lines
+MAP EXISTS ********************** freeing map tiles
+freeing map->tiles[0]
+freeing map->tiles[1]
+freeing map->tiles[2]
+freeing map->tiles[3]
+freeing map->tiles[4]
+freeing map->tiles[5]
+freeing map->tiles[6]
+freeing map->tiles[7]
+freeing map->tiles[8]
+freeing map->tiles[9]
+freeing map->tiles[10]
+freeing map->tiles[11]
+freeing map->tiles[12]
+freeing map->tiles
+freeing map->floor_color
+freeing map->ceiling_color
+freeing map->no_texture
+freeing map->so_texture
+freeing map->we_texture
+freeing map->ea_texture
+freeing map
 Error
 : Wall or tiles check failed. 
 Next file: maps/invalid/simple.cub
 ************************************
 ************************************
 Running with maps/invalid/simple.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000e20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+
+Finished parse_config_file...
+
+File closed...
+
+***** CHECKING STRUCTS CONTENT ******
+
+All 4 textures paths are loaded successfully:
+ north img/wn.png
+  east img/we.png
+  west img/ww.png
+  south img/ws.png
+
+Checking if colors are parsed correctly...
+
+floor color: 190   178    123
+
+ceiling color: 135   206    235
+
+color_hex: beb27bff    87ceebff
+
+Checking if map is valid...
 Error
 : Middle rows must start and end with '1'. 
 Error in middle lines
+MAP EXISTS ********************** freeing map tiles
+freeing map->tiles[0]
+freeing map->tiles[1]
+freeing map->tiles[2]
+freeing map->tiles[3]
+freeing map->tiles[4]
+freeing map->tiles[5]
+freeing map->tiles[6]
+freeing map->tiles[7]
+freeing map->tiles[8]
+freeing map->tiles[9]
+freeing map->tiles[10]
+freeing map->tiles[11]
+freeing map->tiles[12]
+freeing map->tiles
+freeing map->floor_color
+freeing map->ceiling_color
+freeing map->no_texture
+freeing map->so_texture
+freeing map->we_texture
+freeing map->ea_texture
+freeing map
 Error
 : Wall or tiles check failed. 
 Next file: maps/invalid/test2_2Play.cub
 ************************************
 ************************************
 Running with maps/invalid/test2_2Play.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000e20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+
+Finished parse_config_file...
+
+File closed...
+
+***** CHECKING STRUCTS CONTENT ******
+
+All 4 textures paths are loaded successfully:
+ north img/wn.png
+  east img/we.png
+  west img/ww.png
+  south img/ws.png
+
+Checking if colors are parsed correctly...
+
+floor color: 19   133    16
+
+ceiling color: 135   206    235
+
+color_hex: 138510ff    87ceebff
+
+Checking if map is valid...
+MAP EXISTS ********************** freeing map tiles
+freeing map->tiles[0]
+freeing map->tiles[1]
+freeing map->tiles[2]
+freeing map->tiles[3]
+freeing map->tiles[4]
+freeing map->tiles[5]
+freeing map->tiles[6]
+freeing map->tiles[7]
+freeing map->tiles[8]
+freeing map->tiles[9]
+freeing map->tiles[10]
+freeing map->tiles[11]
+freeing map->tiles[12]
+freeing map->tiles[13]
+freeing map->tiles
+freeing map->floor_color
+freeing map->ceiling_color
+freeing map->no_texture
+freeing map->so_texture
+freeing map->we_texture
+freeing map->ea_texture
+freeing map
 Error
 : Components validation failed. 
 Next file: maps/invalid/test2_2players.cub
 ******************
 Running with maps/invalid/test2_2players.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x608000000e20
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+
+Finished parse_config_file...
+
+File closed...
+
+***** CHECKING STRUCTS CONTENT ******
+
+All 4 textures paths are loaded successfully:
+ north img/wn.png
+  east img/we.png
+  west img/ww.png
+  south img/ws.png
+
+Checking if colors are parsed correctly...
+
+floor color: 19   133    16
+
+ceiling color: 135   206    235
+
+color_hex: 138510ff    87ceebff
+
+Checking if map is valid...
+MAP EXISTS ********************** freeing map tiles
+freeing map->tiles[0]
+freeing map->tiles[1]
+freeing map->tiles[2]
+freeing map->tiles[3]
+freeing map->tiles[4]
+freeing map->tiles[5]
+freeing map->tiles[6]
+freeing map->tiles[7]
+freeing map->tiles[8]
+freeing map->tiles[9]
+freeing map->tiles[10]
+freeing map->tiles[11]
+freeing map->tiles[12]
+freeing map->tiles[13]
+freeing map->tiles
+freeing map->floor_color
+freeing map->ceiling_color
+freeing map->no_texture
+freeing map->so_texture
+freeing map->we_texture
+freeing map->ea_texture
+freeing map
 Error
 : Components validation failed. 
 ******************

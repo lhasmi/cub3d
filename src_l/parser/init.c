@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 00:39:04 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/11 21:31:29 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/24 11:59:31 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ t_map	*init_map_struct(void)
 {
 	t_map	*new_map;
 
+	new_map = NULL;
 	new_map = (t_map *)malloc(sizeof(t_map));
-	if (!new_map)
+	if (new_map == NULL)
 	{
 		ft_error("Error: Memory allocation for map failed");
 		exit(1);
@@ -52,6 +53,7 @@ t_color	*init_color_struct(void)
 {
 	t_color	*new_color;
 
+	new_color = NULL;
 	new_color = (t_color *)malloc(sizeof(t_color));
 	if (!new_color)
 	{
