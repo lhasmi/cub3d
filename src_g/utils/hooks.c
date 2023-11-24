@@ -123,9 +123,9 @@ void	mouse_hook(mouse_key_t button, action_t action, modifier_key_t mods, void* 
 	scene->cursor_locked = 1;
 }
 
-void	cursor_hook(double xpos, double ypos, void* param)
+void	cursor_hook(double xpos, double ypos, void *param)
 {
-	t_scene *scene;
+	t_scene	*scene;
 	t_vec	center;
 	t_vec	current;
 	t_vec	diff;
@@ -137,5 +137,6 @@ void	cursor_hook(double xpos, double ypos, void* param)
 	current = vec_create(xpos, ypos, 0);
 	diff = vec_sub(center, current);
 	scene->player.yaw -= diff.x * (PI / 180.0);
+	scene->cloud_offset -= diff.x * (PI / 180.0) * 500;
 	mlx_set_mouse_pos(scene->mlx, (int32_t) center.x, (int32_t) center.y);
 }

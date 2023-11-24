@@ -38,23 +38,6 @@ uint32_t	get_pixel(t_scene *scene, double x, double y, t_bearing bearing)
 	return (get_pixel_tex(tex, (uint32_t) x, (uint32_t) y));
 }
 
-// uint32_t	get_pixel(t_scene *scene, double x, double y, t_bearing bearing)
-// {
-// 	mlx_texture_t	*tex;
-// 	uint32_t		index;
-
-// 	tex = scene->tex[bearing];
-// 	x *= tex->width;
-// 	y *= tex->height;
-// 	index = ((uint32_t) y * tex->width + (uint32_t) x) * 4;
-// 	return (
-// 		tex->pixels[index++] << 24 |
-// 		tex->pixels[index++] << 16 |
-// 		tex->pixels[index++] << 8 |
-// 		tex->pixels[index]
-// 	);
-// }
-
 void	scene_draw_column(t_scene *scene, uint32_t ix, t_hit *hit, uint32_t height)
 {
 	double		y;
@@ -63,8 +46,8 @@ void	scene_draw_column(t_scene *scene, uint32_t ix, t_hit *hit, uint32_t height)
 	int32_t		end;
 	uint32_t	color;
 
-	start = (int32_t) (scene->size.y - height) / 2;
-	end = (int32_t) (scene->size.y + height) / 2;
+	start = (int32_t)(scene->size.y - height) / 2;
+	end = (int32_t)(scene->size.y + height) / 2;
 	iy = start;
 	while (iy < end)
 	{
@@ -73,8 +56,8 @@ void	scene_draw_column(t_scene *scene, uint32_t ix, t_hit *hit, uint32_t height)
 			iy++;
 			continue ;
 		}
-		y = (double) (iy - start) / (double) height;
-		if(scene_get(scene, hit->position) == 'D')
+		y = (double)(iy - start) / (double) height;
+		if (scene_get(scene, hit->position) == 'D')
 			color = get_pixel(scene, hit->offset, y, 4);
 		else
 			color = get_pixel(scene, hit->offset, y, hit->bearing);
@@ -118,7 +101,7 @@ void	scene_draw_clouds(t_scene *scene)
 		}
 		x++;
 	}
-	scene->cloud_offset--;
+	// scene->cloud_offset--;
 }
 
 void	scene_draw(t_scene *scene)

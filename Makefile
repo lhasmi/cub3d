@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+         #
+#    By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 20:56:57 by lhasmi            #+#    #+#              #
-#    Updated: 2023/11/24 11:24:06 by lhasmi           ###   ########.fr        #
+#    Updated: 2023/11/24 19:35:05 by gbohm            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,11 +32,11 @@ DEPS=-lglfw -L $(GLFW_PATH) -framework Cocoa -framework OpenGL -framework IOKit
 HEADERS=$(wildcard include/*.h) $(wildcard include/defs/*.h)
 
 ifndef LENIENT
-	CFLAGS += -Wall -Werror -Wextra -fsanitize=address -g
+	CFLAGS += -Wall -Werror -Wextra
 endif
 
 ifdef DEBUG
-	CFLAGS += -g -Wall -Werror -Wextra -fsanitize=address
+	CFLAGS += -fsanitize=address -g
 endif
 
 ifndef LAILA
@@ -71,52 +71,6 @@ $(MLX):
 $(NAME): $(LIBFT) $(MLX) $(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $^ $(DEPS)
 	@echo "Built $(NAME) successfully."
-valid:
-	@echo "Starting valid tests..." > validtests.log
-	@echo "******************" >> validtests.log
-	@files=$$(ls maps/valid/*.cub); \
-	prev=""; \
-	for file in $$files; do \
-		if [ -n "$$prev" ]; then \
-			echo "************************************" >> validtests.log; \
-			echo "************************************" >> validtests.log; \
-			echo "Running with $$prev" >> validtests.log; \
-			./cub3D $$prev >> validtests.log 2>&1; \
-			echo "Next file: $$file" >> validtests.log; \
-		fi; \
-		prev=$$file; \
-	done; \
-	if [ -n "$$prev" ]; then \
-		echo "******************" >> validtests.log; \
-		echo "Running with $$prev" >> validtests.log; \
-		./cub3D $$prev >> validtests.log 2>&1; \
-	fi
-	@echo "******************" >> validtests.log
-	@echo "All tests completed." >> validtests.log
-
-invalid:
-	@echo "Starting invalid tests..." > invalidtests.log
-	@echo "Current directory: $$(pwd)" >> invalidtests.log
-	@echo "******************" >> invalidtests.log
-	@files=$$(ls maps/invalid/*.cub); \
-	prev=""; \
-	for file in $$files; do \
-		if [ -n "$$prev" ]; then \
-			echo "************************************" >> invalidtests.log; \
-			echo "************************************" >> invalidtests.log; \
-			echo "Running with $$prev" >> invalidtests.log; \
-			./cub3D $$prev >> invalidtests.log 2>&1 || true; \
-			echo "Next file: $$file" >> invalidtests.log; \
-		fi; \
-		prev=$$file; \
-	done; \
-	if [ -n "$$prev" ]; then \
-		echo "******************" >> invalidtests.log; \
-		echo "Running with $$prev" >> invalidtests.log; \
-		./cub3D $$prev >> invalidtests.log 2>&1 || true; \
-	fi
-	@echo "******************" >> invalidtests.log
-	@echo "All tests completed." >> invalidtests.log
 
 valid:
 	@echo "Starting valid tests..." > validtests.log
@@ -140,7 +94,6 @@ valid:
 	fi
 	@echo "******************" >> validtests.log
 	@echo "All tests completed." >> validtests.log
-
 
 invalid:
 	@echo "Starting invalid tests..." > invalidtests.log
@@ -188,7 +141,7 @@ norm:
 	norminette $(SRC) $(HEADERS)
 
 test: all
-	./$(NAME) maps/gero.cub
+	./$(NAME) maps/valid/gero.cub
 
 .PHONY:
-	all bonus clean fclean re norm
+	all bonus clean fclean re norm test
