@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+         #
+#    By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 20:56:57 by lhasmi            #+#    #+#              #
-#    Updated: 2023/11/23 20:28:20 by lhasmi           ###   ########.fr        #
+#    Updated: 2023/11/24 11:24:06 by lhasmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ ifndef LENIENT
 endif
 
 ifdef DEBUG
-	CFLAGS += -g
+	CFLAGS += -g -Wall -Werror -Wextra -fsanitize=address
 endif
 
 ifndef LAILA
@@ -57,11 +57,15 @@ $(OBJ_DIR)/%.o: $(SRC_G_DIR)/%.c $(HEADERS) Makefile
 
 $(LIBFT):
 	cd libft && make
+	@echo "*********************************************  ***************************************"
 	@echo "*********************************************    Building libft successfully completed."
+	@echo "*********************************************  ***************************************"
 
 $(MLX):
 	cd MLX42 && cmake -B build && cmake --build build -j4
+	@echo "*********************************************  ***************************************"
 	@echo "*********************************************    Building mlx successfully completed."
+	@echo "*********************************************  ***************************************"
 # git clone https://github.com/codam-coding-college/MLX42.git
 
 $(NAME): $(LIBFT) $(MLX) $(OBJ)
