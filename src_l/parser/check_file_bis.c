@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_file_bis.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 22:09:34 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/24 22:53:05 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/25 00:40:42 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	**get_texture_field(t_map *map, const char *texture_id)
 		return (&map->ea_texture);
 	else
 	{
-		ft_error("Error: Invalid texture identifier");
+		ft_error("Invalid texture identifier");
 		return (NULL);
 	}
 	return (NULL);
@@ -43,14 +43,14 @@ bool	parse_texture(char *line, t_map *map, const char *texture_id)
 	tmp = ft_strtok(line, " ");
 	if (tmp == NULL || !is_path_valid(tmp))
 	{
-		ft_error("Error: Invalid path for texture");
+		ft_error("Invalid path for texture");
 		return (false);
 	}
 	texture_field = get_texture_field(map, texture_id);
 	*texture_field = (char *)malloc(sizeof(char) * (ft_strlen(tmp) + 1));
 	if (!*texture_field)
 	{
-		ft_error("Error: Could not allocate memory for texture");
+		ft_error("Could not allocate memory for texture");
 		return (false);
 	}
 	ft_strcpy(*texture_field, tmp);
@@ -65,13 +65,13 @@ int	get_color(char **lineptr)
 	tmp = ft_strtok(*lineptr, ",");
 	if (tmp == NULL)
 	{
-		ft_error("Error: Invalid color");
+		ft_error("Invalid color");
 		exit(1);
 	}
 	color = ft_atoi(tmp);
 	if (!is_color_valid(color))
 	{
-		ft_error("Error: Invalid color");
+		ft_error("Invalid color");
 		exit(1);
 	}
 	*lineptr = NULL;

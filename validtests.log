@@ -1,0 +1,10 @@
+Starting valid tests...
+******************
+************************************
+************************************
+Running with maps/valid/3x3.cub
+2023-11-25 00:39:26.511 cub3D[2554:17223] TSM AdjustCapsLockLEDForKeyTransitionHandling - _ISSetPhysicalKeyboardCapsLockLED Inhibit
+Next file: maps/valid/art.cub
+************************************
+************************************
+Running with maps/valid/art.cub
