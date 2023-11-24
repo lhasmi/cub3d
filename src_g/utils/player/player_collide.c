@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   player_collide.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/24 21:00:38 by gbohm             #+#    #+#             */
+/*   Updated: 2023/11/24 21:00:38 by gbohm            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <math.h>
 #include "scene.h"
 #include "vec.h"
 
-static t_vec player_get_correction(t_scene *scene, t_vec direction)
+static t_vec	player_get_correction(t_scene *scene, t_vec direction)
 {
 	t_vec	adjusted;
 
