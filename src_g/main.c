@@ -12,8 +12,6 @@
 #include "player.h"
 #include "setup.h"
 
-// -----------------------------------------------------------------------------
-
 double get_yaw(char orientation)
 {
 	if (orientation == 'E')
