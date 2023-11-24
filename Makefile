@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+         #
+#    By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 20:56:57 by lhasmi            #+#    #+#              #
-#    Updated: 2023/11/24 23:48:47 by gbohm            ###   ########.fr        #
+#    Updated: 2023/11/25 00:45:42 by lhasmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -120,10 +120,38 @@ invalid:
 	@echo "******************" >> invalidtests.log
 	@echo "All tests completed." >> invalidtests.log
 
+bonusmaps:
+	@echo "Starting bonus tests..." > bonusmaps.log
+	@echo "Current directory: $$(pwd)" >> bonusmaps.log
+	@echo "******************" >> bonusmaps.log
+	@files=$$(ls maps/bonus/*.cub); \
+	prev=""; \
+	for file in $$files; do \
+		if [ -n "$$prev" ]; then \
+			echo "************************************" >> bonusmaps.log; \
+			echo "************************************" >> bonusmaps.log; \
+			echo "Running with $$prev" >> bonusmaps.log; \
+			./cub3D $$prev >> bonusmaps.log 2>&1 || true; \
+			echo "Next file: $$file" >> bonusmaps.log; \
+		fi; \
+		prev=$$file; \
+	done; \
+	if [ -n "$$prev" ]; then \
+		echo "******************" >> bonusmaps.log; \
+		echo "Running with $$prev" >> bonusmaps.log; \
+		./cub3D $$prev >> bonusmaps.log 2>&1 || true; \
+	fi
+	@echo "******************" >> bonusmaps.log
+	@echo "All tests completed." >> bonusmaps.log
+
 clean:
 	rm -rf $(OBJ_DIR)
+	@echo "Cleaned $(NAME) successfully."
 	cd libft && make clean
+	@echo "Cleaned libft successfully."
 	cd MLX42 && rm -rf build
+	@echo "Cleaned mlx successfully."
+	rm *.log
 
 fclean: clean
 	rm -f $(NAME)
