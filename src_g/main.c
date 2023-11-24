@@ -37,7 +37,7 @@ int	load_texture(char *path, mlx_texture_t **tex)
 void parse(char *file_name, t_scene *scene)
 {
 	int		fd;
-	t_map	*map;
+	t_map	map;
 
 	if (is_cub_file_empty(file_name) == - 1)
 	{
@@ -55,53 +55,54 @@ void parse(char *file_name, t_scene *scene)
 		ft_error("Error opening file");
 		exit(1);
 	}
-	map = init_map_struct();
-	map = parse_config_file(fd, map);
+	init_map_struct(&map);
+	if (parse_config_file(fd, &map) || !map_valid(&map))
+	{
+		close(fd);
+		free_map_exit(&map, "Invalid map", 1);
+	}
 	close(fd);
-	if (map == NULL || !map_valid(map)){
-		free_map_exit(map, "Invalid map", 1);
-	}
 
-	scene->map_size = vec_create(map->cols, map->rows, 0);
-	if (get_padded_map(map->tiles, map->cols, map->rows, &scene->map))
-		free_map_exit(map, "Invalid map, map freed", 1);
-	scene->color_floor = map->floor_color_hex;
-	scene->color_ceiling = map->ceiling_color_hex;
-	if (load_texture(map->no_texture, &scene->tex[0]))
+	scene->map_size = vec_create(map.cols, map.rows, 0);
+	if (get_padded_map(map.tiles, map.cols, map.rows, &scene->map))
+		free_map_exit(&map, "Invalid map, map freed", 1);
+	scene->color_floor = map.floor_color_hex;
+	scene->color_ceiling = map.ceiling_color_hex;
+	if (load_texture(map.no_texture, &scene->tex[0]))
 	{
-		free_map_exit(map, "Texture could not be loaded", 1);
+		free_map_exit(&map, "Texture could not be loaded", 1);
 		mlx_terminate(scene->mlx);
 	}
-	if (load_texture(map->ea_texture, &scene->tex[1]))
+	if (load_texture(map.ea_texture, &scene->tex[1]))
 	{
-		free_map_exit(map, "Texture could not be loaded", 1);
+		free_map_exit(&map, "Texture could not be loaded", 1);
 		mlx_terminate(scene->mlx);
 	}
-	if (load_texture(map->so_texture, &scene->tex[2]))
+	if (load_texture(map.so_texture, &scene->tex[2]))
 	{
-		free_map_exit(map, "Texture could not be loaded", 1);
+		free_map_exit(&map, "Texture could not be loaded", 1);
 		mlx_terminate(scene->mlx);
 	}
-	if (load_texture(map->we_texture, &scene->tex[3]))
+	if (load_texture(map.we_texture, &scene->tex[3]))
 	{
-		free_map_exit(map, "Texture could not be loaded", 1);
+		free_map_exit(&map, "Texture could not be loaded", 1);
 		mlx_terminate(scene->mlx);
 	}
 	if (load_texture("img/img.png", &scene->tex[4]))
 	{
-		free_map_exit(map, "Texture could not be loaded", 1);
+		free_map_exit(&map, "Texture could not be loaded", 1);
 		mlx_terminate(scene->mlx);
 	}
 	if (load_texture("img/clouds.png", &scene->tex[5]))
 	{
-		free_map_exit(map, "Texture could not be loaded", 1);
+		free_map_exit(&map, "Texture could not be loaded", 1);
 		mlx_terminate(scene->mlx);
 	}
-	scene->player = player_create(vec_create(map->mapreqs.pos_x + 0.5, map->mapreqs.pos_y + 0.5, 0), get_yaw(map->mapreqs.orientation));
+	scene->player = player_create(vec_create(map.mapreqs.pos_x + 0.5, map.mapreqs.pos_y + 0.5, 0), get_yaw(map.mapreqs.orientation));
 	scene->interact = 0;
 	scene->cursor_locked = 0;
 	scene->cloud_offset = 0;
-	free_map_resources(map);
+	free_map_resources(&map);
 }
 
 int main(int argc, char **argv)

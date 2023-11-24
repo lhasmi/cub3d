@@ -114,6 +114,7 @@ void	mouse_hook(mouse_key_t button, action_t action, modifier_key_t mods, void* 
 {
 	t_scene *scene;
 
+	(void) mods;
 	scene = param;
 	if (button != MLX_MOUSE_BUTTON_LEFT && action != MLX_PRESS)
 		return ;
