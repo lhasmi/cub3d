@@ -12,7 +12,7 @@
 
 
 CC=cc
-CFLAGS=-I MLX42/include -I include -I include/defs
+CFLAGS=-I MLX42/include -I libft -I include -I include/defs
 NAME=cub3D
 SRC_L_DIR=src_l
 SRC_G_DIR=src_g
@@ -89,6 +89,54 @@ valid:
 	fi
 	@echo "******************" >> validtests.log
 	@echo "All tests completed." >> validtests.log
+
+invalid:
+	@echo "Starting invalid tests..." > invalidtests.log
+	@echo "Current directory: $$(pwd)" >> invalidtests.log
+	@echo "******************" >> invalidtests.log
+	@files=$$(ls maps/invalid/*.cub); \
+	prev=""; \
+	for file in $$files; do \
+		if [ -n "$$prev" ]; then \
+			echo "************************************" >> invalidtests.log; \
+			echo "************************************" >> invalidtests.log; \
+			echo "Running with $$prev" >> invalidtests.log; \
+			./cub3D $$prev >> invalidtests.log 2>&1 || true; \
+			echo "Next file: $$file" >> invalidtests.log; \
+		fi; \
+		prev=$$file; \
+	done; \
+	if [ -n "$$prev" ]; then \
+		echo "******************" >> invalidtests.log; \
+		echo "Running with $$prev" >> invalidtests.log; \
+		./cub3D $$prev >> invalidtests.log 2>&1 || true; \
+	fi
+	@echo "******************" >> invalidtests.log
+	@echo "All tests completed." >> invalidtests.log
+
+valid:
+	@echo "Starting valid tests..." > validtests.log
+	@echo "******************" >> validtests.log
+	@files=$$(ls maps/valid/*.cub); \
+	prev=""; \
+	for file in $$files; do \
+		if [ -n "$$prev" ]; then \
+			echo "************************************" >> validtests.log; \
+			echo "************************************" >> validtests.log; \
+			echo "Running with $$prev" >> validtests.log; \
+			./cub3D $$prev >> validtests.log 2>&1; \
+			echo "Next file: $$file" >> validtests.log; \
+		fi; \
+		prev=$$file; \
+	done; \
+	if [ -n "$$prev" ]; then \
+		echo "******************" >> validtests.log; \
+		echo "Running with $$prev" >> validtests.log; \
+		./cub3D $$prev >> validtests.log 2>&1; \
+	fi
+	@echo "******************" >> validtests.log
+	@echo "All tests completed." >> validtests.log
+
 
 invalid:
 	@echo "Starting invalid tests..." > invalidtests.log

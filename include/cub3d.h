@@ -158,6 +158,7 @@ char		**manual_realloc_2D_array(char **old_array, int old_rows, int new_rows, in
 void		fill_map_tiles(t_map *map, int fd, char *first_line);
 t_map		*parse_config_file(int fd, t_map *map);
 void		parse_color(char *line, t_map *map, const char *color_id);
+void		free_map_resources(t_map *map);
 
 
 // /* so_long.c */

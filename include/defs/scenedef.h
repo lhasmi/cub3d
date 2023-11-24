@@ -13,7 +13,7 @@ typedef struct s_scene
 	mlx_t			*mlx;
 	mlx_image_t		*image;
 	mlx_image_t		*minimap;
-	mlx_texture_t	*tex[5];
+	mlx_texture_t	*tex[6];
 	uint32_t		color_floor;
 	uint32_t		color_ceiling;
 	t_player		player;
@@ -22,6 +22,8 @@ typedef struct s_scene
 	char			**map;
 	t_vec			mouse;
 	int				interact;
+	int				cursor_locked;
+	int32_t		cloud_offset;
 }	t_scene;
 
 #endif

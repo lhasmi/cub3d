@@ -3,18 +3,24 @@ Starting valid tests...
 ************************************
 ************************************
 Running with maps/valid/3x3.cub
+<<<<<<< HEAD
 Next file: maps/valid/art.cub
 ************************************
 ************************************
 Running with maps/valid/art.cub
+=======
+>>>>>>> gero
 Next file: maps/valid/big.cub
 ************************************
 ************************************
 Running with maps/valid/big.cub
+<<<<<<< HEAD
 Next file: maps/valid/big_cube.cub
 ************************************
 ************************************
 Running with maps/valid/big_cube.cub
+=======
+>>>>>>> gero
 Next file: maps/valid/crazy.cub
 ************************************
 ************************************
@@ -23,15 +29,85 @@ Next file: maps/valid/crazy_bonus.cub
 ************************************
 ************************************
 Running with maps/valid/crazy_bonus.cub
+<<<<<<< HEAD
 Next file: maps/valid/gero.cub
 ************************************
 ************************************
 Running with maps/valid/gero.cub
+=======
+>>>>>>> gero
 Next file: maps/valid/hole.cub
 ************************************
 ************************************
 Running with maps/valid/hole.cub
+<<<<<<< HEAD
 Next file: maps/valid/look_east.cub
 ************************************
 ************************************
 Running with maps/valid/look_east.cub
+=======
+Next file: maps/valid/mid_cube.cub
+************************************
+************************************
+Running with maps/valid/mid_cube.cub
+
+Starting test_parse_valid_data...
+
+Is the file empty?...
+
+NOT empty ...continue
+
+***** INITIALIZATION OF THE STRUCTS ******
+
+Test if Map struct initialized...
+
+init_mapreqs() passed
+
+Map struct has been initialized successfully: ...0x7f98d9804100
+
+Player position has been initialized successfully: x position 0, y position 0
+
+***** FILLING UP THE STRUCTURES ******
+
+Start filling the map with parse_config_file...
+
+Finished parse_config_file...
+
+File closed...
+
+***** CHECKING STRUCTS CONTENT ******
+
+All 4 textures paths are loaded successfully:
+ north img/wall_no.png
+  east img/wall_east.png
+  west img/wall_west.png
+  south img/wall_so.png
+
+Checking if colors are parsed correctly...
+
+floor color: 255   255    0
+
+ceiling color: 255   255    255
+
+color_hex: ffff00ff    ffffffff
+
+Checking if map is valid...
+
+**************************************************************************************
+
+Map is valid
+
+**************************************************************************************
+
+Player position is valid: x position 21, y position 8, and the orientation is : W
+
+Finished tests, map freed
+
+Exiting test_parse_valid_data...
+
+
+
+Next file: maps/valid/simpleandvalid.cub
+******************
+Running with maps/valid/simpleandvalid.cub
+>>>>>>> gero
