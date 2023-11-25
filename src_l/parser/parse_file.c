@@ -6,7 +6,7 @@
 /*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 19:26:09 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/25 19:54:06 by gbohm            ###   ########.fr       */
+/*   Updated: 2023/11/25 21:17:48 by gbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ bool	parse_texture(char *line, t_map *map, const char *texture_id)
 
 bool	parse_line_bis(char *line, t_map *map, int fd)
 {
-	if (line[0] == 'F')
+	if (line[0] == 'F' && line[1] == ' ')
 		return (parse_color(line, map, "F"));
-	else if (line[0] == 'C')
+	else if (line[0] == 'C' && line[1] == ' ')
 		return (parse_color(line, map, "C"));
 	else if (is_line_a_wall(line))
 	{
@@ -80,6 +80,7 @@ bool	parse_line_bis(char *line, t_map *map, int fd)
 	else
 	{
 		free_map_exit(map, "Invalid line prefix in configuration file", 0);
+		free(line);
 		return (false);
 	}
 	return (true);
