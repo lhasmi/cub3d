@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 00:39:04 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/25 10:41:25 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/25 16:58:30 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,18 @@ void	init_map_struct(t_map *map)
 	map->so_texture = NULL;
 	map->we_texture = NULL;
 	map->ea_texture = NULL;
+	map->textur_no_found = 0;
+	map->textur_so_found = 0;
+	map->textur_we_found = 0;
+	map->textur_ea_found = 0;
 	map->rows = 0;
 	map->cols = 0;
 	map->floor_color = NULL;
 	map->ceiling_color = NULL;
 	map->floor_color_hex = 0;
 	map->ceiling_color_hex = 0;
+	map->colorf_found = 0;
+	map->colorc_found = 0;
 	map->mapreqs = init_mapreqs();
 }
 

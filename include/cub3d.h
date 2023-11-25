@@ -52,11 +52,16 @@ typedef struct s_map
 	char				*so_texture;
 	char				*we_texture;
 	char				*ea_texture;
+	int					textur_no_found;
+	int					textur_so_found;
+	int					textur_we_found;
+	int					textur_ea_found;
 	t_color				*floor_color;
 	t_color				*ceiling_color;
 	int					floor_color_hex;
 	int					ceiling_color_hex;
-
+	int					colorf_found;
+	int					colorc_found;
 }						t_map;
 
 /****************************************************************************
@@ -90,15 +95,19 @@ t_mapreqs				init_mapreqs(void);
 t_color					*init_color_struct(void);
 
 /* parser/parse_file_bis.c*/
-char					**get_texture_field(t_map *map, const char *texture_id);
-bool					parse_texture(char *line, t_map *map,
-							const char *texture_id);
 int						get_color(char **lineptr);
-void					parse_color(char *line, t_map *map,
+void					parse_color_bisc(char *line, t_map *map,
+							const char *color_id);
+void					parse_color_bisf(char *line, t_map *map,
+							const char *color_id);
+bool					parse_color(char *line, t_map *map,
 							const char *color_id);
 
 /* parser/parse_file.c*/
-void					parse_line_bis(char *line, t_map *map, int fd);
+char					**get_texture_field(t_map *map, const char *texture_id);
+bool					parse_texture(char *line, t_map *map,
+							const char *texture_id);
+bool					parse_line_bis(char *line, t_map *map, int fd);
 bool					parse_line(char *line, t_map *map, int fd);
 int						parse_config_file(int fd, t_map *map);
 
@@ -107,7 +116,6 @@ char					**manual_realloc_2d_array(char **old_array,
 							int old_rows, int new_rows, int cols);
 void					update_map_cols(t_map *map, int new_row_length);
 void					fill_map_tiles(t_map *map, int fd, char *first_line);
-
 
 /* parser/parse_utils.c*/
 bool					is_cub(char *filename);

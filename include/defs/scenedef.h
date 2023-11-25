@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   scenedef.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 20:44:11 by gbohm             #+#    #+#             */
-/*   Updated: 2023/11/24 20:44:12 by gbohm            ###   ########.fr       */
+/*   Updated: 2023/11/25 17:07:49 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCENEDEF_H
 # define SCENEDEF_H
 
-# include <MLX42/MLX42.h>
 # include "playerdef.h"
 # include "vecdef.h"
+# include <MLX42/MLX42.h>
 
 # define WIDTH 512
 # define HEIGHT 512
@@ -35,7 +35,7 @@ typedef struct s_scene
 	t_vec			mouse;
 	int				interact;
 	int				cursor_locked;
-	int32_t		cloud_offset;
-}	t_scene;
+	int32_t			cloud_offset;
+}					t_scene;
 
 #endif
