@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_file_bis.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 22:09:34 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/25 18:14:23 by gbohm            ###   ########.fr       */
+/*   Updated: 2023/11/25 19:17:01 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,10 @@ bool	parse_color(char *line, t_map *map, const char *color_id)
 		line++;
 	while (line[0] == color_id[0] && line[1] == ' ')
 		line++;
-	if (color_id[0] == 'F' && map->colorf_found == 0)
+	if (color_id[0] == 'F')
 		parse_color_bisf(line, map);
-	else if (color_id[0] == 'C' && map->colorc_found == 0)
-	{
+	else if (color_id[0] == 'C')
 		parse_color_bisc(line, map);
-	}
-	else
-	{
-		ft_error("Invalid or multiple color identifier");
-		free(start_line);
-		return (false);
-	}
 	free(start_line);
 	return (true);
 }

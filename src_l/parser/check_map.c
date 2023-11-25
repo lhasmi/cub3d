@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 12:03:35 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/24 21:26:32 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/25 19:17:28 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,12 @@ bool	map_valid(t_map *map)
 {
 	if (!map || !map->tiles)
 		free_map_exit(map, "Map is NULL", 1);
+	if (map->colorf_found != 1 || map->colorc_found != 1
+		|| map->textur_no_found != 1 || map->textur_so_found != 1
+		|| map->textur_we_found != 1 || map->textur_ea_found != 1)
+	{
+		free_map_exit(map, "Invalid number of textures or colors params", 1);
+	}
 	if (!check_walls(map))
 		free_map_exit(map, "Wall or tiles check failed.", 1);
 	if (!validate_components(map))

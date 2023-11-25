@@ -1,0 +1,139 @@
+Starting invalid tests...
+Current directory: /Users/lhasmi/Desktop/cub3D_all/cub3d
+******************
+************************************
+************************************
+Running with maps/invalid/bad_file.cub
+Error
+: Invalid line prefix in configuration file
+Error
+: Invalid config file
+Next file: maps/invalid/bad_rgb.cub
+************************************
+************************************
+Running with maps/invalid/bad_rgb.cub
+Error
+: Invalid color
+Error
+: First/last row has invalid characters.
+Error
+: Wall or tiles check failed.
+Next file: maps/invalid/double_ceiling_color.cub
+************************************
+************************************
+Running with maps/invalid/double_ceiling_color.cub
+Error
+: Invalid number of textures or colors params
+Next file: maps/invalid/double_texture.cub
+************************************
+************************************
+Running with maps/invalid/double_texture.cub
+Error
+: Invalid number of textures or colors params
+Next file: maps/invalid/empty.cub
+************************************
+************************************
+Running with maps/invalid/empty.cub
+Error
+: Empty file
+Next file: maps/invalid/invalid_01.cub
+************************************
+************************************
+Running with maps/invalid/invalid_01.cub
+Error
+: Middle rows must start and end with '1'.
+Error
+: Error in middle lines
+Error
+: Wall or tiles check failed.
+Next file: maps/invalid/invalid_02.cub
+************************************
+************************************
+Running with maps/invalid/invalid_02.cub
+Error
+: Middle rows must start and end with '1'.
+Error
+: Error in middle lines
+Error
+: Wall or tiles check failed.
+Next file: maps/invalid/invalid_ceiling_color.cub
+************************************
+************************************
+Running with maps/invalid/invalid_ceiling_color.cub
+Error
+: Invalid path for texture
+Error
+: Invalid config file
+Next file: maps/invalid/invalid_colour.cub
+************************************
+************************************
+Running with maps/invalid/invalid_colour.cub
+Error
+: Invalid path for texture
+Error
+: Invalid config file
+Next file: maps/invalid/invalid_floor_color.cub
+************************************
+************************************
+Running with maps/invalid/invalid_floor_color.cub
+Error
+: Invalid path for texture
+Error
+: Invalid config file
+Next file: maps/invalid/line_inside.cub
+************************************
+************************************
+Running with maps/invalid/line_inside.cub
+Error
+: Middle rows must start and end with '1'.
+Error
+: Error in middle lines
+Error
+: Wall or tiles check failed.
+Next file: maps/invalid/no_path.cub
+************************************
+************************************
+Running with maps/invalid/no_path.cub
+Error
+: Invalid path for texture
+Error
+: Invalid config file
+Next file: maps/invalid/no_position.cub
+************************************
+************************************
+Running with maps/invalid/no_position.cub
+Error
+: Components validation failed.
+Next file: maps/invalid/randomsomeshit.cub
+************************************
+************************************
+Running with maps/invalid/randomsomeshit.cub
+Error
+: Middle rows must start and end with '1'.
+Error
+: Error in middle lines
+Error
+: Wall or tiles check failed.
+Next file: maps/invalid/simple.cub
+************************************
+************************************
+Running with maps/invalid/simple.cub
+Error
+: Middle rows must start and end with '1'.
+Error
+: Error in middle lines
+Error
+: Wall or tiles check failed.
+Next file: maps/invalid/test2_2Play.cub
+************************************
+************************************
+Running with maps/invalid/test2_2Play.cub
+Error
+: Components validation failed.
+Next file: maps/invalid/test2_2players.cub
+******************
+Running with maps/invalid/test2_2players.cub
+Error
+: Components validation failed.
+******************
+All tests completed.
