@@ -1,18 +1,6 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/22 20:56:57 by lhasmi            #+#    #+#              #
-#    Updated: 2023/11/25 10:27:36 by lhasmi           ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-
 CC=cc
 CFLAGS=-I MLX42/include -I libft -I include -I include/defs
+SAN_LDFLAG=
 NAME=cub3D
 SRC_L_DIR=src_l
 SRC_G_DIR=src_g
@@ -46,6 +34,10 @@ else
 	SRC_L += $(SRC_L_DIR)/parser/parser_tester.c
 endif
 
+ifdef LEAKS
+	SAN_LDFLAG += -L../LeakSanitizer -llsan -lc++ -Wno-gnu-include-next -I ../LeakSanitize
+endif
+
 all: $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_L_DIR)/%.c $(HEADERS) Makefile
@@ -70,7 +62,7 @@ $(MLX):
 # git clone https://github.com/codam-coding-college/MLX42.git
 
 $(NAME): $(MLX) $(LIBFT) $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $^ $(DEPS)
+	$(CC) $(CFLAGS) $(SAN_LDFLAG) -o $(NAME) $^ $(DEPS)
 	@echo "Built $(NAME) successfully."
 
 valid:
@@ -151,7 +143,7 @@ clean:
 	@echo "Cleaned libft successfully."
 	cd MLX42 && rm -rf build
 	@echo "Cleaned mlx successfully."
-	rm *.log
+#	rm *.log
 
 fclean: clean
 	rm -f $(NAME)
