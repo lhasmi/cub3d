@@ -6,7 +6,7 @@
 /*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 19:26:09 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/25 19:46:51 by gbohm            ###   ########.fr       */
+/*   Updated: 2023/11/25 19:54:06 by gbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,6 @@ bool	parse_line_bis(char *line, t_map *map, int fd)
 
 bool	parse_line(char *line, t_map *map, int fd)
 {
-	char	*start_line;
-
-	start_line = line;
 	if ((is_wspace(line[0]) || line[0] == '\0') && !is_line_a_wall(line))
 		return (free(line), true);
 	if (line[0] == 'N' && line[1] == 'O')

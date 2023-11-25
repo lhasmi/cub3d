@@ -6,7 +6,7 @@
 /*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:41:54 by gbohm             #+#    #+#             */
-/*   Updated: 2023/11/25 19:39:47 by gbohm            ###   ########.fr       */
+/*   Updated: 2023/11/25 19:57:21 by gbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	scene_free(t_scene *scene, int i)
 		while (i--)
 			free(scene->map[i]);
 		free(scene->map);
+		scene->map = NULL;
 	}
 	if (scene->tex[0] != NULL)
 		mlx_delete_texture(scene->tex[0]);

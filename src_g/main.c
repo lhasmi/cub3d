@@ -6,7 +6,7 @@
 /*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 00:20:52 by gbohm             #+#    #+#             */
-/*   Updated: 2023/11/25 19:33:02 by gbohm            ###   ########.fr       */
+/*   Updated: 2023/11/25 19:56:10 by gbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,10 @@ int	main(int argc, char **argv)
 		return (ft_error("Invalid arguments"), 1);
 	scene_null(&scene);
 	if (setup_mlx(&scene))
-		return (ft_error(mlx_strerror(mlx_errno)), mlx_terminate(scene.mlx), 1);
-	parse(argv[1], &scene);
+		return (ft_error(mlx_strerror(mlx_errno)), mlx_terminate(scene.mlx),
+			1);
+	if (parse(argv[1], &scene))
+		return (mlx_terminate(scene.mlx), scene_free(&scene, -1), 1);
 	mlx_loop_hook(scene.mlx, loop_hook, &scene);
 	mlx_resize_hook(scene.mlx, resize_hook, &scene);
 	mlx_mouse_hook(scene.mlx, mouse_hook, &scene);
