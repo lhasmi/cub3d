@@ -6,7 +6,7 @@
 /*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 23:22:37 by gbohm             #+#    #+#             */
-/*   Updated: 2023/11/24 23:35:05 by gbohm            ###   ########.fr       */
+/*   Updated: 2023/11/25 00:09:20 by gbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	interact(t_scene *scene)
 	scene->interact = 1;
 	ray = ray_get(scene, (uint32_t)scene->size.x / 2);
 	hit = dda(scene, &ray, 1);
-	if (hit.distance < 0.2 || hit.distance > 1.0)
+	if (hit.distance < 0.2 || hit.distance > 1.5)
 		return ;
 	tile = scene_get(scene, hit.position);
 	if (tile == 'D')

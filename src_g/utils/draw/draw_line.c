@@ -6,46 +6,60 @@
 /*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 20:46:18 by gbohm             #+#    #+#             */
-/*   Updated: 2023/11/24 20:46:18 by gbohm            ###   ########.fr       */
+/*   Updated: 2023/11/25 01:22:11 by gbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include "MLX42/MLX42.h"
-#include "vecdef.h"
 #include "scenedef.h"
+#include "vecdef.h"
+#include "draw.h"
+
+void	draw_line_setup(t_vec start, t_vec end, t_line *line)
+{
+	int	x0;
+	int	y0;
+	int	x1;
+	int	y1;
+
+	x0 = start.x;
+	y0 = start.y;
+	x1 = end.x;
+	y1 = end.y;
+	line->dx = (int) abs(x1 - x0);
+	line->dy = (int) abs(y1 - y0);
+	line->x = x0;
+	line->y = y0;
+	line->sx = (x0 < x1) * 2 - 1;
+	line->sy = (y0 < y1) * 2 - 1;
+	if (line->dx > line->dy)
+		line->err = line->dx / 2;
+	else
+		line->err = -line->dy / 2;
+}
 
 void	draw_line(mlx_image_t *img, t_vec start, t_vec end, uint32_t color)
 {
-	int dx, dy, x, y;
+	t_line	line;
+	int		err_tmp;
 
-	int x0 = start.x;
-	int y0 = start.y;
-	int x1 = end.x;
-	int y1 = end.y;
-
-    dx = abs(x1 - x0);
-    dy = abs(y1 - y0);
-
-    x = x0;
-    y = y0;
-
-    int sx = x0 < x1 ? 1 : -1;
-    int sy = y0 < y1 ? 1 : -1;
-
-    int err = (dx > dy ? dx : -dy) / 2;
-    int e2;
-
-    while (1)
-    {
-        if (!(x < 0 || x >= (int)img->width || y < 0 || y >= (int)img->height))
-            mlx_put_pixel(img, x, y, color);
-        if (x == x1 && y == y1) break;
-        e2 = err;
-        if (e2 > -dx) { err -= dy; x += sx; }
-        if (e2 < dy) { err += dx; y += sy; }
-    }
+	draw_line_setup(start, end, &line);
+	while (1)
+	{
+		draw_pixel(img, line.x, line.y, color);
+		if (line.x == (int) end.x && line.y == (int) end.y)
+			break ;
+		err_tmp = line.err;
+		if (err_tmp > -line.dx)
+		{
+			line.err -= line.dy;
+			line.x += line.sx;
+		}
+		if (err_tmp < line.dy)
+		{
+			line.err += line.dx;
+			line.y += line.sy;
+		}
+	}
 }
-
-

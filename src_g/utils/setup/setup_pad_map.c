@@ -6,7 +6,7 @@
 /*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 20:52:53 by gbohm             #+#    #+#             */
-/*   Updated: 2023/11/24 20:52:53 by gbohm            ###   ########.fr       */
+/*   Updated: 2023/11/25 00:06:54 by gbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int	get_padded_map(char **tiles, int x, int y, char ***map)
 	{
 		if (str_malloc(x, (*map) + i))
 			return (1);
+		// TODO: free if fail
 		ft_strcpy((*map)[i], tiles[i]);
 		str_fill((*map)[i], ft_strlen(tiles[i]), x, ' ');
 		i++;
