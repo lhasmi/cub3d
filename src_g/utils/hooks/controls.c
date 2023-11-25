@@ -6,7 +6,7 @@
 /*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 23:22:37 by gbohm             #+#    #+#             */
-/*   Updated: 2023/11/25 00:09:20 by gbohm            ###   ########.fr       */
+/*   Updated: 2023/11/25 17:10:18 by gbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,6 @@ void	player_controls(t_scene *scene)
 		scene->player.yaw += 0.05;
 		scene->cloud_offset += 20;
 	}
-	if (mlx_is_key_down(scene->mlx, MLX_KEY_LEFT_SHIFT))
-		scene->player.position.y -= 1;
-	if (mlx_is_key_down(scene->mlx, MLX_KEY_SPACE))
-		scene->player.position.y += 1;
 	if (mlx_is_key_down(scene->mlx, MLX_KEY_S))
 		player_move_back(&scene->player);
 	if (mlx_is_key_down(scene->mlx, MLX_KEY_W))
