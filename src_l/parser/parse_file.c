@@ -3,44 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   parse_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 19:26:09 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/25 18:09:36 by gbohm            ###   ########.fr       */
+/*   Updated: 2023/11/25 19:19:25 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
 #include "../../include/cub3d.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 char	**get_texture_field(t_map *map, const char *texture_id)
 {
-	if (ft_strcmp(texture_id, "NO") == 0 && map->textur_no_found == 0)
+	if (ft_strcmp(texture_id, "NO") == 0)
 	{
 		map->textur_no_found++;
 		return (&map->no_texture);
 	}
-	else if (ft_strcmp(texture_id, "SO") == 0 && map->textur_so_found == 0)
+	else if (ft_strcmp(texture_id, "SO") == 0)
 	{
 		map->textur_so_found++;
 		return (&map->so_texture);
 	}
-	else if (ft_strcmp(texture_id, "WE") == 0 && map->textur_we_found == 0)
+	else if (ft_strcmp(texture_id, "WE") == 0)
 	{
 		map->textur_we_found++;
 		return (&map->we_texture);
 	}
-	else if (ft_strcmp(texture_id, "EA") == 0 && map->textur_ea_found == 0)
+	else if (ft_strcmp(texture_id, "EA") == 0)
 	{
 		map->textur_ea_found++;
 		return (&map->ea_texture);
 	}
 	else
-	{
-		free_map_exit(map, "Invalid or multiple texture identifier", 1);
 		return (NULL);
-	}
 }
 
 bool	parse_texture(char *line, t_map *map, const char *texture_id)
@@ -88,6 +85,9 @@ bool	parse_line_bis(char *line, t_map *map, int fd)
 
 bool	parse_line(char *line, t_map *map, int fd)
 {
+	char	*start_line;
+
+	start_line = line;
 	if ((is_wspace(line[0]) || line[0] == '\0') && !is_line_a_wall(line))
 		return (free(line), true);
 	if (line[0] == 'N' && line[1] == 'O')
@@ -126,7 +126,6 @@ int	parse_config_file(int fd, t_map *map)
 			break ;
 		if (parse_line(line, map, fd) == false)
 			return (1);
-		// printf("'%s' %p\n", line, line);
 	}
 	return (0);
 }
