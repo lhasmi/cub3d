@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 12:03:35 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/25 19:17:28 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/25 19:36:21 by gbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,16 +97,15 @@ bool	validate_components(t_map *map)
 bool	map_valid(t_map *map)
 {
 	if (!map || !map->tiles)
-		free_map_exit(map, "Map is NULL", 1);
+		return (ft_error("Map is NULL"), false);
 	if (map->colorf_found != 1 || map->colorc_found != 1
 		|| map->textur_no_found != 1 || map->textur_so_found != 1
 		|| map->textur_we_found != 1 || map->textur_ea_found != 1)
-	{
-		free_map_exit(map, "Invalid number of textures or colors params", 1);
-	}
+		return (ft_error("Invalid number of textures or colors params"),
+			false);
 	if (!check_walls(map))
-		free_map_exit(map, "Wall or tiles check failed.", 1);
+		return (ft_error("Wall or tiles check failed."), false);
 	if (!validate_components(map))
-		free_map_exit(map, "Components validation failed.", 1);
+		return (ft_error("Components validation failed."), false);
 	return (true);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_file_bis.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 22:09:34 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/25 19:17:01 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/25 19:44:13 by gbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int	get_color(char **lineptr)
 void	parse_color_bisf(char *line, t_map *map)
 {
 	map->colorf_found++;
-	map->floor_color = init_color_struct();
+	if (map->floor_color == NULL)
+		map->floor_color = init_color_struct();
 	map->floor_color->red = get_color(&line);
 	map->floor_color->green = get_color(&line);
 	map->floor_color->blue = get_color(&line);
@@ -46,7 +47,8 @@ void	parse_color_bisf(char *line, t_map *map)
 void	parse_color_bisc(char *line, t_map *map)
 {
 	map->colorc_found++;
-	map->ceiling_color = init_color_struct();
+	if (map->ceiling_color == NULL)
+		map->ceiling_color = init_color_struct();
 	map->ceiling_color->red = get_color(&line);
 	map->ceiling_color->green = get_color(&line);
 	map->ceiling_color->blue = get_color(&line);

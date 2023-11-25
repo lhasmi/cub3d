@@ -6,7 +6,7 @@
 /*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 20:53:48 by gbohm             #+#    #+#             */
-/*   Updated: 2023/11/24 20:57:44 by gbohm            ###   ########.fr       */
+/*   Updated: 2023/11/25 20:13:40 by gbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,34 +63,29 @@ static void	dda_init(t_ray *ray, t_vec *scale, t_vec *step, t_vec *length)
 	}
 }
 
-t_hit	dda(t_scene *scene, t_ray *ray, int with_door)
+t_hit	dda(t_scene *scene, t_ray *ray, int doors)
 {
-	t_vec	scale;
-	t_vec	step;
-	t_vec	length;
-	t_vec	position;
-	double	distance;
+	t_dda	d;
 
-	dda_init(ray, &scale, &step, &length);
-	position = vec_create(trunc(ray->origin.x), trunc(ray->origin.y), 0);
+	dda_init(ray, &d.scale, &d.step, &d.length);
+	d.position = vec_create(trunc(ray->origin.x), trunc(ray->origin.y), 0);
 	while (1)
 	{
-		if (length.x < length.y)
+		if (d.length.x < d.length.y)
 		{
-			position.x += step.x;
-			distance = length.x;
-			length.x += scale.x;
+			d.position.x += d.step.x;
+			d.distance = d.length.x;
+			d.length.x += d.scale.x;
 		}
 		else
 		{
-			position.y += step.y;
-			distance = length.y;
-			length.y += scale.y;
+			d.position.y += d.step.y;
+			d.distance = d.length.y;
+			d.length.y += d.scale.y;
 		}
-		if (scene_is_wall(scene, position, with_door))
-			break ;
-		if (distance > vec_length(scene->map_size) + 1)
+		if (scene_is_wall(scene, d.position, doors)
+			|| d.distance > vec_length(scene->map_size) + 1)
 			break ;
 	}
-	return (dda_hit(scene, ray, distance, position));
+	return (dda_hit(scene, ray, d.distance, d.position));
 }

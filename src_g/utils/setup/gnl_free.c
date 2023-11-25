@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   setup.h                                            :+:      :+:    :+:   */
+/*   gnl_free.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 20:43:43 by gbohm             #+#    #+#             */
-/*   Updated: 2023/11/25 20:24:21 by gbohm            ###   ########.fr       */
+/*   Created: 2023/11/25 19:40:19 by gbohm             #+#    #+#             */
+/*   Updated: 2023/11/25 19:40:40 by gbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SETUP_H
-# define SETUP_H
+#include <stdlib.h>
+#include "libft.h"
 
-# include "scenedef.h"
+void	gnl_free(int fd)
+{
+	char	*str;
 
-int		get_padded_map(char **tiles, int x, int y, t_scene *scene);
-int		parse(char *file_name, t_scene *scene);
-void	gnl_free(int fd);
-int		map_closed(t_scene *scene);
-
-#endif
+	while (1)
+	{
+		str = get_next_line(fd);
+		if (str == NULL)
+			break ;
+		free(str);
+	}
+	close(fd);
+}
