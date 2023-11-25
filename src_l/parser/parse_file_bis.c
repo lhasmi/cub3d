@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 22:09:34 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/25 17:07:19 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/25 17:22:51 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	get_color(char **lineptr)
 	return (color);
 }
 
-void	parse_color_bisf(char *line, t_map *map, const char *color_id)
+void	parse_color_bisf(char *line, t_map *map)
 {
 	map->colorf_found++;
 	map->floor_color = init_color_struct();
@@ -42,7 +42,7 @@ void	parse_color_bisf(char *line, t_map *map, const char *color_id)
 			map->floor_color->green, map->floor_color->blue);
 }
 
-void	parse_color_bisc(char *line, t_map *map, const char *color_id)
+void	parse_color_bisc(char *line, t_map *map)
 {
 	map->colorc_found++;
 	map->ceiling_color = init_color_struct();
@@ -60,10 +60,10 @@ bool	parse_color(char *line, t_map *map, const char *color_id)
 	while (line[0] == color_id[0] && line[1] == ' ')
 		line++;
 	if (color_id[0] == 'F' && map->colorf_found == 0)
-		parse_color_bisf(line, map, color_id);
+		parse_color_bisf(line, map);
 	else if (color_id[0] == 'C' && map->colorc_found == 0)
 	{
-		parse_color_bisc(line, map, color_id);
+		parse_color_bisc(line, map);
 	}
 	else
 	{

@@ -96,10 +96,8 @@ t_color					*init_color_struct(void);
 
 /* parser/parse_file_bis.c*/
 int						get_color(char **lineptr);
-void					parse_color_bisc(char *line, t_map *map,
-							const char *color_id);
-void					parse_color_bisf(char *line, t_map *map,
-							const char *color_id);
+void					parse_color_bisc(char *line, t_map *map);
+void					parse_color_bisf(char *line, t_map *map);
 bool					parse_color(char *line, t_map *map,
 							const char *color_id);
 

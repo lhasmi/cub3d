@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 00:20:52 by gbohm             #+#    #+#             */
-/*   Updated: 2023/11/25 17:01:09 by gbohm            ###   ########.fr       */
+/*   Updated: 2023/11/25 17:26:58 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	main(int argc, char **argv)
 	mlx_mouse_hook(scene.mlx, mouse_hook, &scene);
 	mlx_cursor_hook(scene.mlx, cursor_hook, &scene);
 	mlx_loop(scene.mlx);
-	scene_free(&scene, -1);
 	mlx_terminate(scene.mlx);
+	scene_free(&scene, -1);
 	return (0);
 }
