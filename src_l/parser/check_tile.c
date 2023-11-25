@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_tile.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 21:57:11 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/24 21:29:32 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/25 10:43:15 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,6 @@ bool	is_line_a_wall(char *line)
 int	is_wall(t_map *map, int x, int y)
 {
 	if (map->tiles[y][x] == '1')
-		return (1);
-	return (0);
-}
-
-int	is_player_pos(t_map *map, int x, int y)
-{
-	if (map->tiles[y][x] == 'N' || map->tiles[y][x] == 'S'
-		|| map->tiles[y][x] == 'E' || map->tiles[y][x] == 'W')
-		return (1);
-	return (0);
-}
-
-int	is_player_orientation(t_map *map, int x, int y, char orientation)
-{
-	if (map->tiles[y][x] == orientation)
 		return (1);
 	return (0);
 }
