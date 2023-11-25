@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 00:20:49 by gbohm             #+#    #+#             */
-/*   Updated: 2023/11/25 00:25:38 by gbohm            ###   ########.fr       */
+/*   Updated: 2023/11/25 16:21:02 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static int	parse_map(char *file_name, t_map *map)
 	int		fd;
 
 	if (is_cub_file_empty(file_name) == -1)
-		return (ft_error("unable to open file"), 1);
+		return (ft_error("Unable to open file"), 1);
 	else if (is_cub_file_empty(file_name) == 1)
 		return (ft_error("Empty file"), 1);
 	fd = open(file_name, O_RDONLY);
@@ -75,7 +75,7 @@ static int	parse_map(char *file_name, t_map *map)
 	if (parse_config_file(fd, map))
 	{
 		close(fd);
-		return (ft_error("Invalid parameters"), 1);
+		return (ft_error("Invalid config file"), 1);
 	}
 	close(fd);
 	if (!map_valid(map))

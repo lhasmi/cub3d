@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+         #
+#    By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 20:56:57 by lhasmi            #+#    #+#              #
-#    Updated: 2023/11/25 10:27:36 by lhasmi           ###   ########.fr        #
+#    Updated: 2023/11/25 15:21:17 by lhasmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ DEPS=-lglfw -L $(GLFW_PATH) -framework Cocoa -framework OpenGL -framework IOKit
 HEADERS=$(wildcard include/*.h) $(wildcard include/defs/*.h)
 
 ifndef LENIENT
-	CFLAGS += -Wall -Werror -Wextra
+	CFLAGS += -Wall -Werror -Wextra 
 endif
 
 ifdef DEBUG
