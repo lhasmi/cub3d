@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parse_file_bis.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 22:09:34 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/25 17:22:51 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/25 18:14:23 by gbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "../../include/cub3d.h"
 
 int	get_color(char **lineptr)
@@ -55,6 +56,9 @@ void	parse_color_bisc(char *line, t_map *map)
 
 bool	parse_color(char *line, t_map *map, const char *color_id)
 {
+	char	*start_line;
+
+	start_line = line;
 	while (is_wspace(*line))
 		line++;
 	while (line[0] == color_id[0] && line[1] == ' ')
@@ -68,7 +72,9 @@ bool	parse_color(char *line, t_map *map, const char *color_id)
 	else
 	{
 		ft_error("Invalid or multiple color identifier");
+		free(start_line);
 		return (false);
 	}
+	free(start_line);
 	return (true);
 }
