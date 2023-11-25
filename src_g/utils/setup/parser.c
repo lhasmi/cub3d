@@ -6,7 +6,7 @@
 /*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 00:20:49 by gbohm             #+#    #+#             */
-/*   Updated: 2023/11/25 20:25:13 by gbohm            ###   ########.fr       */
+/*   Updated: 2023/11/25 21:00:38 by gbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ static int	parse_map(char *file_name, t_map *map)
 		return (ft_error("Error opening file"), 1);
 	init_map_struct(map);
 	if (parse_config_file(fd, map))
-		return (gnl_free(fd), ft_error("Invalid config file"), 1);
+		return (gnl_free(fd), free_map_resources(map),
+			ft_error("Invalid config file"), 1);
 	gnl_free(fd);
 	if (!map_valid(map))
 		return (free_map_resources(map), 1);
