@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 12:50:16 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/24 22:35:13 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/25 00:23:51 by gbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_error(char *msg)
+void	ft_error(const char *msg)
 {
-	ft_printf("Error\n: %s \n", msg);
+	ft_printf("Error\n: %s\n", msg);
 }

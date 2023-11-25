@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   setup.h                                            :+:      :+:    :+:   */
+/*   draw_pixel.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 20:43:43 by gbohm             #+#    #+#             */
-/*   Updated: 2023/11/25 00:24:22 by gbohm            ###   ########.fr       */
+/*   Created: 2023/11/25 00:57:51 by gbohm             #+#    #+#             */
+/*   Updated: 2023/11/25 00:58:13 by gbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SETUP_H
-# define SETUP_H
+#include "MLX42/MLX42.h"
 
-# include "scenedef.h"
-
-int		get_padded_map(char **tiles, int x, int y, char ***map);
-void	parse(char *file_name, t_scene *scene);
-
-#endif
+void	draw_pixel(mlx_image_t *img, uint32_t x, uint32_t y, uint32_t color)
+{
+	if (!(x < 0 || x >= img->width || y < 0 || y >= img->height))
+		mlx_put_pixel(img, x, y, color);
+}

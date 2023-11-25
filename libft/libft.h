@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 21:52:08 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/10/29 16:22:06 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/25 00:24:17 by gbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 
 void	free_argv(char **arr);
-void	ft_error(char *str);
+void	ft_error(const char *str);
 void	ft_openfile(char *file, int i, char *err_message);
 char	*get_next_line(int fd);
 int 	ft_printf(const char *fmt, ...);
