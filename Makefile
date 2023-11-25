@@ -1,16 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/22 20:56:57 by lhasmi            #+#    #+#              #
-#    Updated: 2023/11/25 16:40:20 by gbohm            ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-
 CC=cc
 CFLAGS=-I MLX42/include -I libft -I include -I include/defs
 SAN_LDFLAG=
@@ -22,7 +9,7 @@ OBJ_DIR=obj
 SRC_L= $(SRC_L_DIR)/parser/parse_map.c $(SRC_L_DIR)/parser/parse_file.c \
 		$(SRC_L_DIR)/parser/parse_utils.c $(SRC_L_DIR)/parser/init.c $(SRC_L_DIR)/parser/check_tile.c \
 		$(SRC_L_DIR)/parser/check_map.c $(SRC_L_DIR)/parser/check_map_bis.c \
-		$(SRC_L_DIR)/parser/check_file_bis.c $(SRC_L_DIR)/parser/parse_utils2.c
+		$(SRC_L_DIR)/parser/parse_file_bis.c $(SRC_L_DIR)/parser/parse_utils2.c
 SRC_G=$(filter-out $(SRC_G_DIR)/main.c, $(shell find $(SRC_G_DIR) -type f -name '*.c'))
 OBJ=$(patsubst $(SRC_L_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC_L)) $(patsubst $(SRC_G_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC_G))
 
