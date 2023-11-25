@@ -15,7 +15,6 @@
 
 # include "../MLX42/include/MLX42/MLX42.h"
 # include "../libft/libft.h"
-# include <assert.h>
 # include <fcntl.h>
 # include <math.h>
 # include <stdbool.h>
@@ -124,7 +123,5 @@ bool					is_wspace(char c);
 int						open_file(char *file, t_map *map_i, char *err_message);
 bool					is_path_valid(char *path);
 bool					is_color_valid(int color);
-
-
 
 #endif
