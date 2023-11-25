@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 23:22:43 by gbohm             #+#    #+#             */
-/*   Updated: 2023/11/24 23:30:25 by gbohm            ###   ########.fr       */
+/*   Updated: 2023/11/25 00:33:26 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	mouse_hook(mouse_key_t button, action_t action, modifier_key_t mods,
 	t_scene	*scene;
 	t_vec	center;
 
+	(void)mods;
 	scene = param;
 	if (button != MLX_MOUSE_BUTTON_LEFT && action != MLX_PRESS)
 		return ;
