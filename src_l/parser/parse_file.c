@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 19:26:09 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/11/25 19:19:25 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/11/25 19:46:51 by gbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ bool	parse_texture(char *line, t_map *map, const char *texture_id)
 	if (tmp == NULL || !is_path_valid(tmp))
 		return (ft_error("Invalid path for texture"), free(start_line), false);
 	texture_field = get_texture_field(map, texture_id);
+	if (*texture_field != NULL)
+		free(*texture_field);
 	*texture_field = (char *)malloc(sizeof(char) * (ft_strlen(tmp) + 1));
 	if (!*texture_field)
 		return (ft_error("Could not allocate memory for texture"),

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 00:20:49 by gbohm             #+#    #+#             */
-/*   Updated: 2023/11/25 16:56:37 by gbohm            ###   ########.fr       */
+/*   Updated: 2023/11/25 19:39:57 by gbohm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 #include "hooks.h"
 #include "player.h"
 #include "setup.h"
+
+#include <stdio.h>
 
 static double	get_yaw(char orientation)
 {
@@ -46,12 +48,6 @@ static int	load_texture(char *path, mlx_texture_t **tex)
 
 static int	load_textures(t_map *map, t_scene *scene)
 {
-	scene->tex[0] = NULL;
-	scene->tex[1] = NULL;
-	scene->tex[2] = NULL;
-	scene->tex[3] = NULL;
-	scene->tex[4] = NULL;
-	scene->tex[5] = NULL;
 	if (load_texture(map->no_texture, &scene->tex[0]))
 		return (1);
 	if (load_texture(map->ea_texture, &scene->tex[1]))
@@ -65,20 +61,6 @@ static int	load_textures(t_map *map, t_scene *scene)
 	if (load_texture("img/clouds.png", &scene->tex[5]))
 		return (1);
 	return (0);
-}
-
-void	gnl_free(int fd)
-{
-	char	*str;
-
-	while (1)
-	{
-		str = get_next_line(fd);
-		if (str == NULL)
-			break ;
-		free(str);
-	}
-	close(fd);
 }
 
 static int	parse_map(char *file_name, t_map *map)
@@ -108,6 +90,7 @@ void	parse(char *file_name, t_scene *scene)
 	if (parse_map(file_name, &map))
 	{
 		mlx_terminate(scene->mlx);
+		scene_free(scene, -1);
 		exit(1);
 	}
 	scene->map_size = vec_create(map.cols, map.rows, 0);
