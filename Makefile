@@ -6,7 +6,7 @@
 #    By: gbohm <gbohm@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 20:56:57 by lhasmi            #+#    #+#              #
-#    Updated: 2023/11/25 19:53:34 by gbohm            ###   ########.fr        #
+#    Updated: 2023/11/25 21:29:02 by gbohm            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRC_L= $(SRC_L_DIR)/parser/parse_map.c $(SRC_L_DIR)/parser/parse_file.c \
 		$(SRC_L_DIR)/parser/parse_utils.c $(SRC_L_DIR)/parser/init.c $(SRC_L_DIR)/parser/check_tile.c \
 		$(SRC_L_DIR)/parser/check_map.c $(SRC_L_DIR)/parser/check_map_bis.c \
 		$(SRC_L_DIR)/parser/parse_file_bis.c $(SRC_L_DIR)/parser/parse_utils2.c
-SRC_G=$(filter-out $(SRC_G_DIR)/main.c, $(shell find $(SRC_G_DIR) -type f -name '*.c'))
+SRC_G=$(SRC_G_DIR)/utils/dda/dda.c $(SRC_G_DIR)/utils/dda/dda_hit.c $(SRC_G_DIR)/utils/draw/draw_line.c $(SRC_G_DIR)/utils/draw/draw_pixel.c $(SRC_G_DIR)/utils/draw/draw_rect.c $(SRC_G_DIR)/utils/draw/draw_square.c $(SRC_G_DIR)/utils/hooks/controls.c $(SRC_G_DIR)/utils/hooks/hooks.c $(SRC_G_DIR)/utils/minimap/minimap_draw.c $(SRC_G_DIR)/utils/player/player_collide.c $(SRC_G_DIR)/utils/player/player_create.c $(SRC_G_DIR)/utils/player/player_get_dir.c $(SRC_G_DIR)/utils/player/player_get_look_at.c $(SRC_G_DIR)/utils/player/player_move.c $(SRC_G_DIR)/utils/ray.c $(SRC_G_DIR)/utils/scene/scene_draw.c $(SRC_G_DIR)/utils/scene/scene_free.c $(SRC_G_DIR)/utils/scene/scene_get.c $(SRC_G_DIR)/utils/scene/scene_is_wall.c $(SRC_G_DIR)/utils/setup/gnl_free.c $(SRC_G_DIR)/utils/setup/map_closed.c $(SRC_G_DIR)/utils/setup/parser.c $(SRC_G_DIR)/utils/setup/setup_pad_map.c $(SRC_G_DIR)/utils/tex/tex_blend.c $(SRC_G_DIR)/utils/tex/tex_get_pixel.c $(SRC_G_DIR)/utils/vec/vec_add_sub.c $(SRC_G_DIR)/utils/vec/vec_correct.c $(SRC_G_DIR)/utils/vec/vec_create.c $(SRC_G_DIR)/utils/vec/vec_dot_cross.c $(SRC_G_DIR)/utils/vec/vec_length.c $(SRC_G_DIR)/utils/vec/vec_normalize.c $(SRC_G_DIR)/utils/vec/vec_print.c $(SRC_G_DIR)/utils/vec/vec_scalar.c
 OBJ=$(patsubst $(SRC_L_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC_L)) $(patsubst $(SRC_G_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC_G))
 
 MLX=MLX42/build/libmlx42.a
@@ -30,7 +30,7 @@ LIBFT=libft/libft.a
 GLFW_PATH=$(shell brew --prefix glfw)
 DEPS=-lglfw -L $(GLFW_PATH) -framework Cocoa -framework OpenGL -framework IOKit
 
-HEADERS=$(wildcard include/*.h) $(wildcard include/defs/*.h)
+HEADERS=include/cub3d.h include/dda.h include/defs/constdef.h include/defs/playerdef.h include/defs/raydef.h include/defs/scenedef.h include/defs/vecdef.h include/draw.h include/hooks.h include/minimap.h include/player.h include/ray.h include/scene.h include/setup.h include/tex.h include/vec.h include/defs/constdef.h include/defs/playerdef.h include/defs/raydef.h include/defs/scenedef.h include/defs/vecdef.h
 
 ifndef LENIENT
 	CFLAGS += -Wall -Werror -Wextra
